@@ -1,0 +1,68 @@
+% Author: Jannes Bantje
+% Modified: Lars Haalck lars.haalck@wwu.de
+% please ask Lars Haalck first if you have any questions
+\input{preamble.tex}
+
+%Informationen zur Arbeit
+\newcommand{\printname}{
+Milan Blunk (Matrikelnummer) \\ 
+Pia Nümann (454700) \\
+Matthias Wolff (458766)
+}
+%\newcommand{\printgroup}{Gruppe 01}
+%\newcommand{\printnumber}{XXX XXX}
+
+\newcommand{\printtitle}{AutoML für Segmentierung}
+\newcommand{\printcity}{Münster}
+\newcommand{\printtype}{Projektseminar}
+\newcommand{\printdegree}{AutoML}
+%\newcommand{\printsupervisor}{John Doe}
+%\newcommand{\printfirstassessor}{Prof. Dr. Erika Musterfrau}
+%\newcommand{\printsecondassessor}{Prof. Dr. Hans Peter}
+\newcommand{\printinstitute}{Institut für Informatik}
+
+
+\begin{document}
+% set the pager numbering to big roman numbers for first few pages
+\pagenumbering{Roman}
+\listoftodos
+
+% titlepage does not need cleardoubleoddemptypage
+\begin{titlepage}
+	\input{chapter/title_page.tex}
+\end{titlepage}
+
+\tableofcontents
+
+% set the page numbering back to arabic
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+
+
+% Einführung
+\input{chapter/intro.tex}
+
+% NAS-Unet
+\input{chapter/nasunet.tex}
+
+% Deeplab
+\input{chapter/deeplab.tex}
+
+% nnUNet
+\input{chapter/nnunet.tex}
+
+% Fazit
+
+\input{chapter/fazit.tex}
+
+
+
+
+\appendix % hier beginnt der Anhang
+\input{chapter/appendix_chapter.tex}
+% Literaturverzeichnis (Referenzen der Zitate) ausgeben
+\printbibliography
+\todo{Literaturverzeichnis ergänzen}
+
+\end{document}
