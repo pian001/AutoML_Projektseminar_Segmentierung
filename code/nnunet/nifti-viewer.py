@@ -114,7 +114,6 @@ def pascal_color_map(N=256, normalized=False):
         cmap[i] = np.array([r, g, b])
 
     cmap = cmap/255 if normalized else cmap
-    print(cmap[1])
     return cmap
 
 
