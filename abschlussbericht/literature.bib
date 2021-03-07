@@ -9,19 +9,8 @@
 % in den Autoren *kein* Komma verwenden, sondern Keyword "and"
 % @<Typ> und Felder innerhalb s. https://www.overleaf.com/learn/latex/bibliography_management_with_bibtex
 
-% NAS-Unet
-@article{nasunetPaper,
-  title = {NAS-Unet: Neural Architecture Search for Medical Image Segmentation}, 
-  author = {Yu Weng and Tianbao Zhou and Yujie Li and Xiaoyu Qiu}, 
-  year = {2019},
-  url = {https://www.researchgate.net/publication/332216927_NAS-Unet_Neural_Architecture_Search_for_Medical_Image_Segmentation}
-}
-
-@misc{Frauenhofer_NasUnet,
-	title = {NAS-Unet, Frauenhofer, Kommentar},
-	url={https://gitlab.itwm.fraunhofer.de/sharad/nasunet/-/commit/872273db3153fdb8354ddf60deb73702c0fc126d}
-}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Datensätze
 @misc{Promise12Datensatz,
     title = {Evaluation of prostate segmentation algorithms for MRI: the PROMISE12 challenge},
 	author = {G. Litjens et al.},
@@ -45,10 +34,29 @@
 @misc{PascalVOCDatensatz,
 	title = {The Pascal visual object classes challenge: A retrospective},
 	author = {M Everingham and S.M.A. Eslami and L. Van Gool and C.K.I. Williams and J. Winn and A. Zisserman},
-	year = {Jan. 2015}
+	year = {Jan. 2015},
+	url={http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html}
 
 }
+@misc{retina2d,
+title = {Robust Vessel Segmentation: 2D-Retina Aufnahmen von gesunden und kranken Augen},
+url={https://www5.cs.fau.de/research/data/fundus-images/},
+year = {2013},
+author = {Attila Budai and Jan Odstrcilik}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NAS-Unet
+@article{nasunetPaper,
+  title = {NAS-Unet: Neural Architecture Search for Medical Image Segmentation}, 
+  author = {Yu Weng and Tianbao Zhou and Yujie Li and Xiaoyu Qiu}, 
+  year = {2019},
+  url = {https://www.researchgate.net/publication/332216927_NAS-Unet_Neural_Architecture_Search_for_Medical_Image_Segmentation}
+}
 
+@misc{Frauenhofer_NasUnet,
+	title = {NAS-Unet, Frauenhofer, Kommentar},
+	url={https://gitlab.itwm.fraunhofer.de/sharad/nasunet/-/commit/872273db3153fdb8354ddf60deb73702c0fc126d}
+}
 @misc{nasunetGithub,
 title = {NAS-Unet Github Repository},
 url={https://github.com/tianbaochou/NasUnet}
@@ -62,7 +70,7 @@ url={https://github.com/tianbaochou/NasUnet}
 @misc{nasunetGithubIssue31,
 	title = {NAS-U-Net Github Issue 31},
 	url = {https://github.com/tianbaochou/NasUnet/issues/31}}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Deeplab
 @article{autodeeplabPaper,
   title = {Auto-DeepLab: Hierarchical Neural Architecture Search for Semantic Image Segmentation}, 
@@ -75,7 +83,7 @@ title = {Deeplab Github Repository},
 url={https://github.com/tensorflow/models/tree/master/research/deeplab}
 }
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % nnUNet
 @article{nnunetPaper,
   title = {nnU-Unet: Self-adapting Framework for U-Net-Based Medical Image Segmentation}, 
@@ -95,15 +103,23 @@ url = {https://arxiv.org/pdf/1904.08128.pdf}
 title = {nnU-Net Github Repository},
 url={https://github.com/MIC-DKFZ/nnUNet}
 }
+@misc{nnunetGithub2D-Daten,
+title = {nnU-Net Github Repository - Verwendung von 2D-Datensätzen},
+url={https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/dataset_conversion.md#how-to-use-2d-data-with-nnu-net}
+}
+
+@misc{nnunetGithub2D-Pythonscript,
+title = {nnU-Net Github Repository - Skript zum Konvertieren von 2D-Datensätzen in Niftis},
+url={https://github.com/MIC-DKFZ/nnUNet/blob/master/nnunet/dataset_conversion/Task120_Massachusetts_RoadSegm.py}
+}
+
+
+
 
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
 % Unser Github
 @misc{autoMLGithub,
 title = {AutoML für Segmentierung - Github Repository},
@@ -114,8 +130,8 @@ url={https://github.com/pian001/AutoML_Projektseminar_Segmentierung}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-% Datensätze
+% Sonstiges
+@misc{msdChallenge,
+title = {Medical Segmentation Decathlon},
+url={http://medicaldecathlon.com/}
+}
