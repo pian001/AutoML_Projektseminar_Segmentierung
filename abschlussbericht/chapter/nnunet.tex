@@ -6,7 +6,6 @@
 \section{Funktionsweise / Theorie}
 
 
-\label{tab:multicol}
 
 Das nnU-Net ist ein Framework, welches sich mit der Segmentierung von medizinischen 3D-Aufnahmen mit Hilfe von automatisiertem maschinellem Lernen beschäftigt. Es wurde im Rahmen des Medical Segmentation Decathlon Wettbewerb entwickelt und gewann diesen sowie im Anschluss auch viele weitere Segmentierungs-Wettbewerbe. \\
 Das nnU-Net verwendet eine klassische und nicht neue U-Net Architektur (not new U-Net). Es konzentriert sich kaum auf  Architekturdesign und -suche, sondern vorrangig auf die Suche von guten Hyperparametern. Es wird eine gleiche oder sehr ähnliche U-Net Struktur immer durch eine individuell auf die individuellen Daten angepasste Trainingspipeline zur Optimierung geschickt (siehe Abbildung \ref{pic:nnUnet_Basisschema}). Das Training der Parameter des Netzes ist also individuell zugeschnitten, während die Architektur sich bei unterschiedlichen Daten nicht oder kaum unterscheidet. Es wird sich also vorrangig auf das Training des Netzes und die Suche individueller Hyperparameter für die Trainingspipeline konzentriert und nicht auf die Suche nach der Architektur. 
@@ -82,7 +81,7 @@ Larven & 265:0 $\approx$ 1:0 & 2D & 8:30 & 0.99970 & - \\
 \hline 
 Larven & 173:92 $\approx$ 2:1 & 2D & 6:45 & 0.99982 & 0.94459 \\ 
 \hline 
-Pascal VOC12 & 2516:340 $\approx$ 7:1 & 2D & 26:00 &  ? & ? \\ 
+Pascal VOC12 & 2516:340 $\approx$ 7:1 & 2D & 26:00 & 0.90266 & 0.34953 \\ 
 \hline 
 Retina-2D (manuelle & \multirow{2}{*}{56:34 $\approx$ 2:1} & \multirow{2}{*}{2D} & \multirow{2}{*}{23:20} & \multirow{2}{*}{0.99977} &\multirow{2}{*}{0.93606}  \\ 
 Data-Augmentation)&  & & & &  \\ 
@@ -108,7 +107,48 @@ Retina-3D (Ensemble) & 14:7 $\approx$ 2:1 & 2D \& 3D\_fullres & - & 0.97775 & 0.
 \hline
 \end{tabular} 
 \caption{Datensätze, auf denen wir trainiert haben (jeweils 1000 Epochen auf GPUv100)}
+\label{tab:Training}
 \end{figure}
+
+Grundsätzlich haben wir für jeden folgenden Datensatz die Ursprungsdateien in Nifti-Dateien umgewandelt und meistens zufällig in einen Train- und Testsplit aufgeteilt, außer bei dem 3D-CT Datensatz, da wird dort auch mit allen Samples im Trainsplit keine sonderlich guten Ergebnisse erzielen konnten, und dem ersten Versuch auf dem Larvendatensatz.\\
+Der generelle Arbeitsablauf bestand bei uns aus der Befehlsabfolge:
+\begin{lstlisting}[language=bash]
+nnUNet_plan_and_preprocess -t <TASK-ID> --verify_dataset_integrity
+\end{lstlisting}
+bzw. für 2D-Datensätze, da dort kein 3D-Modell anwendbar ist:
+\begin{lstlisting}[language=bash]
+nnUNet_plan_and_preprocess -t <TASK-ID> -pl3d None
+\end{lstlisting}
+Dieser Befehl bereitet das Training vor und prüft, ob der gegebene Datensatz als Nifti-Dateien korrekt ist, indem Wertebereiche und das Vorhandensein aller Dateien geprüft wird. Da dieser Befehl das Training vorbereitet, muss er mit den gleichen verfügbaren Ressourcen wie auch später das Training aufgerufen werden, in unserem Fall auf dem GPUv100 Knoten von Palma II.\\\\
+Danach kann das Training für die einzelnen Netzvarianten (2d, 3d\_fullres, 3d\_cascade gestartet werden:
+\begin{lstlisting}[language=bash]
+# 2d
+nnUNet_train 2d nnUNetTrainerV2 <TASK-ID> all --npz
+# 3d_fullres
+nnUNet_train 3d_fullres nnUNetTrainerV2 <TASK-ID> all --npz
+# Cascade
+nnUNet_train 3d_lowres nnUNetTrainerV2 <TASK-ID> all --npz
+nnUNet_train 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes
+	 <TASK-ID> all --npz
+\end{lstlisting}
+Dabei verwenden wir für 3D-Datensätze immer 3d\_fullres und die 2d-Variante, für 2D-Datensätze immer nur die 2d Variante. Falls das Framework es für einen 3D-Datensatz notwendig hält bzw. überhaupt zulässt, wird auch 3d\_cascade verwendet.
+Der Parameter --npz sorgt dafür, dass die Softmax-Ausgaben zusätzlich gespeichert werden, was zwar sehr viel Festplattenspeicher benötigt, uns aber später ein eventuelles Ensembling der Predictions ermöglicht.\\
+Der Parameter \enquote{all} gibt an, welcher der 5 Folds, die das Framework automatisch erstellt, zur Validierung benutzt wird, während die anderen 4 dem Training dienen. Um Rechenzeit zu sparen benutzen wir \enquote{all}, was alle 5 Folds zum Training verwendet und wir die Performance später manuell anhand eines eigenen Testsplits evaluieren.
+Der Autor des Frameworks vermutet, dass wenn man statt \enquote{all} alle Werte 0 bis 4 verwendet und hinterher aus den 5 verschiedenen Folds ein Ensemble bildet die finale Performance besser ist im Vergleich zu \enquote{all}, jedoch hat auch er keine empirischen Beweise dafür \cite{nnunetGithub-Folds}. Wir haben uns für \enquote{all} entschieden, da die Handhabung dann etwas einfacher wird und wir vermuten, dass die zum Training benötigte Zeit deutlich geringer ist, da lediglich ein Modell aus allen Trainingsdaten trainiert wird, und nicht 5 verschiedene basierend auf einer verschiedener Aufteilung der Folds. Außerdem sind unsere Ergebnisse trotz der nicht optimalen Wahl der Parameter ziemlich gut (s. Tabelle \ref{tab:Training}) \\
+Nach dem Beenden des Trainings lassen wir uns von dem Framework die Predictions zu dem Train- und Testsplit erzeugen inklusive einer Auswertung der Genauigkeit je Sample und Klasse:
+\begin{lstlisting}[language=bash]
+nnUNet_predict -i <Pfad zu Original-Niftis> -o <Prediction-Pfad>
+ -m <2d, 3d_fullres oder 3d_cascade_fullres> -t <TASK-ID> -f all -z
+\end{lstlisting}
+Der Parameter -z sorgt auch hier wieder für das Speichern der Softmax-Werte, um später eventuell ein Ensembling aus verschiedenen Netzvarianten zu bilden.\\\\
+Abschließend erstellen wir mit dem Framework eine Auswertung der Performance auf dem Datensatz:
+\begin{lstlisting}[language=bash]
+nnUNet_evaluate_folder -ref <Ground-Truth-Pfad>
+ -pred <Prediction-Pfad> -l <Klassennummern>
+\end{lstlisting}
+<Klassennummern> ist hierbei eine Liste aller Klassennummern, die in der Auswertung berücksichtigt werden. Da uns die Performance auf dem Hintergrund nicht interessiert, starten wir bei 1 und gehen z.B. bei Pascal VOC12 \cite{PascalVOCDatensatz} alle Klassen durch \textit{-l 1 2 3 4 ... 20}. Die erzeugt in dem Ordner, in dem die Predictions liegen eine JSON-Datei mit ausführlichen Informationen über die Güte der Predictions je Sample und je vorhandener Klasse, aus der wir einen Scatterplot erstellen.
+
+
 
 % Aufteilung in 2D/3D erstmal weggemacht, ich gehe chronologisch durch
 
@@ -140,7 +180,7 @@ Da wir auch hier relativ gute Ergebnisse erzielen konnten, wollten wir das Frame
 \subsection{CT-Datensatz}
 \todo{Stimmt das so mit dem CT Datensatz?}
 Da wir bisher nur eigene 2D-Datensätze in das Framework gegeben haben und es nur wenig öffentlich zugängliche 3D-Datensätze zur Segmentierung gibt, die nicht Teil der MSD-Challenge \cite{msdChallenge} sind, wurde uns ein Datensatz mit 19 Ganzkörper CT-Aufnahmen zur Verfügung gestellt, in denen Kalzium-Ablagerungen am Rand der Gefäße segmentiert werden sollen.
-Auffällig ist hierbei, dass trotz der hohen Auflösung des Datensatzes (512x512 mit $\approx$ 400-600 Slices je Sample) nur \textit{sehr} wenig Pixel in der Segmentierung markiert sind ($\approx$ 20 pro Sample, maximal). Dies erschwert das Training und könnte eine Begründung für die \todo{\textit{schlecht} gegen etwas angemessenes austauschen} schlechten Ergebnisse sein.\\
+Auffällig ist hierbei, dass trotz der hohen Auflösung des Datensatzes (512x512 mit $\approx$ 400-600 Slices je Sample) nur \textit{sehr} wenig Pixel in der Segmentierung markiert sind. Bestenfalls sind $\approx$ 13000 Pixel im kompletten 3D Volumen bestehend aus 570 Slices mit je einer Auflösung von 512x512, was einem Anteil von \textit{maximal} 0,008\%. Außerdem gibt es auch Samples mit deutlich weniger oder gar keinen markierten Pixeln in der Ground-Truth Segmentierung. \todo{Scatterplot Haeufigkeiten CT} Dies erschwert das Training und könnte eine Begründung für die \todo{\textit{schlecht} gegen etwas angemessenes austauschen} schlechten Ergebnisse sein.\\
 Um den Datensatz in nnUNet zu geben mussten wir erst die zur Verfügung gestellten .nrrd (Ground-Truth) und .dcom (3D-CT-Scan) Dateien mit eigenen kleinen Pythonscripten \cite{autoMLGithub} in Nifti-Dateien umwandeln. Beim Trainieren ist uns erst nach zweimaligem Neustarten ohne Erfolg, mit sehr schlechten Ergebnissen bei genauerem Lesen des Papers aufgefallen, dass wir das Preprocessen in nnUNet bisher immer auf dem Login-Node des Clustercomputers Palma II durchgeführt haben, der keine Grafikkarte besitzt, um Wartezeiten in der Warteschlange zu vermeiden. Das Preprocessen ist aber abhängig von den zu dem Zeitpunkt zur Verfügung gestellten Ressourcen, insbesondere des verfügbaren GPU Speichers. Nachdem wir diesen Denkfehler behoben haben und den CT-Datensatz sowohl auf einer GPUv100 Karte preprocessed und trainiert haben, gelang es uns \todo{\textit{einigermaßen akzeptable} ersetzen} einigermaßen akzeptable Ergebnisse zu erzielen. \todo{Verweis auf Visualisierung des CT Datensatzes, Predictions raussuchen und veranschaulichen}
 \todo{Verschiedene Versionen diskutieren? 3dcascade, 3dfullres (1000 + 2000) und 2d}
 
