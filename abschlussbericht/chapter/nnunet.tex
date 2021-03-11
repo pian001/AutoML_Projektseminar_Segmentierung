@@ -133,20 +133,20 @@ nnUNet_train 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes
 \end{lstlisting}
 Dabei verwenden wir für 3D-Datensätze immer 3d\_fullres und die 2d-Variante, für 2D-Datensätze immer nur die 2d Variante. Falls das Framework es für einen 3D-Datensatz notwendig hält bzw. überhaupt zulässt, wird auch 3d\_cascade verwendet.
 Der Parameter --npz sorgt dafür, dass die Softmax-Ausgaben zusätzlich gespeichert werden, was zwar sehr viel Festplattenspeicher benötigt, uns aber später ein eventuelles Ensembling der Predictions ermöglicht.\\
-Der Parameter \enquote{all} gibt an, welcher der 5 Folds, die das Framework automatisch erstellt, zur Validierung benutzt wird, während die anderen 4 dem Training dienen. Um Rechenzeit zu sparen benutzen wir \enquote{all}, was alle 5 Folds zum Training verwendet und wir die Performance später manuell anhand eines eigenen Testsplits evaluieren.
-Der Autor des Frameworks vermutet, dass wenn man statt \enquote{all} alle Werte 0 bis 4 verwendet und hinterher aus den 5 verschiedenen Folds ein Ensemble bildet die finale Performance besser ist im Vergleich zu \enquote{all}, jedoch hat auch er keine empirischen Beweise dafür \cite{nnunetGithub-Folds}. Wir haben uns für \enquote{all} entschieden, da die Handhabung dann etwas einfacher wird und wir vermuten, dass die zum Training benötigte Zeit deutlich geringer ist, da lediglich ein Modell aus allen Trainingsdaten trainiert wird, und nicht 5 verschiedene basierend auf einer verschiedener Aufteilung der Folds. Außerdem sind unsere Ergebnisse trotz der nicht optimalen Wahl der Parameter ziemlich gut (s. Tabelle \ref{tab:Training}) \\
-Nach dem Beenden des Trainings lassen wir uns von dem Framework die Predictions zu dem Train- und Testsplit erzeugen inklusive einer Auswertung der Genauigkeit je Sample und Klasse:
+Der Parameter \enquote{all} gibt an, welcher der 5 Folds, die das Framework automatisch erstellt, zur Validierung benutzt wird, während die anderen 4 dem Training dienen.
+Der Autor des Frameworks vermutet, dass wenn man statt \enquote{all} alle Werte 0 bis 4 verwendet und hinterher aus den 5 verschiedenen Folds ein Ensemble bildet die finale Performance besser ist im Vergleich zu \enquote{all}, jedoch hat auch er keine empirischen Beweise dafür \cite{nnunetGithub-Folds}. Wir haben uns für \enquote{all} entschieden, da die Handhabung dann etwas einfacher wird und wir vermuten, dass die zum Training benötigte Zeit deutlich geringer ist, da lediglich ein Modell aus allen Trainingsdaten trainiert wird, und nicht 5 verschiedene basierend auf einer verschiedener Aufteilung der Folds. Außerdem sind unsere Ergebnisse trotz der nicht optimalen Wahl der Parameter ziemlich gut (s. Tabelle \ref{tab:Training}). \\
+Nach dem Beenden des Trainings lassen wir uns von dem Framework die Predictions zu dem Train- und Testsplit erzeugen:
 \begin{lstlisting}[language=bash]
 nnUNet_predict -i <Pfad zu Original-Niftis> -o <Prediction-Pfad>
  -m <2d, 3d_fullres oder 3d_cascade_fullres> -t <TASK-ID> -f all -z
 \end{lstlisting}
 Der Parameter -z sorgt auch hier wieder für das Speichern der Softmax-Werte, um später eventuell ein Ensembling aus verschiedenen Netzvarianten zu bilden.\\\\
-Abschließend erstellen wir mit dem Framework eine Auswertung der Performance auf dem Datensatz:
+Abschließend erstellen wir mit dem Framework eine Auswertung der Performance auf dem Datensatz, indem wir für den Train- und Testsplit die Ground-Truth Segmentierung mit den Predictions vergleichen:
 \begin{lstlisting}[language=bash]
 nnUNet_evaluate_folder -ref <Ground-Truth-Pfad>
  -pred <Prediction-Pfad> -l <Klassennummern>
 \end{lstlisting}
-<Klassennummern> ist hierbei eine Liste aller Klassennummern, die in der Auswertung berücksichtigt werden. Da uns die Performance auf dem Hintergrund nicht interessiert, starten wir bei 1 und gehen z.B. bei Pascal VOC12 \cite{PascalVOCDatensatz} alle Klassen durch \textit{-l 1 2 3 4 ... 20}. Die erzeugt in dem Ordner, in dem die Predictions liegen eine JSON-Datei mit ausführlichen Informationen über die Güte der Predictions je Sample und je vorhandener Klasse, aus der wir einen Scatterplot erstellen.
+<Klassennummern> ist hierbei eine Liste aller Klassennummern, die in der Auswertung berücksichtigt werden. Da uns die Performance auf dem Hintergrund (0) nicht interessiert, starten wir bei 1 und gehen z.B. bei Pascal VOC12 \cite{PascalVOCDatensatz} alle Klassen durch \textit{-l 1 2 3 4 ... 20}. Die erzeugt in dem Ordner, in dem die Predictions liegen eine JSON-Datei mit ausführlichen Informationen über die Güte der Predictions je Sample und je vorhandener Klasse, aus der wir einen Scatterplot erstellen.
 
 
 
@@ -156,16 +156,112 @@ nnUNet_evaluate_folder -ref <Ground-Truth-Pfad>
 Nach unseren schlechten vorherigen Erfahrungen mit (Auto-) Deeplab \cite{deeplabGithub} und insbesondere NAS-Unet \cite{nasunetGithub} haben wir zuerst versucht die bemerkenswert guten Ergebnisse \parencite[Kapitel 4, Table 2]{nnunetPaper} auf den Datensätzen der Medical Segmentation Decathlon Challenge \cite{msdChallenge} mit dem Framework zu reproduzieren. Wir haben die 3D-Datensätze Spleen, Lung und Heart \cite{msdChallenge} ausprobiert und konnten auf allen ähnliche Ergebnisse wie im Paper erzielen.\\
 
 \subsection{Larven-Datensatz}
-Nachdem wir die Ergebnisse im Paper erfolgreich reproduzieren konnten haben wir versucht einen eigenen Datensatz in das Framework zu geben. Dabei ist zu erwähnen, dass unser Larven-Datensatz ein 2D Datensatz ist. Er beinhaltet Bilder von Larven auf einer Glasscheibe, die mittels Frustrated Total Internal Reflection abgelichtet wurden. Ziel ist es, die Larven zu segmentieren und die Verschmutzungen um die Larven herum dabei zu ignorieren. Jedoch ist nnUNet nicht dafür entworfen worden auf 2D-Datensätze angewendet zu werden, besonders wenn die Datensätze aus der \enquote{non-biomedical domain} \cite{nnunetGithub2D-Daten} stammen.\\
+\subsubsection{Larven-Datensatz ohne Testsplit}
+\begin{figure}[H]
+\centering
+\includesvg[height=6.5cm]{Pictures/nnUnet/Praxis/Task200-Larven-nur-train/Haeufigkeitsverteilung-200-Larven-Train}
+\caption{Anteil von Objekt (Larve) je Sample im Trainsplit (alle 265 Samples) mit Durchschnitt $\approx$ 5,8\%}
+\label{pic:Haeuf_200}
+\end{figure}
+Nachdem wir die Ergebnisse im Paper erfolgreich reproduzieren konnten haben wir versucht einen eigenen Datensatz in das Framework zu geben. Dabei ist zu erwähnen, dass unser Larven-Datensatz ein 2D Datensatz ist. Er beinhaltet Graustufen-Bilder von Larven auf einer Glasscheibe, die mittels Frustrated Total Internal Reflection abgelichtet wurden. Ziel ist es, die Larven zu segmentieren und die Verschmutzungen um die Larven herum dabei zu ignorieren. Jedoch ist nnUNet nicht dafür entworfen worden auf 2D-Datensätze angewendet zu werden, besonders wenn die Datensätze aus der \enquote{non-biomedical domain} \cite{nnunetGithub2D-Daten} stammen.\\
 Dies ist jedoch nicht als Einschränkung des Funktionsumfangs zu verstehen, sondern lediglich als Vorwarnung, dass die Ergebnisse eventuell nicht gut ausfallen werden.\\\\
 Wir haben das zum Framework gehörige Python-Script \cite{nnunetGithub2D-Pythonscript} nur leicht modifizieren müssen und konnten den 2D Datensatz in Nifti-Dateien (.nii.gz) konvertieren und so in das Framework geben.\\
-Da es sich hierbei um unseren ersten Test des Frameworks mit eigenem Datensatz handelte haben wir zuerst keinen Test-Split vorgesehen und alle 265 Bilder als Trainingsdaten benutzt \todo{Referenzen auf Auswertung Scatterplot - Larven ohne Split}.
-\todo{Bild mit fehlender, rot markierter Larve einfügen}
-Anschließend haben wir die Larvenbilder zufällig in $\frac{2}{3}$ Trainingsdaten und $\frac{1}{3}$ Testdaten aufgeteilt und erneut trainieren lassen. \todo{Visualisierung für Larven mit drittel Split}
+Da es sich hierbei um unseren ersten Test des Frameworks mit eigenem Datensatz handelte haben wir zuerst keinen Test-Split vorgesehen und alle 265 Bilder als Trainingsdaten benutzt.
+\begin{figure}[H]
+\centering
+\begin{minipage}{.6\textwidth}
+\begin{subfigure}{\textwidth}
+\centering
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task200-Larven-nur-train/progress_200-Larven-nur-train.png}
+\caption{Verlauf des Dice-Koeffizienten beim Training über 1000 Epochen}
+\label{pic:Prog_200}
+\end{subfigure}
+\end{minipage}%
+\begin{minipage}{.4\textwidth}
+\begin{subfigure}{\textwidth}
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task200-Larven-nur-train/Scatterplot-Dice-200-Larven-Train}
+\caption{Scatterplot der Dice-Koeffizienten je Sample (265 Stück)}
+\label{pic:Dice_200}
+
+\end{subfigure}
+\end{minipage}
+\caption{Dice-Koeffizienten auf dem Trainsplit zum Larvendatensatz ohne Testsplit}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.35\textheight, width=\textwidth]{Pictures/nnUnet/Praxis/Task200-Larven-nur-train/Vis-Train.png}
+\caption{Visualisierung des Trainsplits auf dem Larvendatensatz ohne Testsplit (links: schlechteste Ergebnisse, mitte: beste Ergebnisse, rechts: Ergebnisse im Median; jeweils Original, Ground-Truth und Prediction)}
+\label{pic:Vis-Train_200}
+
+\end{figure}
+Wir konnten bei unserem ersten Versuch einen eigenen Datensatz in das Framework zu geben einen Dice-Wert von durchschnittlich $> 0.999$ erzielen und auch die am schlechtesten segmentierten Samples liegen weit über $0.99$, wie in Abbildung \ref{pic:Dice_200} zu erkennen ist.
+Auch bei der Visualisierung der besten, schlechtesten und mittleren Ergebnisse (Abbildung \ref{pic:Vis-Train_200}) kann man zwischen Ground-Truth und der Prediction mit bloßem Auge keine Unterschiede erkennen.
+\subsubsection{Larven-Datensatz mit $\frac{2}{3}$ Train- und $\frac{1}{3}$ Testsplit}
+Anschließend haben wir die Larvenbilder zufällig in $\frac{2}{3}$ Trainingsdaten und $\frac{1}{3}$ Testdaten aufgeteilt und erneut trainieren lassen. Wir haben uns vergewissert, dass Train- und Testsplit möglichst allgemein und zueinander ähnlich sind, und nicht zufällig in einem Split nur die Samples mit hohem Objektanteil und im anderen mit wenig Objektanteil vorhanden sind. Sowohl im Train- als auch im Testsplit ist der Objektanteil in den Samples ähnlich (s. Abbildung \ref{pic:Haeuf_201}).
+\begin{figure}[H]
+\begin{minipage}{.5\textwidth}
+\begin{subfigure}{\textwidth}
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task201-Larven-drittel-testsplit/Haeufigkeitsverteilung-201-Larven-Train}
+\caption{Trainsplit}
+\label{pic:Haeuf-Train_201}
+\end{subfigure}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\begin{subfigure}{\textwidth}
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task201-Larven-drittel-testsplit/Haeufigkeitsverteilung-201-Larven-Test}
+\caption{Testsplit}
+\label{pic:Haeuf-Test_201}
+\end{subfigure}
+\end{minipage}
+\caption{Anteil von Objekt (Larve) je Sample mit Durchschnitt je Split $\approx$ 5,8\%}
+\label{pic:Haeuf_201}
+\end{figure}
+
+Hierbei konnten wir nach dem Training mit Hilfe des Testsplits die Performance des erlernten Modells evaluieren und prüfen, ob das Framework tatsächlich gelernt hat die Strukturen und Merkmale einer Larve zu erkennen und von ähnlich aussehender Verschmutzung zu unterscheiden. Auf dem Testsplit ist die Performance etwas schlechter als auf dem Trainsplit, aber mit einem Dice-Koeffizienten von über $0.94$ im Durchschnitt trotzdem noch erstaunlich gut und selbst das am schlechtesten segmentierte Sample im Testsplit hat mit $0.9$ auch noch eine akzeptable Genauigkeit (s. Abbildung \ref{pic:Dice_201}).
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{.6\textwidth}
+\begin{subfigure}{\textwidth}
+\centering
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task201-Larven-drittel-testsplit/progress_201-Larven-drittel-testsplit.png}
+\caption{Verlauf des Dice-Koeffizienten beim Training über 1000 Epochen}
+\label{pic:Prog_201}
+\end{subfigure}
+\end{minipage}%
+\begin{minipage}{.4\textwidth}
+\begin{subfigure}{\textwidth}
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task201-Larven-drittel-testsplit/Scatterplot-Dice-201-Larven}
+\caption{Scatterplot der Dice-Koeffizienten je Sample für Train- und Testsplit}
+\label{pic:Dice_201}
+\end{subfigure}
+\end{minipage}
+
+\caption{Dice-Koeffizienten zum Larvendatensatz mit einem Drittel als Testsplit}
+\end{figure}
+
+Bei der Visualisierung der Predictions fällt erneut auf, dass auf dem Trainsplit mit bloßem Auge keine Unterschiede zu Ground-Truth vorhanden sind (s. Abbildung \ref{pic:Vis-Train_201}), bei dem Testsplit kommt es jedoch bei den schlechtesten Beispielen zu Fehlern, die auch deutlich erkennbar sind. Es werden teilweise komplette Larven nicht oder nur teilweise erkannt und zudem wird auch besonders in den stark verschmutzen Bildern die Verschmutzung als Larve erkannt. Hierbei stellt sich die Frage, ob die Ground-Truth Segmentierung korrekt ist, da besonders die angeblichen Verschmutzungen, die das Modell als Larve erkannt hat, im Originalbild tatsächlich eher wie eine Larve aussehen als Verschmutzung. Intuitiv würde man die betroffenen Stellen im Originalbild vermutlich auch, wie das Modell, als Larve interpretieren. Die Larven die nicht erkannt wurden sind sehr schwach bis gar nicht mit dem Auge erkennbar bzw. ähneln stark einer Verschmutzung (s. Abbildung \ref{pic:Vis-Test_201}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.35\textheight, width=\textwidth]{Pictures/nnUnet/Praxis/Task201-Larven-drittel-testsplit/Vis-Train.png}
+\caption{Visualisierung des Trainsplits auf dem Larvendatensatz mit $\frac{1}{3}$ Testsplit (links: schlechteste Ergebnisse, mitte: beste Ergebnisse, rechts: Ergebnisse im Median; jeweils Original, Ground-Truth und Prediction)}
+\label{pic:Vis-Train_201}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.35\textheight, width=\textwidth]{Pictures/nnUnet/Praxis/Task201-Larven-drittel-testsplit/Vis-Test-markiert.png}
+\caption{Visualisierung des Testsplits auf dem Larvendatensatz mit $\frac{1}{3}$ Testsplit (links: schlechteste Ergebnisse, mitte: beste Ergebnisse, rechts: Ergebnisse im Median; jeweils Original, Ground-Truth und Prediction). Rot eingefärbt sind nicht erkannte Larven, blau als Larven erkannte Verschmutzungen}
+\label{pic:Vis-Test_201}
+\end{figure}
+
 
 \subsection{Retina 2D-Datensatz}
 Da wir auf dem Larven-Datensatz (Graustufen mit einer einzigen Objekt-Klasse) so gute Ergebnisse erzielen konnten, obwohl das Framework für solche Aufgaben eigentlich nicht gemacht ist, wollten wir einen Schritt weiter gehen und statt graustufen Bildern farbige Bilder verwenden.\\
-Dazu verwenden wir den Retina-2D Datensatz \cite{retina2d}. Dieser besteht aus jeweils 15 Aufnahmen von gesunden Retinae, Retinae von Augen mit Glaukom und diabetischer Retinopathie, also insgesamt 45 hochauflösenden RGB-Bildern. Ziel der Segmentierung ist es, unabhängig von der Erkrankung, die Adern in der Retina zu markieren.\\
+Dazu verwenden wir den Retina-2D Datensatz \cite{retina2d}. Dieser besteht aus jeweils 15 Aufnahmen von gesunden Retinae, Retinae von Augen mit Glaukom und diabetischer Retinopathie, also insgesamt 45 hochauflösenden RGB-Bildern. Unser Ziel der Segmentierung ist es, unabhängig von der Erkrankung, die Adern in der Retina zu markieren.\\
 Diese Bilder konnten auch wie bei den Larven mit dem zur Verfügung gestellten Python-Script \cite{nnunetGithub2D-Pythonscript} in Nifti-Dateien konvertiert werden. Jedoch ergab sich beim Ausführen des Trainings das Problem, dass die automatisch ermittelte Batch-Size des Frameworks angeblich zu niedrig ist. Nach etwas Ausprobieren und Nachschauen im Code sind wir auf eine \enquote{estimated GPU-RAM consumption} \cite{nnunetGithub} gestoßen, die die Batch-Size vorgibt. Durch die hohe Auflösung der Bilder ($\approx$ 3500x2300) wird dieser geschätzte GPU-Ram Verbrauch zu groß und als Folge dessen die Batch-Size mit 1 zu klein, da in einem Batch per Definition des Frameworks immer mindestens 2 Samples enthalten sein müssen.\\
 Durch Ausgeben des geschätzten GPU-Ram Verbrauchs haben wir herausgefunden, dass dieser ungefähr linear mit der Anzahl an Pixeln wächst und konnten so ausrechnen, dass eine Verkleinerung der Bilder auf mindestens 42\% ausreicht, damit 2 Samples in ein Batch gelangen können.
 Diese Verkleinerung der Auflösung muss nur für die Trainingsdaten vorgenommen werden. Auf den Testdaten, von denen lediglich eine Prediction erstellt werden muss, kann die Auflösung höher sein.\\
