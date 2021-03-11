@@ -260,17 +260,129 @@ Bei der Visualisierung der Predictions fällt erneut auf, dass auf dem Trainspli
 
 
 \subsection{Retina 2D-Datensatz}
+\begin{figure}[H]
+\begin{minipage}{.5\textwidth}
+\begin{subfigure}{\textwidth}
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task205-Augen-minimal-13-trainsamples/Haeufigkeitsverteilung-205-Retina2D-minimal-Train}
+\caption{Trainsplit}
+\label{pic:Haeuf-Train_205}
+\end{subfigure}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\begin{subfigure}{\textwidth}
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task205-Augen-minimal-13-trainsamples/Haeufigkeitsverteilung-205-Retina2D-minimal-Test}
+\caption{Testsplit}
+\label{pic:Haeuf-Test_205}
+\end{subfigure}
+\end{minipage}
+\caption{Anteil von Objekt (Ader) je Sample mit Durchschnitt je Split $\approx$ 11-12\%}
+\label{pic:Haeuf_205}
+\end{figure}
+
 Da wir auf dem Larven-Datensatz (Graustufen mit einer einzigen Objekt-Klasse) so gute Ergebnisse erzielen konnten, obwohl das Framework für solche Aufgaben eigentlich nicht gemacht ist, wollten wir einen Schritt weiter gehen und statt graustufen Bildern farbige Bilder verwenden.\\
 Dazu verwenden wir den Retina-2D Datensatz \cite{retina2d}. Dieser besteht aus jeweils 15 Aufnahmen von gesunden Retinae, Retinae von Augen mit Glaukom und diabetischer Retinopathie, also insgesamt 45 hochauflösenden RGB-Bildern. Unser Ziel der Segmentierung ist es, unabhängig von der Erkrankung, die Adern in der Retina zu markieren.\\
 Diese Bilder konnten auch wie bei den Larven mit dem zur Verfügung gestellten Python-Script \cite{nnunetGithub2D-Pythonscript} in Nifti-Dateien konvertiert werden. Jedoch ergab sich beim Ausführen des Trainings das Problem, dass die automatisch ermittelte Batch-Size des Frameworks angeblich zu niedrig ist. Nach etwas Ausprobieren und Nachschauen im Code sind wir auf eine \enquote{estimated GPU-RAM consumption} \cite{nnunetGithub} gestoßen, die die Batch-Size vorgibt. Durch die hohe Auflösung der Bilder ($\approx$ 3500x2300) wird dieser geschätzte GPU-Ram Verbrauch zu groß und als Folge dessen die Batch-Size mit 1 zu klein, da in einem Batch per Definition des Frameworks immer mindestens 2 Samples enthalten sein müssen.\\
 Durch Ausgeben des geschätzten GPU-Ram Verbrauchs haben wir herausgefunden, dass dieser ungefähr linear mit der Anzahl an Pixeln wächst und konnten so ausrechnen, dass eine Verkleinerung der Bilder auf mindestens 42\% ausreicht, damit 2 Samples in ein Batch gelangen können.
 Diese Verkleinerung der Auflösung muss nur für die Trainingsdaten vorgenommen werden. Auf den Testdaten, von denen lediglich eine Prediction erstellt werden muss, kann die Auflösung höher sein.\\
 Außerdem haben wir, bevor wir mit dem geschätzten GPU-Ram Verbrauch gespielt haben, manuelle Data-Augmentation betrieben indem wir die Bilder rotiert und gespiegelt haben, in der Hoffnung dadurch mehr Samples in einem Batch zu erhalten. Dies hat sich im Nachhinein jedoch als nicht nötig herausgestellt und hat dem Framework das Training im 1. Durchlauf eventuell unnötig erschwert. Später im 2. Durchlauf mit minimaler Trainingssample-Anzahl haben wir diesen Fehler nicht gemacht.
-\todo{Verweis auf 1. Durchlauf, im 2. ist das Problem weg, da dort nur 13 Samples Training minimal}\\\\
 
 
-Da wir auch hier relativ gute Ergebnisse erzielen konnten, wollten wir das Framework an seine Grenzen bringen und so wenig Trainingsamples wie möglich zur Verfügung stellen. Durch Ausprobieren und schrittweises Annähern haben wir herausgefunden, dass nnUNet, jedenfalls bei diesem Datensatz, mindestens 13 Trainingsbeispiele benötigt, da bei weniger Trainingsbeispielen später beim Training ein \textit{IndexOutOfBounds} Fehler auftritt.
-\todo{Verweis auf Visualisierung des 2. Durchlaufs}
+\begin{figure}[H]
+\centering
+\begin{minipage}{.6\textwidth}
+\begin{subfigure}{\textwidth}
+\centering
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task203-Augen-drittel-testsplit/progress_203-Augen-drittel-split.png}
+\caption{Verlauf des Dice-Koeffizienten beim Training über 1000 Epochen}
+\label{pic:Prog_203}
+\end{subfigure}
+\end{minipage}%
+\begin{minipage}{.4\textwidth}
+\begin{subfigure}{\textwidth}
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task203-Augen-drittel-testsplit/Scatterplot-Dice-203}
+\caption{Scatterplot der Dice-Koeffizienten je Sample für Train- und Testsplit}
+\label{pic:Dice_203}
+\end{subfigure}
+\end{minipage}
+
+\caption{Dice-Koeffizienten zum Retina-2D Datensatz mit einem Drittel als Testsplit}
+\end{figure}
+
+Da wir auch hier relativ gute Ergebnisse erzielen konnten, wollten wir das Framework an seine Grenzen bringen und so wenig Trainingsamples wie möglich zur Verfügung stellen. Durch Ausprobieren und schrittweises Annähern haben wir herausgefunden, dass nnUNet, jedenfalls bei diesem Datensatz, mindestens 13 Trainingsbeispiele benötigt, da bei weniger Trainingsbeispielen später beim Training ein \textit{IndexOutOfBounds} Fehler auftritt. Leider ist beim Aufteilen in Train- und Testsplit der Objektanteil in den Samples nicht ganz ausbalanciert, da im Trainsplit nur 11\% der Pixel Adern sind und im Testsplit knapp 12\% (s. Abbildung \ref{pic:Haeuf_205}).
+
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{.6\textwidth}
+\begin{subfigure}{\textwidth}
+\centering
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task205-Augen-minimal-13-trainsamples/progress_205-Augen-minimal-13-trainsamples.png}
+\caption{Verlauf des Dice-Koeffizienten beim Training über 1000 Epochen}
+\label{pic:Prog_205}
+\end{subfigure}
+\end{minipage}%
+\begin{minipage}{.4\textwidth}
+\begin{subfigure}{\textwidth}
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task205-Augen-minimal-13-trainsamples/Scatterplot-Dice-205}
+\caption{Scatterplot der Dice-Koeffizienten je Sample für Train- und Testsplit}
+\label{pic:Dice_205}
+\end{subfigure}
+\end{minipage}
+
+\caption{Dice-Koeffizienten zum Retina-2D Datensatz mit einem minimalen Trainsplit von 13 Samples}
+\end{figure}
+
+
+Es fällt auf, dass bei dem minimalen Trainingssplit Overfitting stattfindet, da alle Samples bis auf ein einziges einen Dice-Koeffizienten von genau 1 besitzen (s. Abbildung \ref{pic:Dice_205}). Auch der Progress-Graph (Abbildung \ref{pic:Prog_205}) steigt am Anfang schneller als bei $\frac{2}{3}$ Trainingssplit.\\
+Auf dem Testsplit fällt auf, dass bei Durchlauf 1 (Abbildung \ref{pic:Dice_203}) eine Gruppierung stattfindet. Viele Samples liegen sehr nah bei 1 und eine zweite, etwa gleich große Gruppe liegt um $0,85$ herum. Dies kommt sehr wahrscheinlich von unserer, fälschlicherweise durchgeführten, manuellen Data-Augmentation, bei der wir das gleiche Bild mehrmals in rotierter und gespiegelter Form in das Framework gegeben haben. Beim 2. Durchlauf mit minimalem Trainsplit sind die Samples im Testsplit relativ gleichmäßig um den Durchschnitt von $0,83$ verteilt (s. Abbildung \ref{pic:Dice_205}).\\\\
+Beim Betrachten der Visualisierung der besten, schlechtesten und mittleren Predictions je Split (Abbildungen \ref{pic:Vis-Train_205}, \ref{pic:Vis-Test_205}) fällt auf, dass die Adern in der Predictions generell breiter sind als in Ground-Truth. Das kommt von der leider notwendigen Verkleinerung der Auflösung der Bilder, da dann bei feinen Adern anstatt nur schwarzer oder weißer Pixel in der Ground-Truth Segmentierung auch graue Pixel entstehen, da z.B. Adern mit einer Breite von einem Pixel nicht weiter in der Auflösung reduziert werden können. Wir haben uns dafür entschieden, die dann grauen Pixel auch als weiße Pixel, also als Ader-Segmentierung, zu zählen, da ansonsten feine Adern Lücken bekommen und die Segmentierung insgesamt schlechter ausfällt. Ansonsten findet man keine groben Fehler, die meisten Adern werden sehr genau erkannt.
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.35\textheight, width=\textwidth]{Pictures/nnUnet/Praxis/Task205-Augen-minimal-13-trainsamples/Vis-Train.png}
+\caption{Visualisierung des Trainsplits auf dem Larvendatensatz mit minimalem Trainsplit (links: schlechteste Ergebnisse, mitte: beste Ergebnisse, rechts: Ergebnisse im Median; jeweils Original, Ground-Truth und Prediction)}
+\label{pic:Vis-Train_205}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.35\textheight, width=\textwidth]{Pictures/nnUnet/Praxis/Task205-Augen-minimal-13-trainsamples/Vis-Train.png}
+\caption{Visualisierung des Testsplits auf dem Larvendatensatz mit minimalem Trainsplit (links: schlechteste Ergebnisse, mitte: beste Ergebnisse, rechts: Ergebnisse im Median; jeweils Original, Ground-Truth und Prediction)}
+\label{pic:Vis-Test_205}
+\end{figure}
+
+
+
+
+
+Da wir bei diesem Datensatz relativ gute Ergebnisse produzieren konnten, haben wir dem Framework komplett fremde Bilder \cite{retina2dExtra} in verschiedenen Auflösungen und Zoom-Stufen zum Segmentieren gegeben. Zu diesen Bildern gab es leider keine Ground-Truth Segmentierung, jedoch kann man auch so grob abschätzen wie robust das Modell ist, und dass es tatsächlich die Merkmale einer Ader in der Retina erlernt hat und sogar mit verschiedenen Auflösungen, Ausschnitten und \textit{Färbungen} der Retina umgehen kann (s. Abbildung \ref{pic:retinaExtraA} und \ref{pic:retinaExtraB}).
+\begin{figure}[H]
+
+\begin{minipage}{.5\textwidth}
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task205-Augen-minimal-13-trainsamples/extra_Bilder/13a_right_cut.png}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task205-Augen-minimal-13-trainsamples/extra_Bilder/13a_right_cut-original.jpeg}
+\end{minipage}
+\caption{Bild 13a\_right aus \cite{retina2dExtra} in starkem Zoom - Prediction und Original}
+\label{pic:retinaExtraA}
+\end{figure}
+
+\begin{figure}[H]
+\begin{minipage}{.5\textwidth}
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task205-Augen-minimal-13-trainsamples/extra_Bilder/1170_right.png}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task205-Augen-minimal-13-trainsamples/extra_Bilder/1170_right-original.jpeg}
+\end{minipage}
+\caption{Bild 1170\_right aus \cite{retina2dExtra} mit Wucherung im Hintergrund - Prediction und Original}
+\label{pic:retinaExtraB}
+\end{figure}
+
+
 
 
 \subsection{CT-Datensatz}
@@ -295,8 +407,6 @@ Wir haben wieder die zur Verfügung gestellten .mat Dateien in Niftis konvertier
 
 
 
-
-\section{Ergebnisse}
 
 
 \section{Fazit}
