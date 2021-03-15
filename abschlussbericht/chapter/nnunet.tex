@@ -704,7 +704,25 @@ Anhand von Abbildung \ref{pic:Vis_108} sieht man beispielhaft, dass das 3D\_full
 
 
 \section{Fazit}
-Besonders gut gefallen hat uns der einfache Umgang mit dem Framework. Alle Schritte sowohl zur Installation als auch zum Umgang mit neuen und eigenen Datensätzen wurden detailliert in einer Anleitung erklärt und auch der Code ist sehr gut dokumentiert, was zum Verständnis deutlich beiträgt \cite{nnunetGithub}.\\
-Das Framework machte von Anfang an einen durchdachten, anwenderfreundlichen Eindruck. Die Bedienung ist ziemlich einfach und das Framework nimmt dem Anwender jegliche Arbeit ab, so wie es sein sollte.
-\todo{Guter Support: Github Issue Antwortzeit nur wenige Tage, schnelle bugfixes}
-\todo{Die anderen beiden Frameworks kritisieren, dieses ist deutlich besser / das einzige was überhaupt funktioniert...}
+
+Für die Installation des Frameworks von nnU-Net ist eine vollständige und gut funktionierende Installationsanleitung vorhanden, welche uns den Einstieg und die Installation des Frameworks sehr erleichtert hat. Die Entwickler von nnU-Net liefern außerdem eine gute Einführung in die Arbeit mit dem Framework, in welcher sie erklären welches Dateiformat vom Framework erwartet wird und in welchen Ordnerstrukturen welche Dateien eingefügt werden müssen. Sie liefern außerdem guten Support bezüglich der Wahl wichtiger Parameter. Auch positiv aufgefallen sind uns die schnellen Antworten der Entwickler auf Fragen, welche in den Github-Issues gestellt wurden. Auch wird das Framework auf Github ständig weiterentwickelt und es gibt schnelle Bug-Fixes. 
+
+Der Code von nnU-Net ist übersichtlich gestaltet und gut kommentiert, wodurch man rasch einen guten Überblick darüber bekommt, was wo passiert. Daher lässt er sich auch gut nachvollziehen und so auch gut damit arbeiten, da eindeutig klar ist, welcher Code für was zuständig ist. Außerdem ist der Code darauf ausgelegt, allgemein und für verschiedene Benutzer zu funktionieren, sodass zum Beispiel keine Dateipfade angepasst werden müssen.  
+Das Framework gibt gute und sinnvolle Fehlermeldungen zurück. Der Code arbeitete für uns absolut zuverlässig und tat genau das was er sollte. 
+
+Die Einarbeitung in das Framework war daher sehr leicht umsetzbar und die Arbeit gestaltet sich sehr nutzerfreundlich und effizient. 
+
+In den zwei Papern von nnU-Net erhält man sowohl einen guten Überblick über die Grundidee und die Ziele des Papers, als auch gut verständliche Informationen über die Details der Idee und der Implementierung. Auf diese Art sind die verarbeiteten Ideen und Überlegungen gut verständlich und eindeutig. 
+
+Bezüglich der Performance hält das Framework, was es auf den Datensätzen verspricht und konnte bei uns die gleichen guten Ergebnisse erzielen wie im Paper angegeben. Das Framework arbeitet sehr gut und zuverlässig auf medizinischen Bildern, von denen bei uns alle sehr ähnliche Muster innerhalb des jeweiligen Datensatzes hatten. Die Ergebnisse auf diesen Datensätzen waren gut bis sehr gut und blieben auch dann gut, wenn das Verhältnis aus Hintergrund und Maske nicht gut war, so zum Beispiel auf unserem Larvendatensatz. 
+Bei einem sehr schlechten Verhältnis zwischen Maske und Hintergrund, wie zum Beispiel in unserem CT-Datensatz zu den Verkalkungen in Blutgefäßen, werden die Ergebnisse dann aber auch bei diesem Framework merklich schlechter, bleiben aber aus unserer Sicht in Anbetracht der erschwerten Umstände akzeptabel, wenn auch deutlich verbesserungswürdig. 
+Die Ergebnisse des Frameworks auf mehreren Klassen sind jedoch nicht so gut. Auffällig ist hier, dass der Datensatz PascalVOC, welchen wir als Test für mehrere Klassen verwendet haben, deutlich unregelmäßiger in sich selbst war, als die medizinischen Datensätze. Unseren Ergebnissen zu Folge kommt das Framework entweder mit dieser Unregelmäßigkeit, oder mit den mehreren Klassen nicht so gut klar. Wie gut das Framework auf medizinischen, regelmäßigen Datensätzen mit mehreren Klassen klarkommt, könnte man in der Zukunft noch versuchen herauszufinden. 
+
+Insgesamt können wir feststellen, dass das Framework im Bereich der Segmentierung medizinischer Datensätze gute Arbeit macht. Aufgrund der positiven und immer aktuellen Aktivität der Entwickler auf Github, der großen Nutzerfreundlichkeit des Frameworks und der guten Ergebnisse erscheint eine Nutzung und Arbeit mit dem Framework für uns als sehr sinnvoll. 
+Wegen der guten Verständlichkeit des Codes, der Grundidee und der Nutzung der verwendeten Konzepte eignet sich das Netzt durchaus auch zur Weiterarbeit und Weiterentwicklung. Aufgrund des guten Verständnisses und der guten Übersicht über verwendete Ideen und Methoden fällt es leicht sich über mögliche Anpassungen Gedanken zu machen. So zum Beispiel über eine mögliche andere Kombination von Verlustfunktionen, wenn man nicht mit medizinischen Datensätzen arbeiten möchte und die Empfindlichkeit auf Hintergrundklassen anpassen möchte. 
+
+
+
+
+
+
