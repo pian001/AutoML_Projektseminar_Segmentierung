@@ -9,6 +9,7 @@ import math
 from PIL import Image
 import numpy as np
 import random
+import nibabel as nib
 
 NNUNET_ROOT_PATH = Path("G:/AutoML/NNUnet/")  # PC
 # NNUNET_ROOT_PATH = Path("D:/AutoML/NNUnet/")  # Laptop
@@ -24,10 +25,36 @@ PRED_MASKS_DATEIENDUNG = ".nii.gz0.png"  # Dateiendung zu den vorhergesagten Mas
 PRED_MASKS_PFAD = NNUNET_ROOT_PATH / Path(
     "nnUNet_predictions/Task204_PascalVOC2012-achtel-split/imagesTrTs/")  # Pfad zu den vorhergesagten Masken (der Prediction)
 
-NUM_SAMPLES = 8  # Anzahl an Samples (Bilder) die visualisiert werden sollen (jeweils fuer "Beste", "Schlechteste" und "Median")
+NUM_SAMPLES = 2  # Anzahl an Samples (Bilder) die visualisiert werden sollen (jeweils fuer "Beste", "Schlechteste" und "Median")
 NUM_SPALTEN = 3  # Anzahl an Spalten *IM* Subplot ("Original", "Original-Maske", "Prediction")
 TITLE_SPACING = 115  # Hard-gecodeter Abstand im Titel um Sub-Titel fuer jede Spalte zu "erzeugen"
 
+# Verwende *immer* die Pascal Farben, andere Datensaetze kriegen dann halt farbige Punkte je nach Klassennummer ¯\_(^.^)_/¯
+def pascal_color_map(N=256, normalized=False):
+    """gibt Array zurueck, das index (Pixel Label) zu RGB-Farbcode mappt entsprechend den Pascal-VOC-Farbcodes
+    von https://gist.github.com/wllhf/a4533e0adebe57e3ed06d4b50c8419ae kopiert
+    """
+
+    def bitget(byteval, idx):
+        return ((byteval & (1 << idx)) != 0)
+
+    dtype = 'float32' if normalized else 'uint8'
+    cmap = np.zeros((N, 3), dtype=dtype)
+    for i in range(N):
+        r = g = b = 0
+        c = i
+        for j in range(8):
+            r = r | (bitget(c, 0) << 7 - j)
+            g = g | (bitget(c, 1) << 7 - j)
+            b = b | (bitget(c, 2) << 7 - j)
+            c = c >> 3
+
+        cmap[i] = np.array([r, g, b])
+
+    cmap = cmap / 255 if normalized else cmap
+    return cmap
+
+cmap = pascal_color_map()
 
 def visualize(path_to_json: Path, title: str, rgb: bool):
     """Visualisiert (zeigt die zugehoerigen Bilder, Masken und Predictions an) die schlechtesten, besten und mittleren (median) Bilder zu einer summary.json ('path_to_json') aus nnUNet
@@ -52,7 +79,7 @@ def visualize(path_to_json: Path, title: str, rgb: bool):
     # Achsen im Hauptplot ausschalten
     plt.axis('off')
     # Offset der Subplots im ganzen Fenster (soll das Fenster fast voll ausfuellen, nur schmale Raender aussen)
-    plt.subplots_adjust(left=0, top=0.9, bottom=0.1, right=1, hspace=0.3, wspace=0.4)
+    plt.subplots_adjust(left=0, top=0.9, bottom=0.1, right=1, hspace=0.1, wspace=0.2)
 
     # Gehe alle Subplots durch
     for aktiver_subplot in [gs_sub_left, gs_sub_middle, gs_sub_right]:
@@ -128,35 +155,96 @@ def extract_filename(path) -> str:
     filename = filename.replace(".nii.gz", "")
     return filename
 
-
+def get_color(klasse):
+    """Berechne (Pascal-) Color zu Klassennummer"""
+    return '#%02x%02x%02x' % (cmap[int(klasse)][0], cmap[int(klasse)][1], cmap[int(klasse)][2])
 def avg_wert_ueber_alle_klassen(klassendict, feld_name):
-    """Hole aus dem json Abschnitt zu einem Sample den durchschnittlichen Dice-Wert ueber *alle* vorhandenen Klassen raus"""
+    """Hole aus dem json Abschnitt zu einem Sample den durchschnittlichen Dice-Wert ueber *alle* vorhandenen Klassen (korrekt gewichtet nach Pixeln) raus"""
     summe = 0
-    menge = 0  # Anzahl gefundener Klassen
+    menge = 0  # Anzahl gefundener Pixel
     for key in klassendict:
         # Gehe durch alle Klassen durch ("reference" und "test" ueberspringen) und pruefe, ob die Klasse ueberhaupt im Bild vorhanden ist (sonst ist Dice NaN)
-        if key not in ["reference", "test"] and klassendict[key]["Total Positives Test"] != 0:
-            summe += klassendict[key][feld_name]  # Wert fuer aktuelle Klasse auf Summe draufrechnen
-            menge += 1  # Menge einen hoch zaehlen
+        if key not in ["reference", "test"] and klassendict[key]["Total Positives Reference"] != 0:
+            summe += klassendict[key][feld_name] * klassendict[key]["Total Positives Reference"]  # Wert fuer aktuelle Klasse auf Summe draufrechnen (multipliziert mit Anzahl an Pixeln zu der Klasse in Original-Maske)
+            menge += klassendict[key]["Total Positives Reference"]  # Menge um gefundene Pixel in Original-Maske hochzaehlen
     if menge == 0:  # Falls keine Klasse gefunden (sollte eigl. nie vorkommen, ausser Maske ist komplett schwarz / nur Background)
         return 0
-    return summe / menge  # Gebe Durchschnitt zurueck
+    return summe / menge  # Gebe Durchschnitt zurueck (korrekt gewichtet nach Pixeln)
+
+def scatterplot_haeufigkeiten(jsonpath, nifti_ordner, diagrammtitel, label_names, stichproben_anteil = 1):
+    """Scatterplot fuer anteilige Haeufigkeitsverteilung im Split (zur summary.json), Jedes Sample kriegt eine x-Stelle, alle Klassen mit zugehoeriger Auftrittswahrscheinlichkeit werden vertikal darueber geplottet
+    Es kann eine Begrenzung der Stichprobe angegeben werden 'stichproben_anteil' wenn der Graph sonst zu unuebersichtlich wird.
+    Durchschnittslinien sind immer auf den *ganzen* Split zur summary.json bezogen, unabhaengig von der Stichprobengroesse
+    """
+    # Oeffne Json-Datei summary.json
+    with open(jsonpath) as jsonfile:
+        summary_json = json.load(jsonfile)
+    total_pixels = 0  # Pixel im gesamten Split, alle Samples zusammen
+    i = 0
+    # Gehe durch jedes Sampel durch
+    for sample in summary_json["results"]["all"]:
+        print(i)  # Sample Nummer printen um Fortschritt zu verfolgen
+        i+=1
+        # Lade Prediction als Nifti und extrahiere Shape, um Gesamtzahl der Pixel zu bestimmen um Haeufigkeiten zu gewichten
+        sample_nifti = nib.load(nifti_ordner / (extract_filename(sample["test"]) + ".nii.gz"))
+        #print(sample_nifti.shape)
+        total_pixels_per_sample = 1
+        for dim in sample_nifti.shape:
+            total_pixels_per_sample *= dim  # Berechne Anzahl an Pixeln im Volumen des aktuellen Samples
+        total_pixels += total_pixels_per_sample  # Addiere aktuelle Pixelanzahl auf Gesamtanzahl aller Samples drauf
+        x_value = random.uniform(0, 1)  # x_Stelle fuer aktuelles Sample auswaehlen
+        if x_value > stichproben_anteil:  # Nehme nur 'stichproben_anteil' aller Samples in Plot mit auf, wird sonst unuebersichtlich
+            continue
+        x_value /= stichproben_anteil  # Wertebereich X wieder auf 0...1 ausdehnen
 
 
-def scatterplot(train, test, label_names):
-    """Scatterplot mit einem Punkt je Klasse je Sample fuer Train- und Testsplit nebeneinander mit Linie als Durchschnitt"""
+        
+        # Schleife ueber alle Klassen je Sample (auch wenn nicht tatsaechlich im Sample vorhanden)
+        for klasse in sample:
+            if klasse in ["reference","test"]:  # Meta-Daten ueberspringen
+                continue
+            #print(klasse)
+            plt.scatter(x_value, sample[klasse]["Total Positives Reference"] / total_pixels_per_sample * 100, marker="x", s=10, color=get_color(klasse))
+    
+    # Mittelwerte plotten (sind immer genau unabhaengig von 'stichproben_anteil')
+    for klasse in summary_json["results"]["mean"]:
+        # Jedes Sample hat im Durchschnitt mean_pixels_per_sample
+        mean_pixels_per_sample = total_pixels / len(summary_json["results"]["all"])
+        # Durchschnitts-Auftritts-Wahrscheinlichkeit je Klasse ueber alle Sample gemittelt in Prozent
+        mean = summary_json["results"]["mean"][klasse]["Total Positives Reference"] / mean_pixels_per_sample * 100
+        plt.hlines(mean, 0, 1, color=get_color(klasse))  # Linie zeichnen
+    plt.ylabel('Anteil je Objekt in %')
+    plt.title(diagrammtitel)
+    # Legende bauen
+    legend_labels = []
+    for klasse in summary_json["results"]["mean"]:
+        legend_labels.append(mpatches.Patch(color=get_color(klasse), label=label_names[int(klasse)]))
+    plt.legend(handles=legend_labels)
+    plt.show()
+
+def scatterplot_dice(train, test, label_names, test_exists = True):
+    """Scatterplot mit einem Punkt je Klasse je Sample fuer Train- und Testsplit (falls vorhanden) nebeneinander mit Linie als Durchschnitt"""
     # Oeffne summary.json fuer Train-Split
     with open(train) as train_evaluation_json:
         json_train = json.load(train_evaluation_json)
-    # Oeffne summary.json fuer Test-Split
-    with open(test) as test_evaluation_json:
-        json_test = json.load(test_evaluation_json)
-    # Verwende *immer* die Pascal Farben, andere Datensaetze kriegen dann halt farbige Punkte je nach Klassennummer ¯\_(^.^)_/¯
-    cmap = pascal_color_map()
+    # Oeffne summary.json fuer Test-Split, falls vorhanden
+    if test_exists:
+        with open(test) as test_evaluation_json:
+            json_test = json.load(test_evaluation_json)
     # Teile Hauptplot in der Mitte (1 Zeile, 2 Spalten)
-    fig, axs = plt.subplots(1, 2)
+    fig, axs = plt.subplots(1, 2 if test_exists else 1)  # Spaltenaufteilung abhaengig davon, ob Testsplit ueberhaupt existiert
     # Fuer jeden der beiden Scatterplots (Train und Test)
-    for (title, sample_liste, ax) in [("Train", json_train["results"], axs[0]), ("Test", json_test["results"], axs[1])]:
+    if test_exists:
+        axs_train = axs[0]
+        axs_test = axs[1]
+    else:
+        axs_train = axs
+        axs_test = None
+    splits = [("Train", json_train["results"], axs_train)]
+    if test_exists:
+        splits.append(("Test", json_test["results"], axs_test))
+    for (title, sample_liste, ax) in splits:
+        # ax.set_yscale('log')  # Falls die Skalierung durch sehr gute Werte komisch wird, stelle auf logarithmisch um
         # Setze den Titel entsprechend
         ax.set_title(title)
         i = 0
@@ -167,15 +255,15 @@ def scatterplot(train, test, label_names):
             # Fuer jede Klasse im Sample
             for key in sample:
                 # Muss Klassen-Eintrag sein, keine Meta-Infos in json; Klasse mus tatsaechlich vorkommen
-                if key in ["reference", "test"] or sample[key]["Total Positives Test"] == 0:
+                if key in ["reference", "test"] or sample[key]["Total Positives Reference"] == 0:
                     continue
-                # Konvertiere das 1d-Array (3 Eintraege RGB) in hexadezimalen ColorCode fuer pyplot
-                color = '#%02x%02x%02x' % (cmap[int(key)][0], cmap[int(key)][1], cmap[int(key)][2])
                 # Plotte den Punkt an zufaellige x-Stelle damit sich nicht alles stackt
-                ax.scatter(random.uniform(0, 1), sample[key]["Dice"], marker="x", c=color, s=10)
+                ax.scatter(random.uniform(0, 1), sample[key]["Dice"], marker="x", c=get_color(key), s=10)
         # Erstelle Legende
         handles, labels = ax.get_legend_handles_labels()
         ax.legend(handles, labels)
+        if not test_exists:  # Wenn es keinen Test-Split gibt, ueberspringe das Zeichnen des Graphs dafuer
+            break
 
     # Hole alle existierenden keys
     existinglabels = [key for key in json_train["results"]["all"][
@@ -186,63 +274,106 @@ def scatterplot(train, test, label_names):
     labels = []
     for label in existinglabels:  # gehe durch alle existierenden Label durch
         # Hole Color-Code fuer das Label
-        color = '#%02x%02x%02x' % (cmap[int(label)][0], cmap[int(label)][1], cmap[int(label)][2])
         # Fuege mpatches.Patch fuer die aktuelle Klassennummer mit richtiger (Pascal VOC2012-) Farbe und Namen aus 'label_names' in 'labels' ein
-        labels.append(mpatches.Patch(color=color, label=label_names[int(label)]))
+        labels.append(mpatches.Patch(color=get_color(label), label=label_names[int(label)]))
 
         # Ziehe Durchschnitts-Linie fuer aktuelle Klassennummer in Train
         mean = json_train["results"]["mean"][label][
             "Dice"]  # Durchschnitt kommt aus dem von nnUNet berechneten Durchschnitt
-        axs[0].hlines(mean, 0, 1, color=color)
-        # und in Test
-        mean = json_test["results"]["mean"][label]["Dice"]
-        axs[1].hlines(mean, 0, 1, color=color)
+        axs_train.hlines(mean, 0, 1, color=get_color(label))
+        if test_exists:
+            # und in Test
+            mean = json_test["results"]["mean"][label]["Dice"]
+            axs_test.hlines(mean, 0, 1, color=get_color(label))
 
     # Setze die Legende entsprechend 'labels', das vorher zusammengebaut wurde (Farbe + Klassenname fuer jede Klassennummer)
-    axs[0].legend(handles=labels)
-    axs[1].legend(handles=labels)
-
+    axs_train.legend(handles=labels)
+    if test_exists:  # Falls es ueberhaupt einen Testsplit gibt
+        axs_test.legend(handles=labels)
+    
+    
+    avg_train = avg_wert_ueber_alle_klassen(json_train["results"]["mean"], "Dice")
+    print("Durchschnitt-Dice auf Train ueber alle Klassen korrekt gewichtet nach Pixeln: " + str(avg_train))
+    if test_exists:  # Falls es ueberhaupt einen Testsplit gibt
+        avg_test = avg_wert_ueber_alle_klassen(json_test["results"]["mean"], "Dice")
+        print("Durchschnitt-Dice auf Test ueber alle Klassen korrekt gewichtet nach Pixeln: " + str(avg_test))
+    
+    
+    
     plt.show()
 
 
-def pascal_color_map(N=256, normalized=False):
-    """gibt Array zurueck, das index (Pixel Label) zu RGB-Farbcode mappt entsprechend den Pascal-VOC-Farbcodes
-    von https://gist.github.com/wllhf/a4533e0adebe57e3ed06d4b50c8419ae kopiert
-    """
-
-    def bitget(byteval, idx):
-        return ((byteval & (1 << idx)) != 0)
-
-    dtype = 'float32' if normalized else 'uint8'
-    cmap = np.zeros((N, 3), dtype=dtype)
-    for i in range(N):
-        r = g = b = 0
-        c = i
-        for j in range(8):
-            r = r | (bitget(c, 0) << 7 - j)
-            g = g | (bitget(c, 1) << 7 - j)
-            b = b | (bitget(c, 2) << 7 - j)
-            c = c >> 3
-
-        cmap[i] = np.array([r, g, b])
-
-    cmap = cmap / 255 if normalized else cmap
-    return cmap
-
-
-def vis_task_nummer(task_nummer):
+def vis_task_nummer(task_nummer: int):
     """Vereinfachter Aufruf einer Visualisierung zu einer Tasknummer durch vorgefertigte Variablen und Befehle"""
     global ORIG_IMGS_PFAD, ORIG_MASKS_PFAD, PRED_MASKS_PFAD
     global ORIG_IMGS_DATEIENDUNG, ORIG_MASKS_DATEIENDUNG, PRED_MASKS_DATEIENDUNG
-
+    # Retina 3D Datensatz
+    if task_nummer == 108:
+        label_names = ["Background",
+                       "Augenader"]  # Labelnamen muessen Background am Anfang zusaetzlich enthalten, auch wenn Label 0 nicht in der summary.json auftaucht
+        
+        PRED_MASKS_PFAD = NNUNET_ROOT_PATH / Path("nnUNet_predictions/Task108_Retina-3d_fullres/imagesTr")
+        scatterplot_haeufigkeiten(PRED_MASKS_PFAD / "summary.json", PRED_MASKS_PFAD, "Haeufigkeitsverteilung 108 Retina 3D - Train", label_names)
+        PRED_MASKS_PFAD = NNUNET_ROOT_PATH / Path("nnUNet_predictions/Task108_Retina-3d_fullres/imagesTs")
+        scatterplot_haeufigkeiten(PRED_MASKS_PFAD / "summary.json", PRED_MASKS_PFAD, "Haeufigkeitsverteilung 108 Retina 3D - Test", label_names)
+        
+        # 3d Fullres
+        print("3D_FULLRES")
+        scatterplot_dice(NNUNET_ROOT_PATH / Path(
+            "nnUNet_predictions/Task108_Retina-3d_fullres/imagesTr/") / "summary.json",
+                    NNUNET_ROOT_PATH / Path(
+                        "nnUNet_predictions/Task108_Retina-3d_fullres/imagesTs/") / "summary.json",
+                    label_names)
+        # 2D
+        print("2D")
+        scatterplot_dice(NNUNET_ROOT_PATH / Path(
+            "nnUNet_predictions/Task108_Retina-3d_2dNet/imagesTr/") / "summary.json",
+                    NNUNET_ROOT_PATH / Path(
+                        "nnUNet_predictions/Task108_Retina-3d_2dNet/imagesTs/") / "summary.json",
+                    label_names)
+        # Ensemble 2D und 3D_fullres
+        print("ENSEMBLE")
+        scatterplot_dice(NNUNET_ROOT_PATH / Path(
+            "nnUNet_predictions/Task108_ensemble-2d_3d_fullres/imagesTr/") / "summary.json",
+                    NNUNET_ROOT_PATH / Path(
+                        "nnUNet_predictions/Task108_ensemble-2d_3d_fullres/imagesTs/") / "summary.json",
+                    label_names)
+    # CT Datensatz in INT16 Originalform
+    elif task_nummer == 109:
+        label_names = ["Background",
+                       "Kalziumablagerung"]  # Labelnamen muessen Background am Anfang zusaetzlich enthalten, auch wenn Label 0 nicht in der summary.json auftaucht
+        # Haeufigkeiten plotten (sind fuer 2d, 3d_fullres und cascade gleich)
+        PRED_MASKS_PFAD = NNUNET_ROOT_PATH / Path("nnUNet_predictions/Task109_CT_int16_3d_fullresNet_2000Epochs/imagesTr")
+        scatterplot_haeufigkeiten(PRED_MASKS_PFAD / "summary.json", PRED_MASKS_PFAD, "Häufigkeitsverteilung 109 CT nur Trainsplit", label_names)
+        
+        # 3D_FULLRES 2000 Epochen
+        print("109-3D_FULLRES mit 2000 Epochen")
+        scatterplot_dice(PRED_MASKS_PFAD / "summary.json", None, label_names, False)  # Scatterplot ohne Testsplit (None bzw False)
+        
+        # 3D_CASCADE
+        print("109-3D_CASCADE")
+        PRED_MASKS_PFAD = NNUNET_ROOT_PATH / Path("nnUNet_predictions/Task109_CT_int16_3d_cascade/imagesTr")
+        scatterplot_dice(PRED_MASKS_PFAD / "summary.json", None, label_names, False)  # Scatterplot ohne Testsplit (None bzw False)
+        
+        # 2D
+        print("109-2D")
+        PRED_MASKS_PFAD = NNUNET_ROOT_PATH / Path("nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr")
+        scatterplot_dice(PRED_MASKS_PFAD / "summary.json", None, label_names, False)  # Scatterplot ohne Testsplit (None bzw False)
+        
     # Larven ohne split (Train=Test)
-    if task_nummer == 200:
+    elif task_nummer == 200:
         # Variablen setzen
         ORIG_IMGS_DATEIENDUNG = ".png"
         ORIG_IMGS_PFAD = NNUNET_ROOT_PATH / Path("raw_datasets/Larven/imgs")
         ORIG_MASKS_PFAD = NNUNET_ROOT_PATH / Path("raw_datasets/Larven/masks/")
         PRED_MASKS_PFAD = NNUNET_ROOT_PATH / Path("nnUNet_predictions/Task200_Larven_train_eq_test/imagesTr/")
-        # Visualisieren (Scatterplot hier unnoetig / nicht anwendbar da alles Train ist und kein Testsplit existiert)
+        label_names = ["Background", "Larve"]  # Labelnamen muessen Background am Anfang zusaetzlich enthalten, auch wenn Label 0 nicht in der summary.json auftaucht
+        # Hauefigkeitsverteilung im Trainsplit plotten
+        scatterplot_haeufigkeiten(PRED_MASKS_PFAD / "summary.json", PRED_MASKS_PFAD, "Haeufigkeitsverteilung 200 Larven nur Trainsplit - Train", label_names)
+        # Dice-Koeffizientenverteilung plotten
+        scatterplot_dice(PRED_MASKS_PFAD / "summary.json", None, label_names, False)  # Scatterplot ohne Testsplit
+        
+        # Visualisieren
         visualize(PRED_MASKS_PFAD / "summary.json", "Task200_Larven_train_eq_test", False)
 
 
@@ -256,14 +387,19 @@ def vis_task_nummer(task_nummer):
 
         label_names = ["Background",
                        "Larve"]  # Labelnamen muessen Background am Anfang zusaetzlich enthalten, auch wenn Label 0 nicht in der summary.json auftaucht
-        scatterplot(PRED_MASKS_PFAD / "summary.json", NNUNET_ROOT_PATH / Path(
+        # Hauefigkeitsverteilung im Trainsplit plotten
+        scatterplot_haeufigkeiten(PRED_MASKS_PFAD / "summary.json", PRED_MASKS_PFAD, "Haeufigkeitsverteilung 201 Larven drittel split - Train", label_names)
+        # Dice-Koeffizientenverteilung plotten
+        scatterplot_dice(PRED_MASKS_PFAD / "summary.json", NNUNET_ROOT_PATH / Path(
             "nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/") / "summary.json", label_names)
 
         # Visualisieren der Train-Samples
         visualize(PRED_MASKS_PFAD / "summary.json", "Task201_Larven_split_drittel-ist-test__TRAIN", False)
 
-        # Visualisieren der Test-Samples
         PRED_MASKS_PFAD = NNUNET_ROOT_PATH / Path("nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/")
+        # Hauefigkeitsverteilung im Testsplit plotten
+        scatterplot_haeufigkeiten(PRED_MASKS_PFAD / "summary.json", PRED_MASKS_PFAD, "Haeufigkeitsverteilung 201 Larven drittel split - Test", label_names)
+        # Visualisieren der Test-Samples
         visualize(PRED_MASKS_PFAD / "summary.json", "Task201_Larven_split_drittel-ist-test__TEST", False)
 
 
@@ -279,14 +415,11 @@ def vis_task_nummer(task_nummer):
 
         label_names = ["Background",
                        "Augenader"]  # Labelnamen muessen Background am Anfang zusaetzlich enthalten, auch wenn Label 0 nicht in der summary.json auftaucht
-        scatterplot(PRED_MASKS_PFAD / "summary.json", NNUNET_ROOT_PATH / Path(
+        # Dice-Koeffizientenverteilung plotten
+        scatterplot_dice(PRED_MASKS_PFAD / "summary.json", NNUNET_ROOT_PATH / Path(
             "nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/") / "summary.json", label_names)
 
-        # Visualisieren der Train-Samples
-        visualize(PRED_MASKS_PFAD / "summary.json", "Task203_Augenadern-drittel-test__TRAIN", False)
-        # Visualisieren der Test-Samples
-        PRED_MASKS_PFAD = NNUNET_ROOT_PATH / Path("nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/")
-        visualize(PRED_MASKS_PFAD / "summary.json", "Task203_Augenadern-drittel-test__TEST", False)
+        # Visualisieren der Train- und Testsamples ausgelassen, da kaum Unterschied zu "Task 205 minimal Trainign Samples", Hauefigkeitsverteilung ebenfalls
 
 
 
@@ -304,16 +437,18 @@ def vis_task_nummer(task_nummer):
         label_names = ['Background', 'Aeroplane', 'Bicycle', 'Bird', 'Boat', 'Bottle', 'Bus', 'Car', 'Cat', 'Chair',
                        'Cow', 'Diningtable', 'Dog', 'Horse', 'Motorbike', 'Person', 'Pottedplant', 'Sheep', 'Sofa',
                        'Train', 'TVmonitor']
-        scatterplot(PRED_MASKS_PFAD / "summary.json", NNUNET_ROOT_PATH / Path(
-            "nnUNet_predictions/Task204_PascalVOC2012-achtel-split/imagesTs/") / "summary.json", label_names)
+        # Hauefigkeitsverteilung im Trainsplit plotten (10% Stichprobe)
+        scatterplot_haeufigkeiten(PRED_MASKS_PFAD / "summary.json", PRED_MASKS_PFAD, "Haeufigkeitsverteilung 204 PascalVOC Train (10% Stichprobe)", label_names, 0.1)
+        # Dice-Koeffizientenverteilung plotten
+        scatterplot_dice(PRED_MASKS_PFAD / "summary.json", NNUNET_ROOT_PATH / Path("nnUNet_predictions/Task204_PascalVOC2012-achtel-split/imagesTs/") / "summary.json", label_names)
 
         # Visualisieren der Train-Samples
-        visualize(PRED_MASKS_PFAD / "summary.json", "Task204_PascalVOC2012-achtel-split__TRAIN",
-                  True)  # Original-Bilder sind RGB => True
-        # Visualisieren der Test-Samples
+        visualize(PRED_MASKS_PFAD / "summary.json", "Task204_PascalVOC2012-achtel-split__TRAIN", True)  # Original-Bilder sind RGB => True
         PRED_MASKS_PFAD = NNUNET_ROOT_PATH / Path("nnUNet_predictions/Task204_PascalVOC2012-achtel-split/imagesTs/")
-        visualize(PRED_MASKS_PFAD / "summary.json", "Task204_PascalVOC2012-achtel-split__TEST",
-                  True)  # Original-Bilder sind RGB => True
+        # Hauefigkeitsverteilung im Testsplit plotten (50% Stichprobe)
+        scatterplot_haeufigkeiten(PRED_MASKS_PFAD / "summary.json", PRED_MASKS_PFAD, "Haeufigkeitsverteilung 204 PascalVOC Test (50% Stichprobe)", label_names,0.5)
+        # Visualisieren der Test-Samples
+        visualize(PRED_MASKS_PFAD / "summary.json", "Task204_PascalVOC2012-achtel-split__TEST", True)  # Original-Bilder sind RGB => True
 
 
 
@@ -330,54 +465,32 @@ def vis_task_nummer(task_nummer):
 
         label_names = ["Background",
                        "Augenader"]  # Labelnamen muessen Background am Anfang zusaetzlich enthalten, auch wenn Label 0 nicht in der summary.json auftaucht
-        scatterplot(PRED_MASKS_PFAD / "summary.json",
+        # Hauefigkeitsverteilung im Trainsplit plotten 
+        scatterplot_haeufigkeiten(PRED_MASKS_PFAD / "summary.json", PRED_MASKS_PFAD, "Haeufigkeitsverteilung 205 Retina-Train 2D minimal", label_names)
+        # Dice-Koeffizientenverteilung plotten
+        scatterplot_dice(PRED_MASKS_PFAD / "summary.json",
                     NNUNET_ROOT_PATH / Path("nnUNet_predictions/Task205_Augen_weniger/imagesTs/") / "summary.json",
                     label_names)
 
         # Visualisieren der Train-Samples
         visualize(PRED_MASKS_PFAD / "summary.json", "Task205_Augen_weniger__TRAIN", False)
-        # Visualisieren der Test-Samples
         PRED_MASKS_PFAD = NNUNET_ROOT_PATH / Path("nnUNet_predictions/Task205_Augen_weniger/imagesTs/")
+        # Hauefigkeitsverteilung im Testsplit plotten 
+        scatterplot_haeufigkeiten(PRED_MASKS_PFAD / "summary.json", PRED_MASKS_PFAD, "Haeufigkeitsverteilung 205 Retina-Test 2D minimal", label_names)
+        # Visualisieren der Test-Samples
         visualize(PRED_MASKS_PFAD / "summary.json", "Task205_Augen_weniger__TEST", False)
 
-    # Retina 3D Scatterplot, Visualisieren von 3D Slices wird von Hand gemacht
-    elif task_nummer == "108-3d_fullres-ohneNPZ":  # 3d_fullres-Netz mit NPZ (zweiter Anlauf) 
-        label_names = ["Background",
-                       "Augenader"]  # Labelnamen muessen Background am Anfang zusaetzlich enthalten, auch wenn Label 0 nicht in der summary.json auftaucht
-        scatterplot(NNUNET_ROOT_PATH / Path(
-            "nnUNet_predictions/Task108_Retina-3d-3d_fullres_ohneNPZ/imagesTr/") / "summary.json",
-                    NNUNET_ROOT_PATH / Path(
-                        "nnUNet_predictions/Task108_Retina-3d-3d_fullres_ohneNPZ/imagesTs/") / "summary.json",
-                    label_names)
+
+# 2D Datensaetze (Nummer 2XX)
+#vis_task_nummer(200)
+vis_task_nummer(201)
+#vis_task_nummer(203)
+#vis_task_nummer(204)
+#vis_task_nummer(205)
 
 
-
-    # Retina 3D Scatterplot, Visualisieren von 3D Slices wird von Hand gemacht
-    elif task_nummer == "108-3d_fullres":  # 3d_fullres-Netz ohne NPZ (erster Anlauf) 
-        label_names = ["Background",
-                       "Augenader"]  # Labelnamen muessen Background am Anfang zusaetzlich enthalten, auch wenn Label 0 nicht in der summary.json auftaucht
-        scatterplot(NNUNET_ROOT_PATH / Path("nnUNet_predictions/Task108_Retina-3d_fullres/imagesTr/") / "summary.json",
-                    NNUNET_ROOT_PATH / Path("nnUNet_predictions/Task108_Retina-3d_fullres/imagesTs/") / "summary.json",
-                    label_names)
+# 3D Datensaetze (Nummer 1XX)
+#vis_task_nummer(108)
+#vis_task_nummer(109)
 
 
-    # Retina 3D Scatterplot, Visualisieren von 3D Slices wird von Hand gemacht
-    elif task_nummer == "108-2d":  # 2d-Netz
-        label_names = ["Background",
-                       "Augenader"]  # Labelnamen muessen Background am Anfang zusaetzlich enthalten, auch wenn Label 0 nicht in der summary.json auftaucht
-        scatterplot(NNUNET_ROOT_PATH / Path("nnUNet_predictions/Task108_Retina-3d_2dNet/imagesTr/") / "summary.json",
-                    NNUNET_ROOT_PATH / Path("nnUNet_predictions/Task108_Retina-3d_2dNet/imagesTs/") / "summary.json",
-                    label_names)
-
-
-    # Retina 3D Scatterplot, Visualisieren von 3D Slices wird von Hand gemacht
-    elif task_nummer == "108-2d-3d_fullres-Ensemble":  # 3d_fullres und 2d Ensemble
-        label_names = ["Background",
-                       "Augenader"]  # Labelnamen muessen Background am Anfang zusaetzlich enthalten, auch wenn Label 0 nicht in der summary.json auftaucht
-        scatterplot(
-            NNUNET_ROOT_PATH / Path("nnUNet_predictions/Task108_ensemble-2d_3d_fullres/imagesTr/") / "summary.json",
-            NNUNET_ROOT_PATH / Path("nnUNet_predictions/Task108_ensemble-2d_3d_fullres/imagesTs/") / "summary.json",
-            label_names)
-
-
-vis_task_nummer("108-2d-3d_fullres-Ensemble")

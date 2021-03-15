@@ -9,7 +9,7 @@ import nibabel as nib
 import imageio
 import math
 
-seen_numbers = set()
+seen_numbers = dict()
 # Extrahiert aus einem .nii.gz Nifti Format alle Slices
 def extract_nifti(folder, filename):
     """Extrahiert aus einem Nifti in 'folder' mit Namen 'filename' alle Slices und speichert sie durchnummeriert im selben Ordner"""
@@ -22,7 +22,7 @@ def extract_nifti(folder, filename):
     num_slices = np.shape(nifti_volume)[2]
     
     
-    # Um 90 Grad im Uhrzeigersinn drehen und horizontal spiegeln, da NNUnet die Bilder intern dreht und spiegelt und man dann schlecht vergleichen kann
+    # Um 90 Grad im Uhrzeigersinn drehen und horizontal spiegeln, da NNUnet die 2D (!) Bilder intern dreht und spiegelt und man dann schlecht vergleichen kann
     #nifti_volume = np.rot90(nifti_volume)
     #nifti_volume = np.flip(nifti_volume, axis=0)
        
@@ -42,11 +42,18 @@ def extract_nifti(folder, filename):
         # slice aus Volumen holen
         slice = nifti_volume[...,slice_index]
         # Slice pixelweise durchgehen
-        for row in slice:
-            for pixel in row:
-                if type(pixel) is not np.ndarray:
+        counter = 0
+        #for row in slice:
+            #for pixel in row:
+                #if type(pixel) is not np.ndarray:
                     # Pixelwert (falls Graustufen-Bild) in seen_numbers packen
-                    seen_numbers.add(pixel)
+                    #if pixel in seen_numbers:
+                        #seen_numbers[pixel] += 1
+                    #else:
+                        #seen_numbers[pixel] = 1
+                    #if pixel != 0:
+                        #counter += 1
+        #print(str(counter) + " Pixel in " + str(i))
         # Wir muessen bei farbigen Bildern die RGB Werte im Array zu BGR Werten "tauschen", damit opencv die Farben richtig schreibt... Warum auch immer das so komisch definiert wurde... S/W-Bilder bleiben dadurch unveraendert (?)
         #slice = cv2.cvtColor(slice, cv2.COLOR_RGB2BGR)
         cv2.imwrite(str(folder) + str(filename) + str(i) + ".png", slice)
