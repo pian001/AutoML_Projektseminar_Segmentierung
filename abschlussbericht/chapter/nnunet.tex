@@ -68,15 +68,14 @@ Da die empirischen Parameter nicht direkt aus dem Datensatz erschlossen werden k
 
 
 \section{Unsere Arbeit / Praxis}
-\todo{Durchschnitt ermitteln Pascal VOC 2012}
-\todo{Predictions fuer Task 100 CT alle Versionen auswerten}
 \begin{figure}[H]
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline 
-\multirow{3}{*}{Datensatz} &  &  & & Train-& Test- \\ 
- & Split & verwendete & Trainingszeit & Accuracy& Accuracy \\ 
- & (Train:Test) & nnUNet-Variante & (h) & (Dice)& (Dice)  \\ 
+\multirow{3}{*}{\textbf{Datensatz}} &  &  & & Train-& Test- \\ 
+ & \textbf{Split} & verwendete & \textbf{Trainingszeit} & \textbf{Accuracy}& \textbf{Accuracy} \\ 
+ & (Train:Test) & \textbf{nnUNet-Variante} & (h) & (Dice)& (Dice)  \\ 
 \hline 
+\hline
 Larven & 265:0 $\approx$ 1:0 & 2D & 8:30 & 0.99970 & - \\ 
 \hline 
 Larven & 173:92 $\approx$ 2:1 & 2D & 6:45 & 0.99982 & 0.94459 \\ 
@@ -88,16 +87,13 @@ Data-Augmentation)&  & & & &  \\
 \hline 
 Retina-2D (minimal) & 13:32 $\approx$ 1:2 & 2D & 21:15 & 0.99999 &  0.83013 \\ 
 \hline 
-CT & 19:0 $\approx$ 1:0 & 3D\_fullres & 58:30  & ? & - \\ 
-
+\multirow{2}{*}{CT (2000 Epochen)} & \multirow{2}{*}{19:0 $\approx$ 1:0} & 3D\_fullres & \multirow{2}{*}{$\approx$ 86:00}  & \multirow{2}{*}{0.67197} & \multirow{2}{*}{-} \\ 
+ &  & (\textbf{2000} Epochen) & &  &  \\ 
 \hline 
-\multirow{2}{*}{CT} & \multirow{2}{*}{19:0 $\approx$ 1:0} & \multirow{2}{*}{3D\_fullres} & $\approx$ 89:30  & \multirow{2}{*}{?} & \multirow{2}{*}{-} \\ 
- &  &  & (\textbf{2000} Epochen) &  &  \\ 
+CT & 19:0 $\approx$ 1:0 & 2D & 29:00 & 0.00109 & - \\ 
 \hline 
-CT & 19:0 $\approx$ 1:0 & 2D & 19:00 & ? & - \\ 
-\hline 
-\multirow{2}{*}{CT} & \multirow{2}{*}{19:0 $\approx$ 1:0} & \multirow{2}{*}{3D\_cascade} & $\approx$ 53:00 + 49:30 & \multirow{2}{*}{?} & \multirow{2}{*}{-} \\ 
- &  &  & =102:30 &  & \\ 
+\multirow{2}{*}{CT} & \multirow{2}{*}{19:0 $\approx$ 1:0} & \multirow{2}{*}{3D\_cascade} & $\approx$ 39:00 + 48:00 & \multirow{2}{*}{0.20865} & \multirow{2}{*}{-} \\ 
+ &  &  & =87:00 &  & \\ 
 \hline 
 Retina-3D & 14:7 $\approx$ 2:1 & 3D\_fullres & 45:15 & 0.91863 & 0.83759 \\ 
 \hline 
@@ -153,7 +149,7 @@ nnUNet_evaluate_folder -ref <Ground-Truth-Pfad>
 % Aufteilung in 2D/3D erstmal weggemacht, ich gehe chronologisch durch
 
 \subsection{Datensätze aus dem Paper}
-Nach unseren schlechten vorherigen Erfahrungen mit (Auto-) Deeplab \cite{deeplabGithub} und insbesondere NAS-Unet \cite{nasunetGithub} haben wir zuerst versucht die bemerkenswert guten Ergebnisse \parencite[Kapitel 4, Table 2]{nnunetPaper} auf den Datensätzen der Medical Segmentation Decathlon Challenge \cite{msdChallenge} mit dem Framework zu reproduzieren. Wir haben die 3D-Datensätze Spleen, Lung und Heart \cite{msdChallenge} ausprobiert und konnten auf allen ähnliche Ergebnisse wie im Paper erzielen.\\
+Nach unseren schlechten vorherigen Erfahrungen mit (Auto-) Deeplab \cite{deeplabGithub} und insbesondere NAS-Unet \cite{nasunetGithub} haben wir zuerst versucht die bemerkenswert guten Ergebnisse \parencite[Kapitel 4, Table 2]{nnunetPaper} auf den Datensätzen der Medical Segmentation Decathlon Challenge \cite{msdChallenge} mit dem Framework zu reproduzieren. Wir haben die 3D-Datensätze Spleen, Lung und Heart \cite{msdChallenge} ausprobiert und konnten auf allen ähnliche Ergebnisse wie im Paper \cite{nnunetPaper} erzielen.\\
 
 \subsection{Larven-Datensatz}
 \subsubsection{Larven-Datensatz ohne Testsplit}
@@ -241,7 +237,7 @@ Hierbei konnten wir nach dem Training mit Hilfe des Testsplits die Performance d
 \caption{Dice-Koeffizienten zum Larvendatensatz mit einem Drittel als Testsplit}
 \end{figure}
 
-Bei der Visualisierung der Predictions fällt erneut auf, dass auf dem Trainsplit mit bloßem Auge keine Unterschiede zu Ground-Truth vorhanden sind (s. Abbildung \ref{pic:Vis-Train_201}), bei dem Testsplit kommt es jedoch bei den schlechtesten Beispielen zu Fehlern, die auch deutlich erkennbar sind. Es werden teilweise komplette Larven nicht oder nur teilweise erkannt und zudem wird auch besonders in den stark verschmutzen Bildern die Verschmutzung als Larve erkannt. Hierbei stellt sich die Frage, ob die Ground-Truth Segmentierung korrekt ist, da besonders die angeblichen Verschmutzungen, die das Modell als Larve erkannt hat, im Originalbild tatsächlich eher wie eine Larve aussehen als Verschmutzung. Intuitiv würde man die betroffenen Stellen im Originalbild vermutlich auch, wie das Modell, als Larve interpretieren. Die Larven die nicht erkannt wurden sind sehr schwach bis gar nicht mit dem Auge erkennbar bzw. ähneln stark einer Verschmutzung (s. Abbildung \ref{pic:Vis-Test_201}).
+Bei der Visualisierung der Predictions fällt erneut auf, dass auf dem Trainsplit mit bloßem Auge keine Unterschiede zu Ground-Truth vorhanden sind (s. Abbildung \ref{pic:Vis-Train_201}), bei dem Testsplit kommt es jedoch bei den schlechtesten Beispielen zu Fehlern, die auch deutlich erkennbar sind. Es werden teilweise komplette Larven nicht oder nur teilweise erkannt und zudem wird auch besonders in den stark verschmutzen Bildern die Verschmutzung als Larve erkannt. Hierbei stellt sich die Frage, ob die Ground-Truth Segmentierung korrekt ist, da besonders die angeblichen Verschmutzungen, die das Modell als Larve erkannt hat, im Originalbild tatsächlich eher wie eine Larve aussehen als eine Verschmutzung. Intuitiv würde man die betroffenen Stellen im Originalbild vermutlich auch, wie das Modell, als Larve interpretieren. Die Larven die nicht erkannt wurden sind sehr schwach bis gar nicht mit dem Auge erkennbar bzw. ähneln stark einer Verschmutzung (s. Abbildung \ref{pic:Vis-Test_201}).
 
 \begin{figure}[H]
 \centering
@@ -281,7 +277,7 @@ Bei der Visualisierung der Predictions fällt erneut auf, dass auf dem Trainspli
 
 Da wir auf dem Larven-Datensatz (Graustufen mit einer einzigen Objekt-Klasse) so gute Ergebnisse erzielen konnten, obwohl das Framework für solche Aufgaben eigentlich nicht gemacht ist, wollten wir einen Schritt weiter gehen und statt graustufen Bildern farbige Bilder verwenden.\\
 Dazu verwenden wir den Retina-2D Datensatz \cite{retina2d}. Dieser besteht aus jeweils 15 Aufnahmen von gesunden Retinae, Retinae von Augen mit Glaukom und diabetischer Retinopathie, also insgesamt 45 hochauflösenden RGB-Bildern. Unser Ziel der Segmentierung ist es, unabhängig von der Erkrankung, die Adern in der Retina zu markieren.\\
-Diese Bilder konnten auch wie bei den Larven mit dem zur Verfügung gestellten Python-Script \cite{nnunetGithub2D-Pythonscript} in Nifti-Dateien konvertiert werden. Jedoch ergab sich beim Ausführen des Trainings das Problem, dass die automatisch ermittelte Batch-Size des Frameworks angeblich zu niedrig ist. Nach etwas Ausprobieren und Nachschauen im Code sind wir auf eine \enquote{estimated GPU-RAM consumption} \cite{nnunetGithub} gestoßen, die die Batch-Size vorgibt. Durch die hohe Auflösung der Bilder ($\approx$ 3500x2300) wird dieser geschätzte GPU-Ram Verbrauch zu groß und als Folge dessen die Batch-Size mit 1 zu klein, da in einem Batch per Definition des Frameworks immer mindestens 2 Samples enthalten sein müssen.\\
+Diese Bilder konnten auch wie bei den Larven mit dem zur Verfügung gestellten Python-Script \cite{nnunetGithub2D-Pythonscript} in Nifti-Dateien konvertiert werden. Jedoch ergab sich beim Ausführen des Trainings das Problem, dass die automatisch ermittelte Batch-Size des Frameworks angeblich zu niedrig ist. Nach etwas Ausprobieren und Nachschauen im Code sind wir auf eine \enquote{estimated GPU-RAM consumption} \cite{nnunetGithub} gestoßen, die die Batch-Size vorgibt. Durch die hohe Auflösung der Bilder ($\approx$ 3500x2300) und den 3 Farbkanälen wird dieser geschätzte GPU-Ram Verbrauch zu groß und als Folge dessen die Batch-Size mit 1 zu klein, da in einem Batch per Definition des Frameworks immer mindestens 2 Samples enthalten sein müssen.\\
 Durch Ausgeben des geschätzten GPU-Ram Verbrauchs haben wir herausgefunden, dass dieser ungefähr linear mit der Anzahl an Pixeln wächst und konnten so ausrechnen, dass eine Verkleinerung der Bilder auf mindestens 42\% ausreicht, damit 2 Samples in ein Batch gelangen können.
 Diese Verkleinerung der Auflösung muss nur für die Trainingsdaten vorgenommen werden. Auf den Testdaten, von denen lediglich eine Prediction erstellt werden muss, kann die Auflösung höher sein.\\
 Außerdem haben wir, bevor wir mit dem geschätzten GPU-Ram Verbrauch gespielt haben, manuelle Data-Augmentation betrieben indem wir die Bilder rotiert und gespiegelt haben, in der Hoffnung dadurch mehr Samples in einem Batch zu erhalten. Dies hat sich im Nachhinein jedoch als nicht nötig herausgestellt und hat dem Framework das Training im 1. Durchlauf eventuell unnötig erschwert. Später im 2. Durchlauf mit minimaler Trainingssample-Anzahl haben wir diesen Fehler nicht gemacht.
@@ -335,14 +331,15 @@ Da wir auch hier relativ gute Ergebnisse erzielen konnten, wollten wir das Frame
 
 Es fällt auf, dass bei dem minimalen Trainingssplit Overfitting stattfindet, da alle Samples bis auf ein einziges einen Dice-Koeffizienten von genau 1 besitzen (s. Abbildung \ref{pic:Dice_205}). Auch der Progress-Graph (Abbildung \ref{pic:Prog_205}) steigt am Anfang schneller als bei $\frac{2}{3}$ Trainingssplit.\\
 Auf dem Testsplit fällt auf, dass bei Durchlauf 1 (Abbildung \ref{pic:Dice_203}) eine Gruppierung stattfindet. Viele Samples liegen sehr nah bei 1 und eine zweite, etwa gleich große Gruppe liegt um $0,85$ herum. Dies kommt sehr wahrscheinlich von unserer, fälschlicherweise durchgeführten, manuellen Data-Augmentation, bei der wir das gleiche Bild mehrmals in rotierter und gespiegelter Form in das Framework gegeben haben. Beim 2. Durchlauf mit minimalem Trainsplit sind die Samples im Testsplit relativ gleichmäßig um den Durchschnitt von $0,83$ verteilt (s. Abbildung \ref{pic:Dice_205}).\\\\
-Beim Betrachten der Visualisierung der besten, schlechtesten und mittleren Predictions je Split (Abbildungen \ref{pic:Vis-Train_205}, \ref{pic:Vis-Test_205}) fällt auf, dass die Adern in der Predictions generell breiter sind als in Ground-Truth. Das kommt von der leider notwendigen Verkleinerung der Auflösung der Bilder, da dann bei feinen Adern anstatt nur schwarzer oder weißer Pixel in der Ground-Truth Segmentierung auch graue Pixel entstehen, da z.B. Adern mit einer Breite von einem Pixel nicht weiter in der Auflösung reduziert werden können. Wir haben uns dafür entschieden, die dann grauen Pixel auch als weiße Pixel, also als Ader-Segmentierung, zu zählen, da ansonsten feine Adern Lücken bekommen und die Segmentierung insgesamt schlechter ausfällt. Ansonsten findet man keine groben Fehler, die meisten Adern werden sehr genau erkannt.
+Beim Betrachten der Visualisierung der besten, schlechtesten und mittleren Predictions je Split (Abbildungen \ref{pic:Vis-Train_205}, \ref{pic:Vis-Test_205}) fällt auf, dass die Adern in der Predictions generell breiter sind als in Ground-Truth. Das kommt von der leider notwendigen Verkleinerung der Auflösung der Bilder, da dann bei feinen Adern anstatt nur schwarzer oder weißer Pixel in der Ground-Truth Segmentierung auch graue Pixel entstehen, da z.B. Adern mit einer Breite von einem Pixel nicht weiter in der Auflösung reduziert werden können. Wir haben uns dafür entschieden, die dann grauen Pixel auch als weiße Pixel, also als Ader-Segmentierung, zu zählen, da ansonsten feine Adern Lücken bekommen und die Segmentierung insgesamt schlechter ausfällt. Wenn das Framework wie geplant zu einem späteren Zeitpunkt Patches in der 2D-Variante erlaubt, wäre eine Verkleinerung der Auflösung nicht mehr nötig und das Problem der zu breiten Adern nicht mehr vorhanden \cite{nnunetGithub-2dpatches}.
+Ansonsten findet man keine groben Fehler, die meisten Adern werden sehr genau erkannt. 
 
 
 
 \begin{figure}[H]
 \centering
 \includegraphics[height=0.35\textheight, width=\textwidth]{Pictures/nnUnet/Praxis/Task205-Augen-minimal-13-trainsamples/Vis-Train.png}
-\caption{Visualisierung des Trainsplits auf dem Larvendatensatz mit minimalem Trainsplit (links: schlechteste Ergebnisse, mitte: beste Ergebnisse, rechts: Ergebnisse im Median; jeweils Original, Ground-Truth und Prediction)}
+\caption{Visualisierung des Trainsplits auf dem Retina-Datensatz mit minimalem Trainsplit (links: schlechteste Ergebnisse, mitte: beste Ergebnisse, rechts: Ergebnisse im Median; jeweils Original, Ground-Truth und Prediction)}
 \label{pic:Vis-Train_205}
 \end{figure}
 
@@ -350,7 +347,7 @@ Beim Betrachten der Visualisierung der besten, schlechtesten und mittleren Predi
 \begin{figure}[H]
 \centering
 \includegraphics[height=0.35\textheight, width=\textwidth]{Pictures/nnUnet/Praxis/Task205-Augen-minimal-13-trainsamples/Vis-Train.png}
-\caption{Visualisierung des Testsplits auf dem Larvendatensatz mit minimalem Trainsplit (links: schlechteste Ergebnisse, mitte: beste Ergebnisse, rechts: Ergebnisse im Median; jeweils Original, Ground-Truth und Prediction)}
+\caption{Visualisierung des Testsplits auf dem Retina-Datensatz mit minimalem Trainsplit (links: schlechteste Ergebnisse, mitte: beste Ergebnisse, rechts: Ergebnisse im Median; jeweils Original, Ground-Truth und Prediction)}
 \label{pic:Vis-Test_205}
 \end{figure}
 
@@ -374,7 +371,7 @@ Da wir bei diesem Datensatz relativ gute Ergebnisse produzieren konnten, haben w
 \begin{figure}[H]
 \begin{minipage}{.5\textwidth}
 \includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task205-Augen-minimal-13-trainsamples/extra_Bilder/1170_right.png}
-\end{minipage}
+\end{minipage}%
 \begin{minipage}{.5\textwidth}
 \includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task205-Augen-minimal-13-trainsamples/extra_Bilder/1170_right-original.jpeg}
 \end{minipage}
@@ -388,22 +385,319 @@ Da wir bei diesem Datensatz relativ gute Ergebnisse produzieren konnten, haben w
 \subsection{CT-Datensatz}
 \todo{Stimmt das so mit dem CT Datensatz?}
 Da wir bisher nur eigene 2D-Datensätze in das Framework gegeben haben und es nur wenig öffentlich zugängliche 3D-Datensätze zur Segmentierung gibt, die nicht Teil der MSD-Challenge \cite{msdChallenge} sind, wurde uns ein Datensatz mit 19 Ganzkörper CT-Aufnahmen zur Verfügung gestellt, in denen Kalzium-Ablagerungen am Rand der Gefäße segmentiert werden sollen.
-Auffällig ist hierbei, dass trotz der hohen Auflösung des Datensatzes (512x512 mit $\approx$ 400-600 Slices je Sample) nur \textit{sehr} wenig Pixel in der Segmentierung markiert sind. Bestenfalls sind $\approx$ 13000 Pixel im kompletten 3D Volumen bestehend aus 570 Slices mit je einer Auflösung von 512x512, was einem Anteil von \textit{maximal} 0,008\%. Außerdem gibt es auch Samples mit deutlich weniger oder gar keinen markierten Pixeln in der Ground-Truth Segmentierung. \todo{Scatterplot Haeufigkeiten CT} Dies erschwert das Training und könnte eine Begründung für die \todo{\textit{schlecht} gegen etwas angemessenes austauschen} schlechten Ergebnisse sein.\\
-Um den Datensatz in nnUNet zu geben mussten wir erst die zur Verfügung gestellten .nrrd (Ground-Truth) und .dcom (3D-CT-Scan) Dateien mit eigenen kleinen Pythonscripten \cite{autoMLGithub} in Nifti-Dateien umwandeln. Beim Trainieren ist uns erst nach zweimaligem Neustarten ohne Erfolg, mit sehr schlechten Ergebnissen bei genauerem Lesen des Papers aufgefallen, dass wir das Preprocessen in nnUNet bisher immer auf dem Login-Node des Clustercomputers Palma II durchgeführt haben, der keine Grafikkarte besitzt, um Wartezeiten in der Warteschlange zu vermeiden. Das Preprocessen ist aber abhängig von den zu dem Zeitpunkt zur Verfügung gestellten Ressourcen, insbesondere des verfügbaren GPU Speichers. Nachdem wir diesen Denkfehler behoben haben und den CT-Datensatz sowohl auf einer GPUv100 Karte preprocessed und trainiert haben, gelang es uns \todo{\textit{einigermaßen akzeptable} ersetzen} einigermaßen akzeptable Ergebnisse zu erzielen. \todo{Verweis auf Visualisierung des CT Datensatzes, Predictions raussuchen und veranschaulichen}
-\todo{Verschiedene Versionen diskutieren? 3dcascade, 3dfullres (1000 + 2000) und 2d}
+Auffällig ist hierbei, dass trotz der hohen Auflösung des Datensatzes (512x512 mit $\approx$ 400-600 Slices je Sample) nur \textit{sehr} wenig Pixel in der Segmentierung markiert sind. Bestenfalls sind $\approx$ 13000 Pixel im kompletten 3D Volumen bestehend aus 570 Slices mit je einer Auflösung von 512x512, was einem Anteil von \textit{maximal} 0,008\% entspricht. Außerdem gibt es auch Samples mit deutlich weniger oder gar keinen markierten Pixeln in der Ground-Truth Segmentierung (s. Abbildung \ref{pic:Haeuf_109}).
+
+\begin{figure}[H]
+
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task109-CT/Haeufigkeitsverteilung-109-CT}
+\caption{Anteil von Objekt (Kalziumablagerung) je Sample mit Durchschnitt $\approx$ 0.002\%}
+\label{pic:Haeuf_109}
+\end{figure}
+
+
+Dies erschwert das Training und könnte eine Begründung für die nicht sonderlich guten Ergebnisse sein.\\
+Um den Datensatz in nnUNet zu geben mussten wir erst die zur Verfügung gestellten .nrrd (Ground-Truth) und .dcom (3D-CT-Scan) Dateien mit eigenen kleinen Pythonscripten \cite{autoMLGithub} in Nifti-Dateien umwandeln. Dabei sind wir auf sehr viele Probleme gestoßen und hatten erst kurz vor Ende des Projektseminars einigermaßen gute Ergebnisse. Zuerst hatten wir das Problem, dass beim Einlesen der .dcom und .nrrd Dateien die Drehung nicht intuitiv und nicht bei beiden gleich ist. Somit passte die Drehung der Ground-Truth Dateien nicht mehr zu den Original CT-Dateien, was aufgrund der geringen Häufigkeit an Pixeln in den Ground-Truth Daten und den mit dem Auge schwer ausfindig zu machenden zugehörigen Stellen im Original-Bild nicht direkt ersichtlich war.\\
+Nachdem wir die Dateien passend gedreht haben und sie in allen Dimensionen übereinstimmten, konnten wir beim Training mit allen Netzvarianten keine sonderlich  guten Ergebnisse erzielen. Wir haben lange ausprobiert und gesucht, woran das liegen könnte, bis wir dann schließlich festgestellt haben, dass wir beim Konvertieren in Nifti-Dateien versehentlich den Wertebereich jedes Pixels von 16 Bit auf 8 Bit einschränken. Außerdem ist uns beim Trainieren erst nach zweimaligem Neustarten ohne Erfolg, mit sehr schlechten Ergebnissen bei genauerem Lesen des Papers aufgefallen, dass wir das Preprocessen in nnUNet bisher immer auf dem Login-Node des Clustercomputers Palma II durchgeführt haben, der keine Grafikkarte besitzt, um Wartezeiten in der Warteschlange zu vermeiden. Das Preprocessen ist aber abhängig von den zu dem Zeitpunkt zur Verfügung gestellten Ressourcen, insbesondere des verfügbaren GPU Speichers. Nachdem wir diesen Denkfehler behoben haben und den CT-Datensatz sowohl auf einer GPUv100 Karte preprocessed und trainiert haben, gelang es uns einigermaßen akzeptable Ergebnisse zu erzielen.
+
+
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{.5\textwidth}
+\begin{subfigure}{\textwidth}
+\centering
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task109-CT/progress_109-CT_2d.png}
+\caption{2D Netz-Variante}
+\label{pic:Prog_109-2d}
+\end{subfigure}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+\begin{subfigure}{\textwidth}
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task109-CT/progress_109-CT_3d_cascade_fullres.png}
+\caption{3D\_cascade Netz-Variante}
+\label{pic:Prog_109-cascade}
+\end{subfigure}
+\end{minipage}
+
+\caption{Verlauf des Dice-Koeffizienten beim Training über 1000 Epochen}
+\label{pic:Prog_109-A}
+\end{figure}
+
+Bei dem Training der 2D und 3D\_cascade Netz-Variante fällt auf, dass kaum eine Steigung vorhanden ist und die Ergebnisse mit einem Dice-Koeffizienten von $\approx 0.2$ bzw. $0.35$ gleichbleibend schlecht sind (s. Abbildung \ref{pic:Prog_109-A}).
+Bei der 3D\_fullres Netz-Variante haben wir eine deutliche Steigung festgestellt, waren mit dem Ergebnis nach den standardmäßigen 1000 Epochen aber noch nicht zufrieden. Da die Steigung des Progress-Graphen (Abbildung \ref{pic:Prog_109-B}) auch bei Epoche 1000 noch relativ stark ist, haben wir das Training um weitere 1000 Epochen fortgesetzt und so insgesamt 2000 Epochen, also doppelt so lange wie die Standardeinstellung, trainieren lassen und konnten einen Dice-Koeffizienten von ca. 0.6 erreichen (s. Abbildung \ref{pic:Prog_109-B}).
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task109-CT/progress_109-CT_3d_fullres.png}
+\caption{Verlauf des Dice-Koeffizienten beim Training über 2000 Epochen mit 3D\_fullres}
+\label{pic:Prog_109-B}
+\end{figure}
+
+Bei den Ergebnissen fällt auf, dass die Güte der Predictions bei 3D\_cascade stark streut und  nur in einem Fall sehr gut ist (s. Abbildung \ref{pic:Dice_109-cascade}). Die 2D Netz-Variante ist nicht zu gebrauchen (s. Abbildung \ref{pic:Dice_109-2d}). Dies liegt daran, dass dem 2D-Netz die Information über die Tiefe fehlt und nur die Slices einzeln für sich betrachtet werden.\\
+Lediglich mit 3D\_fullres nach 2000 Epochen konnten wir einigermaßen akzeptable Ergebnisse erzielen (s. Abbildung \ref{pic:Dice_109-B}). Hierbei wurden Samples, die schon in Ground-Truth keinen einzigen markieren Pixel besitzen, ausgelassen, da dort kein Dice-Koeffizient berechnet werden kann.
+
+
+
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{.5\textwidth}
+\begin{subfigure}{\textwidth}
+\centering
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task109-CT/Scatterplot-Dice-109-CT_2d}
+\caption{2D Netz-Variante}
+\label{pic:Dice_109-2d}
+\end{subfigure}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+\begin{subfigure}{\textwidth}
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task109-CT/Scatterplot-Dice-109-CT_3d_cascade}
+\caption{3D\_cascade Netz-Variante}
+\label{pic:Dice_109-cascade}
+\end{subfigure}
+\end{minipage}
+
+\caption{Scatterplot der Dice-Koeffizienten je Sample in der 2D bzw 3D\_cascade Netz-Variante}
+\label{pic:Dice_109-A}
+\end{figure}
+
+\begin{figure}[H]
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task109-CT/Scatterplot-Dice-109-CT_3d_fullres}
+\caption{Scatterplot der Dice-Koeffizienten je Sample in der 3D\_fullres Netz-Variante}
+\label{pic:Dice_109-B}
+\end{figure}
+
+
+
+% Vis
+%%%%%%%%%%%%%%%%%%%%%%%%%%% ORIG
+\begin{figure}[H]
+\begin{minipage}{0.3\textwidth}
+\begin{subfigure}{\textwidth}
+\centering
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task109-CT/samples/orig/orig_CT_003_0000.nii.gz430.png}
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task109-CT/samples/orig/orig_CT_003_0000.nii.gz475.png}
+\caption{Original CT Aufnahmen}
+\end{subfigure}
+\end{minipage}%
+\hspace{3mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%% GT
+\begin{minipage}{0.3\textwidth}
+\begin{subfigure}{\textwidth}
+\centering
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task109-CT/samples/gt/gt_CT_003.nii.gz430.png}
+\centering
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task109-CT/samples/gt/gt_CT_003.nii.gz475.png}
+\caption{Ground-Truth}
+\end{subfigure}
+\end{minipage}%
+\hspace{3mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%% PRED
+\begin{minipage}{0.3\textwidth}
+\begin{subfigure}{\textwidth}
+\centering
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task109-CT/samples/pred/pred_CT_003.nii.gz430.png}
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task109-CT/samples/pred/pred_CT_003.nii.gz475.png}
+\caption{Predictions}
+\end{subfigure}
+\end{minipage}%
+\caption{Visualisierung eines Samples (003)}
+\label{pic:Vis_109}
+\end{figure}
+
+Bei der Visualisierung des zweitbesten Samples (Nummer 003, Dice=0,906) sieht man, wie wenig Pixel (insgesamt über alle Slices 1628 Stück) markiert sind und wie schwer zu erkennen die zugehörigen Stellen im Original CT-Bild sind (s. Abbildung \ref{pic:Vis_109}). In dem besten Sample (Nummer 018, Dice=1) wären es noch deutlich weniger Pixel gewesen (34 Stück).
 
 \subsection{Pascal VOC2012}
-\todo{Gewichtung für Average als Formel darstellen}
+\begin{figure}[H]
+
+%\begin{subfigure}{\textwidth}
+%\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task204-Pascal-VOC12-achtel-%testsplit/Haeufigkeitsverteilung-PascalVOC-Train}
+%\caption{Trainsplit (10\% Stichprobe)}
+%\label{pic:Haeuf-Train_204}
+%\end{subfigure}
+
+
+\begin{subfigure}{\textwidth}
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task204-Pascal-VOC12-achtel-testsplit/Haeufigkeitsverteilung-PascalVOC-Train-zoomed}
+\caption{Trainsplit vergrößert}
+\label{pic:Haeuf-Train_204-zoom}
+\end{subfigure}
+
+
+
+%\begin{subfigure}{\textwidth}
+%\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task204-Pascal-VOC12-achtel-%testsplit/Haeufigkeitsverteilung-PascalVOC-Test}
+%\caption{Testsplit (50\% Stichprobe)}
+%\label{pic:Haeuf-Test_204}
+%\end{subfigure}
+
+
+\begin{subfigure}{\textwidth}
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task204-Pascal-VOC12-achtel-testsplit/Haeufigkeitsverteilung-PascalVOC-Test-zoomed}
+\caption{Testsplit vergrößert}
+\label{pic:Haeuf-Test_204-zoom}
+\end{subfigure}
+\caption{Durchschnittswerte für jede Klasse und ihre zugehörige Auftrittshäufigkeit im gesamten Datensatz}
+\label{pic:Haeuf_204}
+\end{figure}
+\todo{Nicht-rangezoomte Version ist erstmal draußen. Unübersichtlich, groß, macht pdf langsam}
+
 Nachdem wir bei den bisherigen 2D-Datensätzen nur Graustufen-Bilder mit einer Klasse (Larven) und farbige Bilder mit einer Klasse (Retina 2D) verwendet haben wollten wir auch noch einen 2D-Datensatz in Farbe mit mehreren Objekt-Klassen ausprobieren. Die Entscheidung fiel relativ schnell auf Pascal VOC2012 \cite{PascalVOCDatensatz}, da dieser sehr viele Klassen (20 Klassen + Background) und viele segmentierte Bilder (2856 Stück) in verschiedenen Formaten und Auflösungen zur Verfügung stellt und von vielen anderen Frameworks zum Vergleichen verwendet wird. Außerdem ist dieser Datensatz mit Fotografien nochmal wesentlich weiter von der \enquote{biomedical-domain} \cite{nnunetGithub2D-Daten}, für die das Framework eigentlich erstellt wurde, entfernt und dient somit als Test, wie robust das Framework mit verschiedenen Daten umgeht.\\\\
 Um die Pascal-VOC 2012 Bilder in nnUNet zu geben mussten erst die Farbkodierungen in der Ground-Truth-Segmentierung in Indizes umgewandelt werden \cite{autoMLGithub}, da nnUNet bei 0=Background beginnend aufsteigende Integer für die Klassen erwartet aber in dem Pascal-Datensatz \cite{PascalVOCDatensatz} die Segmentierung zur besseren Erkennbarkeit farblich gekennzeichnet ist.\\
-Außerdem mussten 57 Bilder, die nicht farbig sondern nur in Graustufen in Pascal-VOC 2012 \cite{PascalVOCDatensatz} vorhanden sind entfernt werden, da das Framework nicht mit einer variablen Anzahl an (Farb-) Kanälen umgehen kann.\\\\
+Außerdem mussten 57 Bilder, die nicht farbig sondern nur in Graustufen in Pascal-VOC 2012 \cite{PascalVOCDatensatz} vorhanden sind entfernt werden, da das Framework nicht mit einer variablen Anzahl an (Farb-) Kanälen umgehen kann.\\
+Bei dem Datensatz ist auffällig, dass die Klassenhäufigkeiten sich untereinander unterscheiden und manche Klassen wesentlich häufiger auftreten als andere. Im Train- und im Testsplit ist diese Unausgeglichenheit jedoch ähnlich (s. Abbildung \ref{pic:Haeuf_204}).
 
-Bei der Auswertung ist uns aufgefallen, dass die Accuracy (Dice) zwischen den verschiedenen Klassen stark schwankt und das Framework manche Klassen deutlich besser erkennt als andere. \todo{Ergebnisse ausformulieren, Bilder einfügen}
+Um die Gesamt-Performance auf diesem Datensatz auszuwerten mussten wir erstmalig über mehrere Klassen einen Durchschnitt bilden. Naiv könnte man die Dice-Koeffizienten jeder Klasse addieren und am Ende durch die Anzahl der Klassen teilen. Dies hätte jedoch die Folge, dass gute bzw. schlechte Klassen, die sehr selten vorkommen, das Endergebnis unverhältnismäßig nach oben bzw. unten ziehen. Wir haben uns für eine Gewichtung der Form
+\[\text{average} = \frac{\sum_i{d_i * n_i}}{\sum_i{n_i}}\]
+mit $d_i$: Dice-Koeffizient eines Samples für Klasse $i$\\
+$n_i$: Anzahl zu Klasse $i$ gehöriger Pixel im Ground-Truth des Samples.\\
+Diese Formel kann auch auf die Durchschnittswerte, die automatisch vom Framework je Klasse generiert werden, angewandt werden um einen Durchschnittswert über alle Klassen hinweg zu bilden.\\\\
+Das Training verlief gut und es konnten, wie von den anderen Datensätzen gewohnt, relativ schnell gute Ergebnisse auf dem Trainsplit bzw. im Progress-Graph verzeichnet werden. Im Testsplit sind die Ergebnisse jedoch weit von denen aus dem Trainsplit entfernt.
+Dies zeigt unserer Meinung nach die Grenzen dieses Frameworks auf, da es bisher sehr gut mit regelmäßigen Mustern und Strukturen wie z.B. bei den Larven oder den Retina Adern umgehen konnte, jedoch jetzt bei Fotografien aus verschiedenen Blickwinkeln mit Objekten von Klassen in verschiedenen Größen, die sich zudem noch sehr stark ähneln (z.B. Schaf und Hund) schlecht abschneidet. Außerdem ist auffällig, dass bestimmte Klassen wesentlich schlechter auf dem Testsplit sind als andere (s. Abbildung \ref{pic:Prog_204} und \ref{pic:Dice_204}).
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{\textwidth}
+\centering
+\includegraphics[width=.6\textwidth]{Pictures/nnUnet/Praxis/Task204-Pascal-VOC12-achtel-testsplit/progress_204-Pascal-VOC12-achtel-testsplit.png}
+\caption{Verlauf des Dice-Koeffizienten beim Training über 1000 Epochen}
+\label{pic:Prog_204}
+\end{subfigure}
+
+\begin{subfigure}{\textwidth}
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task204-Pascal-VOC12-achtel-testsplit/Scatterplot-Dice}
+\caption{Scatterplot der Dice-Koeffizienten je Sample für Train- und Testsplit}
+\label{pic:Dice_204}
+\end{subfigure}
+
+\caption{Dice-Koeffizienten zum PascalVOC 2012 \cite{PascalVOCDatensatz} Datensatz mit $\frac{7}{8}$ Trainsplit und $\frac{1}{8}$ Testsplit}
+\end{figure}
+
+
+Bei der Visualisierung fällt auf, dass auf dem Trainsplit die meisten Objekte grob erkannt werden, nur bei feineren Strukturen (z.B. dem kleinen Fahrrad) wird ungenau segmentiert. Ansonsten sind keine groben Fehler vorhanden und es werden keine Klassen verwechselt (s. Abbildung \ref{pic:Vis-Train_204}).\\
+Auf dem Testsplit hingegen sieht man, dass ähnlich aussehende Klassen wie z.B. Person, Schaf, Kuh und Hund häufig verwechselt werden, aber im Median eine ziemlich solide Performance gegeben ist (s. Abbildung \ref{pic:Vis-Test_204}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.35\textheight, width=\textwidth]{Pictures/nnUnet/Praxis/Task204-Pascal-VOC12-achtel-testsplit/Vis-Train.png}
+\caption{Visualisierung des Trainsplits auf dem PascalVOC 12 \cite{PascalVOCDatensatz} Datensatz (links: schlechteste Ergebnisse, mitte: beste Ergebnisse, rechts: Ergebnisse im Median; jeweils Original, Ground-Truth und Prediction)}
+\label{pic:Vis-Train_204}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.35\textheight, width=\textwidth]{Pictures/nnUnet/Praxis/Task204-Pascal-VOC12-achtel-testsplit/Vis-Train.png}
+\caption{Visualisierung des Testsplits auf dem PascalVOC 12 \cite{PascalVOCDatensatz} Datensatz (links: schlechteste Ergebnisse, mitte: beste Ergebnisse, rechts: Ergebnisse im Median; jeweils Original, Ground-Truth und Prediction)}
+\label{pic:Vis-Test_204}
+\end{figure}
 
 \subsection{Retina 3D-Datensatz}
-Abschließend haben wir, da wir auf dem anderen 3D-Datensatz mit CT-Aufnahmen \todo{anders formulieren, Ergebnisse sind halbwegs ok} keine guten Ergebnisse erzielen konnten, einen weiteren 3D-Datensatz mit Retinae zur Verfügung gestellt bekommen. Er besteht aus 21 Samples von 3D-Scans der Retina mit Segmentierungen. Diese Samples liegen sowohl in ihrer ursprünglichen, gekrümmten Form vor als auch in einer geplätteten Form, die die Krümmung der Netzhaut heraus rechnet. Wir haben uns auf die gekrümmte Version beschränkt.\\\\
-Wir haben wieder die zur Verfügung gestellten .mat Dateien in Niftis konvertiert \cite{autoMLGithub} und das Training gestartet.
-\todo{Ergebnisse einfügen, diskutieren wie 3d\_fullres und 2d sich unterscheiden, Ensemble auch}
+\begin{figure}[H]
+\begin{minipage}{.5\textwidth}
+\begin{subfigure}{\textwidth}
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task108-Retina3D/Haeufigkeitsverteilung-108-Train}
+\caption{Trainsplit}
+\label{pic:Haeuf-Train_108}
+\end{subfigure}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\begin{subfigure}{\textwidth}
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task108-Retina3D/Haeufigkeitsverteilung-108-Test}
+\caption{Testsplit}
+\label{pic:Haeuf-Test_108}
+\end{subfigure}
+\end{minipage}
+\caption{Anteil von Objekt (Ader) je Sample mit Durchschnitt je Split $\approx$ 0.55\%}
+\label{pic:Haeuf_108}
+\end{figure}
+Abschließend haben wir, da wir auf dem anderen 3D-Datensatz mit CT-Aufnahmen keine besonders guten Ergebnisse erzielen konnten, einen weiteren 3D-Datensatz mit Retinae zur Verfügung gestellt bekommen. Er besteht aus 21 Samples von 3D-Scans der Retina mit Segmentierungen. Diese Samples liegen sowohl in ihrer ursprünglichen, gekrümmten Form vor als auch in einer geplätteten Form, die die Krümmung der Netzhaut heraus rechnet. Wir haben uns auf die gekrümmte Version beschränkt.\\\\
+Wir haben wieder die zur Verfügung gestellten .mat Dateien in Niftis konvertiert \cite{autoMLGithub} und das Training gestartet. Der Objektanteil in dem Datensatz ist sowohl im Train- als auch im Testsplit im Vergleich zu dem 2D-Retina Datensatz \cite{retina2d} um ein Vielfaches geringer, jedoch deutlich höher als bei dem CT-Datensatz (s. Abbildung \ref{pic:Haeuf_108})
+\begin{figure}[H]
+\begin{minipage}{.5\textwidth}
+\begin{subfigure}{\textwidth}
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task108-Retina3D/progress_108-Retina3D_3dFullres.png}
+\caption{3D\_fullres Netz-Variante}
+\label{pic:Prog_108-3dfullres}
+\end{subfigure}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\begin{subfigure}{\textwidth}
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task108-Retina3D/progress_108-Retina3D_2DNet.png}
+\caption{2D Netz-Variante}
+\label{pic:Prog_108-2d}
+\end{subfigure}
+\end{minipage}
+\caption{Progress-Graphen für Retina 3D in den Netzvarianten 3D\_fullres und 2D.}
+\label{pic:Prog_108}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\begin{minipage}{.3\textwidth}
+\begin{subfigure}{\textwidth}
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task108-Retina3D/Scatterplot-Dice-108-Retina_3d_fullres}
+\caption{3D\_fullres Netz-Variante}
+\label{pic:Dice_108-3dfullres}
+\end{subfigure}
+\end{minipage}
+\begin{minipage}{.3\textwidth}
+\begin{subfigure}{\textwidth}
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task108-Retina3D/Scatterplot-Dice-108-Retina_2d}
+\caption{2D Netz-Variante}
+\label{pic:Dice_108-2d}
+\end{subfigure}
+\end{minipage}
+\begin{minipage}{.3\textwidth}
+\begin{subfigure}{\textwidth}
+\includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task108-Retina3D/Scatterplot-Dice-108-Retina_ensemble}
+\caption{Ensemble von \ref{pic:Dice_108-2d} und \ref{pic:Dice_108-3dfullres}}
+\label{pic:Dice_108-ensemble}
+\end{subfigure}
+\end{minipage}
+\caption{Scatterplot mit Dice-Koeffizienten je Sample für Retina 3D in den Netzvarianten 3D\_fullres, 2D und ihrem Ensemble}
+\label{pic:Dice_108}
+\end{figure}
+
+
+Es fällt auf, dass insgesamt die 2D Netz-Variante auf dem Trainsplit am besten abschneidet, während die 3D\_fullres Netz-Variante auf dem Testsplit am besten abschneidet. Das Ensemble aus den beiden Varianten ist im Trainsplit schlechter als als 2D, aber besser als 3D\_fullres und auf dem Testsplit besser als 2D aber schlechter als 3D\_fullres (s. Abbildung \ref{pic:Dice_108}).\\\\
+Anhand von Abbildung \ref{pic:Vis_108} sieht man beispielhaft, dass das 3D\_fullres Netz im Testsplit feine Adern ein bisschen besser erkennt als das 2D Netz. Insgesamt sieht man bei beiden Netz-Varianten und dem Ensemble keine groben Fehler.
+
+\begin{figure}[H]
+\begin{minipage}{.3\textwidth}
+\begin{subfigure}{\textwidth}
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task108-Retina3D/vis/orig_008_0000.nii.gz66.png}
+\caption{Original}
+\end{subfigure}
+\end{minipage}
+\begin{minipage}{.3\textwidth}
+\begin{subfigure}{\textwidth}
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task108-Retina3D/vis/gt_008.nii.gz66.png}
+\caption{Ground-Truth}
+\end{subfigure}
+\end{minipage}
+\begin{minipage}{.3\textwidth}
+\begin{subfigure}{\textwidth}
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task108-Retina3D/vis/pred2d_008.nii.gz66.png}
+\caption{Prediction (2D)}
+\end{subfigure}
+\end{minipage}
+\begin{minipage}{.3\textwidth}
+\begin{subfigure}{\textwidth}
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task108-Retina3D/vis/pred3d_008.nii.gz66.png}
+\caption{Prediction (3D\_fullres)}
+\end{subfigure}
+\end{minipage}
+\begin{minipage}{.3\textwidth}
+\begin{subfigure}{\textwidth}
+\includegraphics[width=\textwidth]{Pictures/nnUnet/Praxis/Task108-Retina3D/vis/ens_008.nii.gz66.png}
+\caption{Prediction (Ensemble)}
+\end{subfigure}
+\end{minipage}
+\caption{Visualisierung eines zufällig ausgewählten Samples aus dem Testsplit (Nummer 008) und dessen Prediction}
+\label{pic:Vis_108}
+\end{figure}
+
 
 
 
