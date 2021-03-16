@@ -76,30 +76,30 @@ Da die empirischen Parameter nicht direkt aus dem Datensatz erschlossen werden k
  & (Train:Test) & \textbf{nnUNet-Variante} & (h) & (Dice)& (Dice)  \\ 
 \hline 
 \hline
-Larven & 265:0 $\approx$ 1:0 & 2D & 8:30 & 0.99970 & - \\ 
+Larven \cite{larven} & 265:0 $\approx$ 1:0 & 2D & 8:30 & 0.99970 & - \\ 
 \hline 
-Larven & 173:92 $\approx$ 2:1 & 2D & 6:45 & 0.99982 & 0.94459 \\ 
+Larven \cite{larven}& 173:92 $\approx$ 2:1 & 2D & 6:45 & 0.99982 & 0.94459 \\ 
 \hline 
-Pascal VOC12 & 2516:340 $\approx$ 7:1 & 2D & 26:00 & 0.90266 & 0.34953 \\ 
+Pascal VOC12 \cite{PascalVOCDatensatz}& 2516:340 $\approx$ 7:1 & 2D & 26:00 & 0.90266 & 0.34953 \\ 
 \hline 
-Retina-2D (manuelle & \multirow{2}{*}{56:34 $\approx$ 2:1} & \multirow{2}{*}{2D} & \multirow{2}{*}{23:20} & \multirow{2}{*}{0.99977} &\multirow{2}{*}{0.93606}  \\ 
+Retina-2D \cite{retina2d} (manuelle & \multirow{2}{*}{56:34 $\approx$ 2:1} & \multirow{2}{*}{2D} & \multirow{2}{*}{23:20} & \multirow{2}{*}{0.99977} &\multirow{2}{*}{0.93606}  \\ 
 Data-Augmentation)&  & & & &  \\ 
 \hline 
-Retina-2D (minimal) & 13:32 $\approx$ 1:2 & 2D & 21:15 & 0.99999 &  0.83013 \\ 
+Retina-2D \cite{retina2d} (minimal) & 13:32 $\approx$ 1:2 & 2D & 21:15 & 0.99999 &  0.83013 \\ 
 \hline 
-\multirow{2}{*}{CT (2000 Epochen)} & \multirow{2}{*}{19:0 $\approx$ 1:0} & 3D\_fullres & \multirow{2}{*}{$\approx$ 86:00}  & \multirow{2}{*}{0.67197} & \multirow{2}{*}{-} \\ 
+\multirow{2}{*}{CT \cite{ctDatensatz} (2000 Epochen)} & \multirow{2}{*}{19:0 $\approx$ 1:0} & 3D\_fullres & \multirow{2}{*}{$\approx$ 86:00}  & \multirow{2}{*}{0.67197} & \multirow{2}{*}{-} \\ 
  &  & (\textbf{2000} Epochen) & &  &  \\ 
 \hline 
-CT & 19:0 $\approx$ 1:0 & 2D & 29:00 & 0.00109 & - \\ 
+CT \cite{ctDatensatz} & 19:0 $\approx$ 1:0 & 2D & 29:00 & 0.00109 & - \\ 
 \hline 
-\multirow{2}{*}{CT} & \multirow{2}{*}{19:0 $\approx$ 1:0} & \multirow{2}{*}{3D\_cascade} & $\approx$ 39:00 + 48:00 & \multirow{2}{*}{0.20865} & \multirow{2}{*}{-} \\ 
+\multirow{2}{*}{CT \cite{ctDatensatz}} & \multirow{2}{*}{19:0 $\approx$ 1:0} & \multirow{2}{*}{3D\_cascade} & $\approx$ 39:00 + 48:00 & \multirow{2}{*}{0.20865} & \multirow{2}{*}{-} \\ 
  &  &  & =87:00 &  & \\ 
 \hline 
-Retina-3D & 14:7 $\approx$ 2:1 & 3D\_fullres & 45:15 & 0.91863 & 0.83759 \\ 
+Retina-3D \cite{retina3dDatensatz} & 14:7 $\approx$ 2:1 & 3D\_fullres & 45:15 & 0.91863 & 0.83759 \\ 
 \hline 
-Retina-3D & 14:7 $\approx$ 2:1  & 2D & 19:00 & 0.98574 & 0.78931 \\ 
+Retina-3D \cite{retina3dDatensatz} & 14:7 $\approx$ 2:1  & 2D & 19:00 & 0.98574 & 0.78931 \\ 
 \hline 
-Retina-3D (Ensemble) & 14:7 $\approx$ 2:1 & 2D \& 3D\_fullres & - & 0.97775 & 0.82363 \\ 
+Retina-3D \cite{retina3dDatensatz} (Ensemble) & 14:7 $\approx$ 2:1 & 2D \& 3D\_fullres & - & 0.97775 & 0.82363 \\ 
 \hline
 \end{tabular} 
 \caption{Datensätze, auf denen wir trainiert haben (jeweils 1000 Epochen auf GPUv100)}
@@ -159,7 +159,7 @@ Nach unseren schlechten vorherigen Erfahrungen mit (Auto-) Deeplab \cite{deeplab
 \caption{Anteil von Objekt (Larve) je Sample im Trainsplit (alle 265 Samples) mit Durchschnitt $\approx$ 5,8\%}
 \label{pic:Haeuf_200}
 \end{figure}
-Nachdem wir die Ergebnisse im Paper erfolgreich reproduzieren konnten haben wir versucht einen eigenen Datensatz in das Framework zu geben. Dabei ist zu erwähnen, dass unser Larven-Datensatz ein 2D Datensatz ist. Er beinhaltet Graustufen-Bilder von Larven auf einer Glasscheibe, die mittels Frustrated Total Internal Reflection abgelichtet wurden. Ziel ist es, die Larven zu segmentieren und die Verschmutzungen um die Larven herum dabei zu ignorieren. Jedoch ist nnUNet nicht dafür entworfen worden auf 2D-Datensätze angewendet zu werden, besonders wenn die Datensätze aus der \enquote{non-biomedical domain} \cite{nnunetGithub2D-Daten} stammen.\\
+Nachdem wir die Ergebnisse im Paper erfolgreich reproduzieren konnten haben wir versucht einen eigenen Datensatz in das Framework zu geben. Dabei ist zu erwähnen, dass unser Larven-Datensatz \cite{larven} ein 2D Datensatz ist. Er beinhaltet Graustufen-Bilder von Larven auf einer Glasscheibe, die mittels Frustrated Total Internal Reflection abgelichtet wurden. Ziel ist es, die Larven zu segmentieren und die Verschmutzungen um die Larven herum dabei zu ignorieren. Jedoch ist nnUNet nicht dafür entworfen worden auf 2D-Datensätze angewendet zu werden, besonders wenn die Datensätze aus der \enquote{non-biomedical domain} \cite{nnunetGithub2D-Daten} stammen.\\
 Dies ist jedoch nicht als Einschränkung des Funktionsumfangs zu verstehen, sondern lediglich als Vorwarnung, dass die Ergebnisse eventuell nicht gut ausfallen werden.\\\\
 Wir haben das zum Framework gehörige Python-Script \cite{nnunetGithub2D-Pythonscript} nur leicht modifizieren müssen und konnten den 2D Datensatz in Nifti-Dateien (.nii.gz) konvertieren und so in das Framework geben.\\
 Da es sich hierbei um unseren ersten Test des Frameworks mit eigenem Datensatz handelte haben wir zuerst keinen Test-Split vorgesehen und alle 265 Bilder als Trainingsdaten benutzt.
@@ -275,7 +275,7 @@ Bei der Visualisierung der Predictions fällt erneut auf, dass auf dem Trainspli
 \label{pic:Haeuf_205}
 \end{figure}
 
-Da wir auf dem Larven-Datensatz (Graustufen mit einer einzigen Objekt-Klasse) so gute Ergebnisse erzielen konnten, obwohl das Framework für solche Aufgaben eigentlich nicht gemacht ist, wollten wir einen Schritt weiter gehen und statt graustufen Bildern farbige Bilder verwenden.\\
+Da wir auf dem Larven-Datensatz \cite{larven} (Graustufen mit einer einzigen Objekt-Klasse) so gute Ergebnisse erzielen konnten, obwohl das Framework für solche Aufgaben eigentlich nicht gemacht ist, wollten wir einen Schritt weiter gehen und statt graustufen Bildern farbige Bilder verwenden.\\
 Dazu verwenden wir den Retina-2D Datensatz \cite{retina2d}. Dieser besteht aus jeweils 15 Aufnahmen von gesunden Retinae, Retinae von Augen mit Glaukom und diabetischer Retinopathie, also insgesamt 45 hochauflösenden RGB-Bildern. Unser Ziel der Segmentierung ist es, unabhängig von der Erkrankung, die Adern in der Retina zu markieren.\\
 Diese Bilder konnten auch wie bei den Larven mit dem zur Verfügung gestellten Python-Script \cite{nnunetGithub2D-Pythonscript} in Nifti-Dateien konvertiert werden. Jedoch ergab sich beim Ausführen des Trainings das Problem, dass die automatisch ermittelte Batch-Size des Frameworks angeblich zu niedrig ist. Nach etwas Ausprobieren und Nachschauen im Code sind wir auf eine \enquote{estimated GPU-RAM consumption} \cite{nnunetGithub} gestoßen, die die Batch-Size vorgibt. Durch die hohe Auflösung der Bilder ($\approx$ 3500x2300) und den 3 Farbkanälen wird dieser geschätzte GPU-Ram Verbrauch zu groß und als Folge dessen die Batch-Size mit 1 zu klein, da in einem Batch per Definition des Frameworks immer mindestens 2 Samples enthalten sein müssen.\\
 Durch Ausgeben des geschätzten GPU-Ram Verbrauchs haben wir herausgefunden, dass dieser ungefähr linear mit der Anzahl an Pixeln wächst und konnten so ausrechnen, dass eine Verkleinerung der Bilder auf mindestens 42\% ausreicht, damit 2 Samples in ein Batch gelangen können.
@@ -301,7 +301,7 @@ Außerdem haben wir, bevor wir mit dem geschätzten GPU-Ram Verbrauch gespielt h
 \end{subfigure}
 \end{minipage}
 
-\caption{Dice-Koeffizienten zum Retina-2D Datensatz mit einem Drittel als Testsplit}
+\caption{Dice-Koeffizienten zum Retina-2D Datensatz \cite{retina2d} mit einem Drittel als Testsplit}
 \end{figure}
 
 Da wir auch hier relativ gute Ergebnisse erzielen konnten, wollten wir das Framework an seine Grenzen bringen und so wenig Trainingsamples wie möglich zur Verfügung stellen. Durch Ausprobieren und schrittweises Annähern haben wir herausgefunden, dass nnUNet, jedenfalls bei diesem Datensatz, mindestens 13 Trainingsbeispiele benötigt, da bei weniger Trainingsbeispielen später beim Training ein \textit{IndexOutOfBounds} Fehler auftritt. Leider ist beim Aufteilen in Train- und Testsplit der Objektanteil in den Samples nicht ganz ausbalanciert, da im Trainsplit nur 11\% der Pixel Adern sind und im Testsplit knapp 12\% (s. Abbildung \ref{pic:Haeuf_205}).
@@ -384,7 +384,7 @@ Da wir bei diesem Datensatz relativ gute Ergebnisse produzieren konnten, haben w
 
 \subsection{CT-Datensatz}
 \todo{Stimmt das so mit dem CT Datensatz?}
-Da wir bisher nur eigene 2D-Datensätze in das Framework gegeben haben und es nur wenig öffentlich zugängliche 3D-Datensätze zur Segmentierung gibt, die nicht Teil der MSD-Challenge \cite{msdChallenge} sind, wurde uns ein Datensatz mit 19 Ganzkörper CT-Aufnahmen zur Verfügung gestellt, in denen Kalzium-Ablagerungen am Rand der Gefäße segmentiert werden sollen.
+Da wir bisher nur eigene 2D-Datensätze in das Framework gegeben haben und es nur wenig öffentlich zugängliche 3D-Datensätze zur Segmentierung gibt, die nicht Teil der MSD-Challenge \cite{msdChallenge} sind, wurde uns ein Datensatz mit 19 Ganzkörper CT-Aufnahmen zur Verfügung gestellt \cite{ctDatensatz}, in denen Kalzium-Ablagerungen am Rand der Gefäße segmentiert werden sollen.
 Auffällig ist hierbei, dass trotz der hohen Auflösung des Datensatzes (512x512 mit $\approx$ 400-600 Slices je Sample) nur \textit{sehr} wenig Pixel in der Segmentierung markiert sind. Bestenfalls sind $\approx$ 13000 Pixel im kompletten 3D Volumen bestehend aus 570 Slices mit je einer Auflösung von 512x512, was einem Anteil von \textit{maximal} 0,008\% entspricht. Außerdem gibt es auch Samples mit deutlich weniger oder gar keinen markierten Pixeln in der Ground-Truth Segmentierung (s. Abbildung \ref{pic:Haeuf_109}).
 
 \begin{figure}[H]
@@ -541,7 +541,7 @@ Bei der Visualisierung des zweitbesten Samples (Nummer 003, Dice=0,906) sieht ma
 \end{figure}
 \todo{Nicht-rangezoomte Version ist erstmal draußen. Unübersichtlich, groß, macht pdf langsam}
 
-Nachdem wir bei den bisherigen 2D-Datensätzen nur Graustufen-Bilder mit einer Klasse (Larven) und farbige Bilder mit einer Klasse (Retina 2D) verwendet haben wollten wir auch noch einen 2D-Datensatz in Farbe mit mehreren Objekt-Klassen ausprobieren. Die Entscheidung fiel relativ schnell auf Pascal VOC2012 \cite{PascalVOCDatensatz}, da dieser sehr viele Klassen (20 Klassen + Background) und viele segmentierte Bilder (2856 Stück) in verschiedenen Formaten und Auflösungen zur Verfügung stellt und von vielen anderen Frameworks zum Vergleichen verwendet wird. Außerdem ist dieser Datensatz mit Fotografien nochmal wesentlich weiter von der \enquote{biomedical-domain} \cite{nnunetGithub2D-Daten}, für die das Framework eigentlich erstellt wurde, entfernt und dient somit als Test, wie robust das Framework mit verschiedenen Daten umgeht.\\\\
+Nachdem wir bei den bisherigen 2D-Datensätzen nur Graustufen-Bilder mit einer Klasse (Larven \cite{larven}) und farbige Bilder mit einer Klasse (Retina 2D \cite{retina2d}) verwendet haben wollten wir auch noch einen 2D-Datensatz in Farbe mit mehreren Objekt-Klassen ausprobieren. Die Entscheidung fiel relativ schnell auf Pascal VOC2012 \cite{PascalVOCDatensatz}, da dieser sehr viele Klassen (20 Klassen + Background) und viele segmentierte Bilder (2856 Stück) in verschiedenen Formaten und Auflösungen zur Verfügung stellt und von vielen anderen Frameworks zum Vergleichen verwendet wird. Außerdem ist dieser Datensatz mit Fotografien nochmal wesentlich weiter von der \enquote{biomedical-domain} \cite{nnunetGithub2D-Daten}, für die das Framework eigentlich erstellt wurde, entfernt und dient somit als Test, wie robust das Framework mit verschiedenen Daten umgeht.\\\\
 Um die Pascal-VOC 2012 Bilder in nnUNet zu geben mussten erst die Farbkodierungen in der Ground-Truth-Segmentierung in Indizes umgewandelt werden \cite{autoMLGithub}, da nnUNet bei 0=Background beginnend aufsteigende Integer für die Klassen erwartet aber in dem Pascal-Datensatz \cite{PascalVOCDatensatz} die Segmentierung zur besseren Erkennbarkeit farblich gekennzeichnet ist.\\
 Außerdem mussten 57 Bilder, die nicht farbig sondern nur in Graustufen in Pascal-VOC 2012 \cite{PascalVOCDatensatz} vorhanden sind entfernt werden, da das Framework nicht mit einer variablen Anzahl an (Farb-) Kanälen umgehen kann.\\
 Bei dem Datensatz ist auffällig, dass die Klassenhäufigkeiten sich untereinander unterscheiden und manche Klassen wesentlich häufiger auftreten als andere. Im Train- und im Testsplit ist diese Unausgeglichenheit jedoch ähnlich (s. Abbildung \ref{pic:Haeuf_204}).
@@ -610,7 +610,7 @@ Auf dem Testsplit hingegen sieht man, dass ähnlich aussehende Klassen wie z.B. 
 \caption{Anteil von Objekt (Ader) je Sample mit Durchschnitt je Split $\approx$ 0.55\%}
 \label{pic:Haeuf_108}
 \end{figure}
-Abschließend haben wir, da wir auf dem anderen 3D-Datensatz mit CT-Aufnahmen keine besonders guten Ergebnisse erzielen konnten, einen weiteren 3D-Datensatz mit Retinae zur Verfügung gestellt bekommen. Er besteht aus 21 Samples von 3D-Scans der Retina mit Segmentierungen. Diese Samples liegen sowohl in ihrer ursprünglichen, gekrümmten Form vor als auch in einer geplätteten Form, die die Krümmung der Netzhaut heraus rechnet. Wir haben uns auf die gekrümmte Version beschränkt.\\\\
+Abschließend haben wir, da wir auf dem anderen 3D-Datensatz mit CT-Aufnahmen keine besonders guten Ergebnisse erzielen konnten, einen weiteren 3D-Datensatz mit Retinae zur Verfügung gestellt bekommen \cite{retina3dDatensatz}. Er besteht aus 21 Samples von 3D-Scans der Retina mit Segmentierungen. Diese Samples liegen sowohl in ihrer ursprünglichen, gekrümmten Form vor als auch in einer geplätteten Form, die die Krümmung der Netzhaut heraus rechnet. Wir haben uns auf die gekrümmte Version beschränkt.\\\\
 Wir haben wieder die zur Verfügung gestellten .mat Dateien in Niftis konvertiert \cite{autoMLGithub} und das Training gestartet. Der Objektanteil in dem Datensatz ist sowohl im Train- als auch im Testsplit im Vergleich zu dem 2D-Retina Datensatz \cite{retina2d} um ein Vielfaches geringer, jedoch deutlich höher als bei dem CT-Datensatz (s. Abbildung \ref{pic:Haeuf_108})
 \begin{figure}[H]
 \begin{minipage}{.5\textwidth}
@@ -714,12 +714,12 @@ Die Einarbeitung in das Framework war daher sehr leicht umsetzbar und die Arbeit
 
 In den zwei Papern von nnU-Net erhält man sowohl einen guten Überblick über die Grundidee und die Ziele des Papers, als auch gut verständliche Informationen über die Details der Idee und der Implementierung. Auf diese Art sind die verarbeiteten Ideen und Überlegungen gut verständlich und eindeutig. 
 
-Bezüglich der Performance hält das Framework, was es auf den Datensätzen verspricht und konnte bei uns die gleichen guten Ergebnisse erzielen wie im Paper angegeben. Das Framework arbeitet sehr gut und zuverlässig auf medizinischen Bildern, von denen bei uns alle sehr ähnliche Muster innerhalb des jeweiligen Datensatzes hatten. Die Ergebnisse auf diesen Datensätzen waren gut bis sehr gut und blieben auch dann gut, wenn das Verhältnis aus Hintergrund und Maske nicht gut war, so zum Beispiel auf unserem Larvendatensatz. 
-Bei einem sehr schlechten Verhältnis zwischen Maske und Hintergrund, wie zum Beispiel in unserem CT-Datensatz zu den Verkalkungen in Blutgefäßen, werden die Ergebnisse dann aber auch bei diesem Framework merklich schlechter, bleiben aber aus unserer Sicht in Anbetracht der erschwerten Umstände akzeptabel, wenn auch deutlich verbesserungswürdig. 
-Die Ergebnisse des Frameworks auf mehreren Klassen sind jedoch nicht so gut. Auffällig ist hier, dass der Datensatz PascalVOC, welchen wir als Test für mehrere Klassen verwendet haben, deutlich unregelmäßiger in sich selbst war, als die medizinischen Datensätze. Unseren Ergebnissen zu Folge kommt das Framework entweder mit dieser Unregelmäßigkeit, oder mit den mehreren Klassen nicht so gut klar. Wie gut das Framework auf medizinischen, regelmäßigen Datensätzen mit mehreren Klassen klarkommt, könnte man in der Zukunft noch versuchen herauszufinden. 
+Bezüglich der Performance hält das Framework, was es auf den Datensätzen verspricht und konnte bei uns die gleichen guten Ergebnisse erzielen wie im Paper angegeben. Das Framework arbeitet sehr gut und zuverlässig auf medizinischen Bildern, von denen bei uns alle sehr ähnliche Muster innerhalb des jeweiligen Datensatzes hatten. Die Ergebnisse auf diesen Datensätzen waren gut bis sehr gut und blieben auch dann gut, wenn das Verhältnis aus Hintergrund und Maske nicht gut war, so zum Beispiel auf dem Retina-3D Datensatz \cite{retina3dDatensatz}. 
+Bei einem sehr schlechten Verhältnis zwischen Maske und Hintergrund, wie zum Beispiel in unserem CT-Datensatz \cite{ctDatensatz} zu den Verkalkungen in Blutgefäßen, werden die Ergebnisse dann aber auch bei diesem Framework merklich schlechter, bleiben aber aus unserer Sicht in Anbetracht der erschwerten Umstände akzeptabel, wenn auch deutlich verbesserungswürdig. 
+Die Ergebnisse des Frameworks auf mehreren Klassen sind jedoch nicht so gut. Auffällig ist hier, dass der Datensatz PascalVOC12 \cite{PascalVOCDatensatz}, welchen wir als Test für mehrere Klassen verwendet haben, deutlich unregelmäßiger in sich selbst war, als die medizinischen Datensätze. Unseren Ergebnissen zu Folge kommt das Framework entweder mit dieser Unregelmäßigkeit, oder mit den mehreren Klassen nicht so gut klar. Wie gut das Framework auf medizinischen, regelmäßigen Datensätzen mit mehreren Klassen klarkommt, könnte man in der Zukunft noch versuchen herauszufinden. 
 
 Insgesamt können wir feststellen, dass das Framework im Bereich der Segmentierung medizinischer Datensätze gute Arbeit macht. Aufgrund der positiven und immer aktuellen Aktivität der Entwickler auf Github, der großen Nutzerfreundlichkeit des Frameworks und der guten Ergebnisse erscheint eine Nutzung und Arbeit mit dem Framework für uns als sehr sinnvoll. 
-Wegen der guten Verständlichkeit des Codes, der Grundidee und der Nutzung der verwendeten Konzepte eignet sich das Netzt durchaus auch zur Weiterarbeit und Weiterentwicklung. Aufgrund des guten Verständnisses und der guten Übersicht über verwendete Ideen und Methoden fällt es leicht sich über mögliche Anpassungen Gedanken zu machen. So zum Beispiel über eine mögliche andere Kombination von Verlustfunktionen, wenn man nicht mit medizinischen Datensätzen arbeiten möchte und die Empfindlichkeit auf Hintergrundklassen anpassen möchte. 
+Wegen der guten Verständlichkeit des Codes, der Grundidee und der Nutzung der verwendeten Konzepte eignet sich das Netz durchaus auch zur Weiterarbeit und Weiterentwicklung. Aufgrund des guten Verständnisses und der guten Übersicht über verwendete Ideen und Methoden fällt es leicht sich über mögliche Anpassungen Gedanken zu machen. So zum Beispiel über eine mögliche andere Kombination von Verlustfunktionen, wenn man nicht mit medizinischen Datensätzen arbeiten möchte und die Empfindlichkeit auf Hintergrundklassen anpassen möchte. 
 
 
 
