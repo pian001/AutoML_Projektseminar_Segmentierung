@@ -1,0 +1,1777 @@
+{
+    "author": "Fabian",
+    "description": "",
+    "id": "05f30da78047",
+    "name": "",
+    "results": {
+        "all": [
+            {
+                "1": {
+                    "Accuracy": 0.9969708994708995,
+                    "Dice": 0.9404730959188978,
+                    "False Discovery Rate": 0.0723076923076923,
+                    "False Negative Rate": 0.046389035318924576,
+                    "False Omission Rate": 0.0011948404616429057,
+                    "False Positive Rate": 0.0019130835922553935,
+                    "Jaccard": 0.8876349362119725,
+                    "Negative Predictive Value": 0.9988051595383571,
+                    "Precision": 0.9276923076923077,
+                    "Recall": 0.9536109646810754,
+                    "Total Positives Reference": 1897,
+                    "Total Positives Test": 1950,
+                    "True Negative Rate": 0.9980869164077446
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.2_2016-01-16_00_00_01.047.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.2_2016-01-16_00_00_01.047.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9977910052910053,
+                    "Dice": 0.9624127841548503,
+                    "False Discovery Rate": 0.0442556995976755,
+                    "False Negative Rate": 0.030825022665457835,
+                    "False Omission Rate": 0.000926897754999114,
+                    "False Positive Rate": 0.0013488841049676958,
+                    "Jaccard": 0.9275488069414317,
+                    "Negative Predictive Value": 0.9990731022450009,
+                    "Precision": 0.9557443004023245,
+                    "Recall": 0.9691749773345422,
+                    "Total Positives Reference": 2206,
+                    "Total Positives Test": 2237,
+                    "True Negative Rate": 0.9986511158950323
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.2_2016-01-16_01_40_49.895.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.2_2016-01-16_01_40_49.895.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9964550264550265,
+                    "Dice": 0.9357622243528284,
+                    "False Discovery Rate": 0.06959008579599624,
+                    "False Negative Rate": 0.05882352941176472,
+                    "False Omission Rate": 0.0016598187804413485,
+                    "False Positive Rate": 0.0019856921361151025,
+                    "Jaccard": 0.8792792792792793,
+                    "Negative Predictive Value": 0.9983401812195587,
+                    "Precision": 0.9304099142040038,
+                    "Recall": 0.9411764705882353,
+                    "Total Positives Reference": 2074,
+                    "Total Positives Test": 2098,
+                    "True Negative Rate": 0.9980143078638849
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.2_2016-01-16_02_15_00.789.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.2_2016-01-16_02_15_00.789.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9962301587301587,
+                    "Dice": 0.9480590486604702,
+                    "False Discovery Rate": 0.0265718562874252,
+                    "False Negative Rate": 0.07602131438721138,
+                    "False Omission Rate": 0.002934401053093462,
+                    "False Positive Rate": 0.0009754757161503091,
+                    "Jaccard": 0.9012474012474012,
+                    "Negative Predictive Value": 0.9970655989469065,
+                    "Precision": 0.9734281437125748,
+                    "Recall": 0.9239786856127886,
+                    "Total Positives Reference": 2815,
+                    "Total Positives Test": 2672,
+                    "True Negative Rate": 0.9990245242838497
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.2_2016-01-16_05_40_15.797.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.2_2016-01-16_05_40_15.797.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9967195767195767,
+                    "Dice": 0.9460400348128808,
+                    "False Discovery Rate": 0.01895306859205781,
+                    "False Negative Rate": 0.08655462184873952,
+                    "False Omission Rate": 0.0028071514226534395,
+                    "False Positive Rate": 0.0005736137667303742,
+                    "Jaccard": 0.8976052848885219,
+                    "Negative Predictive Value": 0.9971928485773466,
+                    "Precision": 0.9810469314079422,
+                    "Recall": 0.9134453781512605,
+                    "Total Positives Reference": 2380,
+                    "Total Positives Test": 2216,
+                    "True Negative Rate": 0.9994263862332696
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.2_2016-01-16_06_14_29.871.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.2_2016-01-16_06_14_29.871.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9962037037037037,
+                    "Dice": 0.9565743682856711,
+                    "False Discovery Rate": 0.04124962086745532,
+                    "False Negative Rate": 0.04559178743961356,
+                    "False Omission Rate": 0.0020884333983375515,
+                    "False Positive Rate": 0.001881363435148331,
+                    "Jaccard": 0.9167633410672854,
+                    "Negative Predictive Value": 0.9979115666016625,
+                    "Precision": 0.9587503791325447,
+                    "Recall": 0.9544082125603864,
+                    "Total Positives Reference": 3312,
+                    "Total Positives Test": 3297,
+                    "True Negative Rate": 0.9981186365648517
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.2_2016-01-16_09_06_37.289.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.2_2016-01-16_09_06_37.289.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9954232804232804,
+                    "Dice": 0.9453396524486571,
+                    "False Discovery Rate": 0.03886925795053009,
+                    "False Negative Rate": 0.06994093876282248,
+                    "False Omission Rate": 0.0031040048560431526,
+                    "False Positive Rate": 0.0016716632358426686,
+                    "Jaccard": 0.896345116836429,
+                    "Negative Predictive Value": 0.9968959951439569,
+                    "Precision": 0.9611307420494699,
+                    "Recall": 0.9300590612371775,
+                    "Total Positives Reference": 3217,
+                    "Total Positives Test": 3113,
+                    "True Negative Rate": 0.9983283367641573
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.2_2016-01-16_10_49_19.013.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.2_2016-01-16_10_49_19.013.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.994510582010582,
+                    "Dice": 0.924228592295052,
+                    "False Discovery Rate": 0.09928825622775805,
+                    "False Negative Rate": 0.050993625796775355,
+                    "False Omission Rate": 0.0018683885149058937,
+                    "False Positive Rate": 0.0038254288182304474,
+                    "Jaccard": 0.8591310251188051,
+                    "Negative Predictive Value": 0.9981316114850941,
+                    "Precision": 0.900711743772242,
+                    "Recall": 0.9490063742032246,
+                    "Total Positives Reference": 2667,
+                    "Total Positives Test": 2810,
+                    "True Negative Rate": 0.9961745711817696
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.2_2016-01-16_15_25_09.805.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.2_2016-01-16_15_25_09.805.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9955026455026456,
+                    "Dice": 0.94213750850919,
+                    "False Discovery Rate": 0.08405029781601592,
+                    "False Negative Rate": 0.030133146461107208,
+                    "False Omission Rate": 0.0011849320730799968,
+                    "False Positive Rate": 0.003491600912765014,
+                    "Jaccard": 0.8906048906048906,
+                    "Negative Predictive Value": 0.99881506792692,
+                    "Precision": 0.9159497021839841,
+                    "Recall": 0.9698668535388928,
+                    "Total Positives Reference": 2854,
+                    "Total Positives Test": 3022,
+                    "True Negative Rate": 0.996508399087235
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.2_2016-01-16_17_09_43.035.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.2_2016-01-16_17_09_43.035.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9945238095238095,
+                    "Dice": 0.9180198019801981,
+                    "False Discovery Rate": 0.08704214257581722,
+                    "False Negative Rate": 0.07686180804460374,
+                    "False Omission Rate": 0.0026416282284666237,
+                    "False Positive Rate": 0.0030237108183174266,
+                    "Jaccard": 0.8484626647144948,
+                    "Negative Predictive Value": 0.9973583717715334,
+                    "Precision": 0.9129578574241828,
+                    "Recall": 0.9231381919553963,
+                    "Total Positives Reference": 2511,
+                    "Total Positives Test": 2539,
+                    "True Negative Rate": 0.9969762891816826
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.2_2016-01-16_18_18_24.293.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.2_2016-01-16_18_18_24.293.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9957539682539682,
+                    "Dice": 0.9358641358641359,
+                    "False Discovery Rate": 0.08515625000000004,
+                    "False Negative Rate": 0.042126789366053186,
+                    "False Omission Rate": 0.0014101861993428258,
+                    "False Positive Rate": 0.002979974027749299,
+                    "Jaccard": 0.8794592564776568,
+                    "Negative Predictive Value": 0.9985898138006571,
+                    "Precision": 0.91484375,
+                    "Recall": 0.9578732106339468,
+                    "Total Positives Reference": 2445,
+                    "Total Positives Test": 2560,
+                    "True Negative Rate": 0.9970200259722507
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.2_2016-01-17_01_06_55.857.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.2_2016-01-17_01_06_55.857.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9945502645502645,
+                    "Dice": 0.9348307497627333,
+                    "False Discovery Rate": 0.10427402243103967,
+                    "False Negative Rate": 0.022494211048627144,
+                    "False Omission Rate": 0.0009405125793557489,
+                    "False Positive Rate": 0.004739793598522946,
+                    "Jaccard": 0.8776358776358776,
+                    "Negative Predictive Value": 0.9990594874206442,
+                    "Precision": 0.8957259775689603,
+                    "Recall": 0.9775057889513729,
+                    "Total Positives Reference": 3023,
+                    "Total Positives Test": 3299,
+                    "True Negative Rate": 0.995260206401477
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.2_2016-01-17_02_14_32.363.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.2_2016-01-17_02_14_32.363.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9947486772486772,
+                    "Dice": 0.937881395712721,
+                    "False Discovery Rate": 0.059026687598116134,
+                    "False Negative Rate": 0.06519026824703678,
+                    "False Omission Rate": 0.0028861423738175793,
+                    "False Positive Rate": 0.002596900295604554,
+                    "Jaccard": 0.8830288744843842,
+                    "Negative Predictive Value": 0.9971138576261824,
+                    "Precision": 0.9409733124018839,
+                    "Recall": 0.9348097317529632,
+                    "Total Positives Reference": 3206,
+                    "Total Positives Test": 3185,
+                    "True Negative Rate": 0.9974030997043954
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.2_2016-01-17_05_40_14.402.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.2_2016-01-17_05_40_14.402.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9953968253968254,
+                    "Dice": 0.9472727272727273,
+                    "False Discovery Rate": 0.029795158286778367,
+                    "False Negative Rate": 0.07460035523978681,
+                    "False Omission Rate": 0.003481720964934096,
+                    "False Positive Rate": 0.0013292348591842362,
+                    "Jaccard": 0.8998272884283247,
+                    "Negative Predictive Value": 0.996518279035066,
+                    "Precision": 0.9702048417132216,
+                    "Recall": 0.9253996447602132,
+                    "Total Positives Reference": 3378,
+                    "Total Positives Test": 3222,
+                    "True Negative Rate": 0.9986707651408158
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.2_2016-01-17_10_16_28.920.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.2_2016-01-17_10_16_28.920.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9948280423280423,
+                    "Dice": 0.9317030567685589,
+                    "False Discovery Rate": 0.042713567839196,
+                    "False Negative Rate": 0.09254848587955089,
+                    "False Omission Rate": 0.0037355453621556295,
+                    "False Positive Rate": 0.0016377423927553814,
+                    "Jaccard": 0.8721386527141923,
+                    "Negative Predictive Value": 0.9962644546378444,
+                    "Precision": 0.957286432160804,
+                    "Recall": 0.9074515141204491,
+                    "Total Positives Reference": 2939,
+                    "Total Positives Test": 2786,
+                    "True Negative Rate": 0.9983622576072446
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.2_2016-01-17_13_45_36.366.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.2_2016-01-17_13_45_36.366.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9956878306878307,
+                    "Dice": 0.9490306441525954,
+                    "False Discovery Rate": 0.04228463237614388,
+                    "False Negative Rate": 0.05949798574527421,
+                    "False Omission Rate": 0.0026507986911681464,
+                    "False Positive Rate": 0.0018515192129661129,
+                    "Jaccard": 0.9030050580184469,
+                    "Negative Predictive Value": 0.9973492013088319,
+                    "Precision": 0.9577153676238561,
+                    "Recall": 0.9405020142547258,
+                    "Total Positives Reference": 3227,
+                    "Total Positives Test": 3169,
+                    "True Negative Rate": 0.9981484807870339
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.2_2016-01-17_17_44_08.419.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.2_2016-01-17_17_44_08.419.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9961111111111111,
+                    "Dice": 0.9340215439856373,
+                    "False Discovery Rate": 0.0816416593115622,
+                    "False Negative Rate": 0.04977168949771693,
+                    "False Omission Rate": 0.001486350124089781,
+                    "False Positive Rate": 0.002520092630431847,
+                    "Jaccard": 0.8762105263157894,
+                    "Negative Predictive Value": 0.9985136498759102,
+                    "Precision": 0.9183583406884378,
+                    "Recall": 0.9502283105022831,
+                    "Total Positives Reference": 2190,
+                    "Total Positives Test": 2266,
+                    "True Negative Rate": 0.9974799073695682
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-16_00_58_30.789.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-16_00_58_30.789.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9958730158730159,
+                    "Dice": 0.9356701030927835,
+                    "False Discovery Rate": 0.03977994075327973,
+                    "False Negative Rate": 0.0876558102131082,
+                    "False Omission Rate": 0.0029766374919780983,
+                    "False Positive Rate": 0.0012856810690301534,
+                    "Jaccard": 0.8791166214645486,
+                    "Negative Predictive Value": 0.9970233625080219,
+                    "Precision": 0.9602200592467203,
+                    "Recall": 0.9123441897868918,
+                    "Total Positives Reference": 2487,
+                    "Total Positives Test": 2363,
+                    "True Negative Rate": 0.9987143189309698
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-16_01_28_04.509.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-16_01_28_04.509.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9971560846560846,
+                    "Dice": 0.9530054644808743,
+                    "False Discovery Rate": 0.05709342560553632,
+                    "False Negative Rate": 0.036676977463543925,
+                    "False Omission Rate": 0.0011325182840301277,
+                    "False Positive Rate": 0.0017999100044997496,
+                    "Jaccard": 0.9102296450939458,
+                    "Negative Predictive Value": 0.9988674817159698,
+                    "Precision": 0.9429065743944637,
+                    "Recall": 0.9633230225364561,
+                    "Total Positives Reference": 2263,
+                    "Total Positives Test": 2312,
+                    "True Negative Rate": 0.9982000899955003
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-16_01_57_56.547.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-16_01_57_56.547.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.995899470899471,
+                    "Dice": 0.9315673289183223,
+                    "False Discovery Rate": 0.08578856152513004,
+                    "False Negative Rate": 0.05040504050405037,
+                    "False Omission Rate": 0.0015281340391857228,
+                    "False Positive Rate": 0.0026983564556134487,
+                    "Jaccard": 0.871900826446281,
+                    "Negative Predictive Value": 0.9984718659608143,
+                    "Precision": 0.91421143847487,
+                    "Recall": 0.9495949594959496,
+                    "Total Positives Reference": 2222,
+                    "Total Positives Test": 2308,
+                    "True Negative Rate": 0.9973016435443866
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-16_02_57_38.362.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-16_02_57_38.362.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9965079365079365,
+                    "Dice": 0.959731543624161,
+                    "False Discovery Rate": 0.03318992009834054,
+                    "False Negative Rate": 0.047244094488189003,
+                    "False Omission Rate": 0.002156304425953059,
+                    "False Positive Rate": 0.0014938172563556673,
+                    "Jaccard": 0.9225806451612903,
+                    "Negative Predictive Value": 0.997843695574047,
+                    "Precision": 0.9668100799016595,
+                    "Recall": 0.952755905511811,
+                    "Total Positives Reference": 3302,
+                    "Total Positives Test": 3254,
+                    "True Negative Rate": 0.9985061827436443
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-16_04_57_19.287.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-16_04_57_19.287.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9923809523809524,
+                    "Dice": 0.9325526932084309,
+                    "False Discovery Rate": 0.020418204182041766,
+                    "False Negative Rate": 0.11016759776536311,
+                    "False Omission Rate": 0.006891731320332704,
+                    "False Positive Rate": 0.0011669595782073383,
+                    "Jaccard": 0.8736287845546292,
+                    "Negative Predictive Value": 0.9931082686796673,
+                    "Precision": 0.9795817958179582,
+                    "Recall": 0.8898324022346369,
+                    "Total Positives Reference": 4475,
+                    "Total Positives Test": 4065,
+                    "True Negative Rate": 0.9988330404217927
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-16_09_58_04.376.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-16_09_58_04.376.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9923677248677248,
+                    "Dice": 0.9403247491984693,
+                    "False Discovery Rate": 0.024044654358093553,
+                    "False Negative Rate": 0.09279584913190975,
+                    "False Omission Rate": 0.006554650277691636,
+                    "False Positive Rate": 0.0015866494779639417,
+                    "Jaccard": 0.8873706812414601,
+                    "Negative Predictive Value": 0.9934453497223084,
+                    "Precision": 0.9759553456419064,
+                    "Recall": 0.9072041508680903,
+                    "Total Positives Reference": 5011,
+                    "Total Positives Test": 4658,
+                    "True Negative Rate": 0.9984133505220361
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-16_10_57_55.566.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-16_10_57_55.566.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9946957671957672,
+                    "Dice": 0.9498185458640971,
+                    "False Discovery Rate": 0.026673506027186433,
+                    "False Negative Rate": 0.07258064516129037,
+                    "False Omission Rate": 0.00414220164293385,
+                    "False Positive Rate": 0.0014543827264081877,
+                    "Jaccard": 0.9044327931363203,
+                    "Negative Predictive Value": 0.9958577983570661,
+                    "Precision": 0.9733264939728136,
+                    "Recall": 0.9274193548387096,
+                    "Total Positives Reference": 4092,
+                    "Total Positives Test": 3899,
+                    "True Negative Rate": 0.9985456172735918
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-16_11_58_12.789.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-16_11_58_12.789.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9948148148148148,
+                    "Dice": 0.9580569227476996,
+                    "False Discovery Rate": 0.04030010718113608,
+                    "False Negative Rate": 0.04358043153172397,
+                    "False Omission Rate": 0.0028758722774370905,
+                    "False Positive Rate": 0.002650911603378492,
+                    "Jaccard": 0.9194906551653317,
+                    "Negative Predictive Value": 0.9971241277225629,
+                    "Precision": 0.9596998928188639,
+                    "Recall": 0.956419568468276,
+                    "Total Positives Reference": 4681,
+                    "Total Positives Test": 4665,
+                    "True Negative Rate": 0.9973490883966215
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-16_12_58_49.292.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-16_12_58_49.292.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9910582010582011,
+                    "Dice": 0.9259421560035057,
+                    "False Discovery Rate": 0.02469420724671123,
+                    "False Negative Rate": 0.11866527632950996,
+                    "False Omission Rate": 0.007984059943592406,
+                    "False Positive Rate": 0.0015111927123790947,
+                    "Jaccard": 0.8620971032231742,
+                    "Negative Predictive Value": 0.9920159400564076,
+                    "Precision": 0.9753057927532888,
+                    "Recall": 0.88133472367049,
+                    "Total Positives Reference": 4795,
+                    "Total Positives Test": 4333,
+                    "True Negative Rate": 0.9984888072876209
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-16_14_59_14.297.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-16_14_59_14.297.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9946164021164021,
+                    "Dice": 0.9530619305731749,
+                    "False Discovery Rate": 0.045727482678983855,
+                    "False Negative Rate": 0.04814558857406126,
+                    "False Omission Rate": 0.0029325101725831346,
+                    "False Positive Rate": 0.002778596387824739,
+                    "Jaccard": 0.9103326723948006,
+                    "Negative Predictive Value": 0.9970674898274169,
+                    "Precision": 0.9542725173210161,
+                    "Recall": 0.9518544114259387,
+                    "Total Positives Reference": 4341,
+                    "Total Positives Test": 4330,
+                    "True Negative Rate": 0.9972214036121753
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-16_16_30_35.307.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-16_16_30_35.307.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9928571428571429,
+                    "Dice": 0.939120631341601,
+                    "False Discovery Rate": 0.06635283568706563,
+                    "False Negative Rate": 0.05534134724427309,
+                    "False Omission Rate": 0.003429904834197838,
+                    "False Positive Rate": 0.004157828939051256,
+                    "Jaccard": 0.8852284803400637,
+                    "Negative Predictive Value": 0.9965700951658022,
+                    "Precision": 0.9336471643129344,
+                    "Recall": 0.9446586527557269,
+                    "Total Positives Reference": 4409,
+                    "Total Positives Test": 4461,
+                    "True Negative Rate": 0.9958421710609487
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-16_17_01_01.791.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-16_17_01_01.791.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9909920634920635,
+                    "Dice": 0.9266400947969406,
+                    "False Discovery Rate": 0.09261603375527427,
+                    "False Negative Rate": 0.053268765133171914,
+                    "False Omission Rate": 0.003415184871577759,
+                    "False Positive Rate": 0.006178138677399803,
+                    "Jaccard": 0.8633079084704938,
+                    "Negative Predictive Value": 0.9965848151284222,
+                    "Precision": 0.9073839662447257,
+                    "Recall": 0.9467312348668281,
+                    "Total Positives Reference": 4543,
+                    "Total Positives Test": 4740,
+                    "True Negative Rate": 0.9938218613226002
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-16_17_31_16.471.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-16_17_31_16.471.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9912301587301587,
+                    "Dice": 0.9197239375227025,
+                    "False Discovery Rate": 0.08789625360230546,
+                    "False Negative Rate": 0.07252747252747249,
+                    "False Omission Rate": 0.004157567612968252,
+                    "False Positive Rate": 0.005118523180197232,
+                    "Jaccard": 0.85137861466039,
+                    "Negative Predictive Value": 0.9958424323870317,
+                    "Precision": 0.9121037463976945,
+                    "Recall": 0.9274725274725275,
+                    "Total Positives Reference": 4095,
+                    "Total Positives Test": 4164,
+                    "True Negative Rate": 0.9948814768198028
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-16_18_01_15.897.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-16_18_01_15.897.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9942460317460318,
+                    "Dice": 0.942875902823375,
+                    "False Discovery Rate": 0.07187176835573938,
+                    "False Negative Rate": 0.04190018681611951,
+                    "False Omission Rate": 0.0021887023922377738,
+                    "False Positive Rate": 0.0038690103405564225,
+                    "Jaccard": 0.8919254658385093,
+                    "Negative Predictive Value": 0.9978112976077622,
+                    "Precision": 0.9281282316442606,
+                    "Recall": 0.9580998131838805,
+                    "Total Positives Reference": 3747,
+                    "Total Positives Test": 3868,
+                    "True Negative Rate": 0.9961309896594436
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-16_18_31_17.334.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-16_18_31_17.334.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.991441798941799,
+                    "Dice": 0.9291735084838533,
+                    "False Discovery Rate": 0.04349785891368041,
+                    "False Negative Rate": 0.09663686675180927,
+                    "False Omission Rate": 0.006379719798209744,
+                    "False Positive Rate": 0.0027220670785027545,
+                    "Jaccard": 0.8677162134532815,
+                    "Negative Predictive Value": 0.9936202802017903,
+                    "Precision": 0.9565021410863196,
+                    "Recall": 0.9033631332481907,
+                    "Total Positives Reference": 4698,
+                    "Total Positives Test": 4437,
+                    "True Negative Rate": 0.9972779329214972
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-16_22_33_21.407.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-16_22_33_21.407.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9887433862433862,
+                    "Dice": 0.9173706185066511,
+                    "False Discovery Rate": 0.04061738424045491,
+                    "False Negative Rate": 0.12111627906976741,
+                    "False Omission Rate": 0.009211047597487124,
+                    "False Positive Rate": 0.002847988608045582,
+                    "Jaccard": 0.8473542600896861,
+                    "Negative Predictive Value": 0.9907889524025129,
+                    "Precision": 0.9593826157595451,
+                    "Recall": 0.8788837209302326,
+                    "Total Positives Reference": 5375,
+                    "Total Positives Test": 4924,
+                    "True Negative Rate": 0.9971520113919544
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-16_23_33_50.325.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-16_23_33_50.325.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9924206349206349,
+                    "Dice": 0.9420919656392117,
+                    "False Discovery Rate": 0.05513886073383334,
+                    "False Negative Rate": 0.06066102378073357,
+                    "False Omission Rate": 0.004259413870689289,
+                    "False Positive Rate": 0.003850618647187054,
+                    "Jaccard": 0.8905235001910584,
+                    "Negative Predictive Value": 0.9957405861293107,
+                    "Precision": 0.9448611392661667,
+                    "Recall": 0.9393389762192664,
+                    "Total Positives Reference": 4962,
+                    "Total Positives Test": 4933,
+                    "True Negative Rate": 0.996149381352813
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-17_03_11_10.572.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-17_03_11_10.572.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.993478835978836,
+                    "Dice": 0.947935368043088,
+                    "False Discovery Rate": 0.06616729088639206,
+                    "False Negative Rate": 0.03752948745442852,
+                    "False Omission Rate": 0.0024719609006412973,
+                    "False Positive Rate": 0.004482850980447428,
+                    "Jaccard": 0.9010238907849829,
+                    "Negative Predictive Value": 0.9975280390993587,
+                    "Precision": 0.9338327091136079,
+                    "Recall": 0.9624705125455715,
+                    "Total Positives Reference": 4663,
+                    "Total Positives Test": 4806,
+                    "True Negative Rate": 0.9955171490195526
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-17_03_22_58.302.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-17_03_22_58.302.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.995026455026455,
+                    "Dice": 0.960337552742616,
+                    "False Discovery Rate": 0.039865007382408724,
+                    "False Negative Rate": 0.03945980164591689,
+                    "False Omission Rate": 0.0026390437347408235,
+                    "False Positive Rate": 0.002667193519707567,
+                    "Jaccard": 0.9237012987012987,
+                    "Negative Predictive Value": 0.9973609562652592,
+                    "Precision": 0.9601349926175913,
+                    "Recall": 0.9605401983540831,
+                    "Total Positives Reference": 4739,
+                    "Total Positives Test": 4741,
+                    "True Negative Rate": 0.9973328064802924
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-17_04_31_18.851.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-17_04_31_18.851.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9946428571428572,
+                    "Dice": 0.9584146216243967,
+                    "False Discovery Rate": 0.03892092257001645,
+                    "False Negative Rate": 0.04423510137210729,
+                    "False Omission Rate": 0.003053262467488409,
+                    "False Positive Rate": 0.0026726246871332515,
+                    "Jaccard": 0.9201498422712934,
+                    "Negative Predictive Value": 0.9969467375325116,
+                    "Precision": 0.9610790774299836,
+                    "Recall": 0.9557648986278927,
+                    "Total Positives Reference": 4883,
+                    "Total Positives Test": 4856,
+                    "True Negative Rate": 0.9973273753128667
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-17_09_06_51.375.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-17_09_06_51.375.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9937037037037038,
+                    "Dice": 0.9494799405646359,
+                    "False Discovery Rate": 0.03474320241691842,
+                    "False Negative Rate": 0.06578947368421051,
+                    "False Omission Rate": 0.0044387453146577235,
+                    "False Positive Rate": 0.002273625939106405,
+                    "Jaccard": 0.9038189533239038,
+                    "Negative Predictive Value": 0.9955612546853423,
+                    "Precision": 0.9652567975830816,
+                    "Recall": 0.9342105263157895,
+                    "Total Positives Reference": 4788,
+                    "Total Positives Test": 4634,
+                    "True Negative Rate": 0.9977263740608936
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-17_10_16_28.380.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-17_10_16_28.380.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9915608465608465,
+                    "Dice": 0.9293935369632581,
+                    "False Discovery Rate": 0.08498583569405094,
+                    "False Negative Rate": 0.05576793343827302,
+                    "False Omission Rate": 0.0034924166678401937,
+                    "False Positive Rate": 0.005481146262279912,
+                    "Jaccard": 0.8681000620219144,
+                    "Negative Predictive Value": 0.9965075833321598,
+                    "Precision": 0.9150141643059491,
+                    "Recall": 0.944232066561727,
+                    "Total Positives Reference": 4447,
+                    "Total Positives Test": 4589,
+                    "True Negative Rate": 0.9945188537377201
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-17_14_53_25.373.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-17_14_53_25.373.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9936375661375662,
+                    "Dice": 0.9484182305630027,
+                    "False Discovery Rate": 0.048418334409296326,
+                    "False Negative Rate": 0.054724241128687456,
+                    "False Omission Rate": 0.003608022211886742,
+                    "False Positive Rate": 0.0031724993655001255,
+                    "Jaccard": 0.9018967978788497,
+                    "Negative Predictive Value": 0.9963919777881133,
+                    "Precision": 0.9515816655907037,
+                    "Recall": 0.9452757588713125,
+                    "Total Positives Reference": 4678,
+                    "Total Positives Test": 4647,
+                    "True Negative Rate": 0.9968275006344999
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.3_2016-01-17_16_02_20.081.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.3_2016-01-17_16_02_20.081.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9976058201058201,
+                    "Dice": 0.956729619890031,
+                    "False Discovery Rate": 0.049857549857549865,
+                    "False Negative Rate": 0.03659123736157921,
+                    "False Omission Rate": 0.001034098021607206,
+                    "False Positive Rate": 0.0014281245324592184,
+                    "Jaccard": 0.9170485792850596,
+                    "Negative Predictive Value": 0.9989659019783927,
+                    "Precision": 0.9501424501424501,
+                    "Recall": 0.9634087626384208,
+                    "Total Positives Reference": 2077,
+                    "Total Positives Test": 2106,
+                    "True Negative Rate": 0.9985718754675408
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.4_2016-01-16_00_29_13.044.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.4_2016-01-16_00_29_13.044.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9968783068783069,
+                    "Dice": 0.9562314540059347,
+                    "False Discovery Rate": 0.03082706766917298,
+                    "False Negative Rate": 0.056368960468521245,
+                    "False Omission Rate": 0.002111324376199616,
+                    "False Positive Rate": 0.001125322500960646,
+                    "Jaccard": 0.916133617626155,
+                    "Negative Predictive Value": 0.9978886756238003,
+                    "Precision": 0.969172932330827,
+                    "Recall": 0.9436310395314788,
+                    "Total Positives Reference": 2732,
+                    "Total Positives Test": 2660,
+                    "True Negative Rate": 0.9988746774990394
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.4_2016-01-16_01_28_04.383.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.4_2016-01-16_01_28_04.383.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9923015873015874,
+                    "Dice": 0.9048397645519948,
+                    "False Discovery Rate": 0.09634225996080992,
+                    "False Negative Rate": 0.09397511460379826,
+                    "False Omission Rate": 0.003956546913341972,
+                    "False Positive Rate": 0.0040663854657734255,
+                    "Jaccard": 0.8262167811286951,
+                    "Negative Predictive Value": 0.996043453086658,
+                    "Precision": 0.9036577400391901,
+                    "Recall": 0.9060248853962017,
+                    "Total Positives Reference": 3054,
+                    "Total Positives Test": 3062,
+                    "True Negative Rate": 0.9959336145342266
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.4_2016-01-16_03_27_27.666.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.4_2016-01-16_03_27_27.666.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9950793650793651,
+                    "Dice": 0.947752808988764,
+                    "False Discovery Rate": 0.07026729126481124,
+                    "False Negative Rate": 0.033514752219994226,
+                    "False Omission Rate": 0.001625654777618763,
+                    "False Positive Rate": 0.003536313081584863,
+                    "Jaccard": 0.9006940736785904,
+                    "Negative Predictive Value": 0.9983743452223812,
+                    "Precision": 0.9297327087351888,
+                    "Recall": 0.9664852477800058,
+                    "Total Positives Reference": 3491,
+                    "Total Positives Test": 3629,
+                    "True Negative Rate": 0.9964636869184151
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.4_2016-01-16_03_57_18.802.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.4_2016-01-16_03_57_18.802.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9966534391534392,
+                    "Dice": 0.9624796084828712,
+                    "False Discovery Rate": 0.0333631218349717,
+                    "False Negative Rate": 0.041642055522740695,
+                    "False Omission Rate": 0.0019517461899422781,
+                    "False Positive Rate": 0.0015509457999833831,
+                    "Jaccard": 0.9276729559748428,
+                    "Negative Predictive Value": 0.9980482538100577,
+                    "Precision": 0.9666368781650283,
+                    "Recall": 0.9583579444772593,
+                    "Total Positives Reference": 3386,
+                    "Total Positives Test": 3357,
+                    "True Negative Rate": 0.9984490542000166
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.4_2016-01-16_04_27_23.557.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.4_2016-01-16_04_27_23.557.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9957142857142857,
+                    "Dice": 0.9637907912382655,
+                    "False Discovery Rate": 0.03771479580450787,
+                    "False Negative Rate": 0.03469890306693535,
+                    "False Omission Rate": 0.002179445717740688,
+                    "False Positive Rate": 0.002375831189461941,
+                    "Jaccard": 0.9301121656600517,
+                    "Negative Predictive Value": 0.9978205542822594,
+                    "Precision": 0.9622852041954921,
+                    "Recall": 0.9653010969330647,
+                    "Total Positives Reference": 4467,
+                    "Total Positives Test": 4481,
+                    "True Negative Rate": 0.9976241688105381
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.4_2016-01-16_05_27_25.363.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.4_2016-01-16_05_27_25.363.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9940343915343915,
+                    "Dice": 0.947356134002568,
+                    "False Discovery Rate": 0.06433018215356234,
+                    "False Negative Rate": 0.04066193853427891,
+                    "False Omission Rate": 0.002413594712543676,
+                    "False Positive Rate": 0.003909205548549788,
+                    "Jaccard": 0.8999778221335107,
+                    "Negative Predictive Value": 0.9975864052874563,
+                    "Precision": 0.9356698178464377,
+                    "Recall": 0.9593380614657211,
+                    "Total Positives Reference": 4230,
+                    "Total Positives Test": 4337,
+                    "True Negative Rate": 0.9960907944514502
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.4_2016-01-16_07_27_22.800.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.4_2016-01-16_07_27_22.800.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9959920634920635,
+                    "Dice": 0.9673033344124312,
+                    "False Discovery Rate": 0.028398005636245394,
+                    "False Negative Rate": 0.03695745595186939,
+                    "False Omission Rate": 0.0024229788552833616,
+                    "False Positive Rate": 0.0018464747836383077,
+                    "Jaccard": 0.9366771159874608,
+                    "Negative Predictive Value": 0.9975770211447167,
+                    "Precision": 0.9716019943637546,
+                    "Recall": 0.9630425440481306,
+                    "Total Positives Reference": 4654,
+                    "Total Positives Test": 4613,
+                    "True Negative Rate": 0.9981535252163617
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.4_2016-01-16_07_57_26.826.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.4_2016-01-16_07_57_26.826.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9917195767195767,
+                    "Dice": 0.9435221941537351,
+                    "False Discovery Rate": 0.030948851000741295,
+                    "False Negative Rate": 0.08069620253164556,
+                    "False Omission Rate": 0.006538088997777905,
+                    "False Positive Rate": 0.0023887172445360427,
+                    "Jaccard": 0.8930828351836038,
+                    "Negative Predictive Value": 0.9934619110022221,
+                    "Precision": 0.9690511489992587,
+                    "Recall": 0.9193037974683544,
+                    "Total Positives Reference": 5688,
+                    "Total Positives Test": 5396,
+                    "True Negative Rate": 0.997611282755464
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.4_2016-01-16_08_27_50.318.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.4_2016-01-16_08_27_50.318.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9898015873015873,
+                    "Dice": 0.9356803203470426,
+                    "False Discovery Rate": 0.02554300608166815,
+                    "False Negative Rate": 0.1001283697047497,
+                    "False Omission Rate": 0.008934068294079748,
+                    "False Positive Rate": 0.0021191327413216943,
+                    "Jaccard": 0.8791346606051105,
+                    "Negative Predictive Value": 0.9910659317059203,
+                    "Precision": 0.9744569939183318,
+                    "Recall": 0.8998716302952503,
+                    "Total Positives Reference": 6232,
+                    "Total Positives Test": 5755,
+                    "True Negative Rate": 0.9978808672586783
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.4_2016-01-16_12_28_31.061.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.4_2016-01-16_12_28_31.061.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9888492063492064,
+                    "Dice": 0.9291537103958316,
+                    "False Discovery Rate": 0.037771975630983445,
+                    "False Negative Rate": 0.10172245693857651,
+                    "False Omission Rate": 0.008961420084460669,
+                    "False Positive Rate": 0.003124730006047849,
+                    "Jaccard": 0.8676816826243918,
+                    "Negative Predictive Value": 0.9910385799155393,
+                    "Precision": 0.9622280243690166,
+                    "Recall": 0.8982775430614235,
+                    "Total Positives Reference": 6154,
+                    "Total Positives Test": 5745,
+                    "True Negative Rate": 0.9968752699939522
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.4_2016-01-16_16_30_35.292.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.4_2016-01-16_16_30_35.292.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9898412698412699,
+                    "Dice": 0.9451741861793261,
+                    "False Discovery Rate": 0.04321433733198443,
+                    "False Negative Rate": 0.06615883763577368,
+                    "False Omission Rate": 0.006828671685036618,
+                    "False Positive Rate": 0.004364262673147379,
+                    "Jaccard": 0.8960476448294532,
+                    "Negative Predictive Value": 0.9931713283149634,
+                    "Precision": 0.9567856626680156,
+                    "Recall": 0.9338411623642263,
+                    "Total Positives Reference": 7089,
+                    "Total Positives Test": 6919,
+                    "True Negative Rate": 0.9956357373268526
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.4_2016-01-17_02_14_32.570.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.4_2016-01-17_02_14_32.570.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9839021164021164,
+                    "Dice": 0.9077680939749905,
+                    "False Discovery Rate": 0.13076923076923075,
+                    "False Negative Rate": 0.05011895321173676,
+                    "False Omission Rate": 0.004599039441129384,
+                    "False Positive Rate": 0.013002381124179285,
+                    "Jaccard": 0.8311129614210381,
+                    "Negative Predictive Value": 0.9954009605588706,
+                    "Precision": 0.8692307692307693,
+                    "Recall": 0.9498810467882632,
+                    "Total Positives Reference": 6305,
+                    "Total Positives Test": 6890,
+                    "True Negative Rate": 0.9869976188758207
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.4_2016-01-17_03_22_58.821.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.4_2016-01-17_03_22_58.821.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9812698412698413,
+                    "Dice": 0.8994318181818182,
+                    "False Discovery Rate": 0.11884219315335376,
+                    "False Negative Rate": 0.08152016246011029,
+                    "False Omission Rate": 0.008214692899114216,
+                    "False Positive Rate": 0.0124297732366897,
+                    "Jaccard": 0.8172431595250387,
+                    "Negative Predictive Value": 0.9917853071008857,
+                    "Precision": 0.8811578068466462,
+                    "Recall": 0.9184798375398897,
+                    "Total Positives Reference": 6894,
+                    "Total Positives Test": 7186,
+                    "True Negative Rate": 0.9875702267633103
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.4_2016-01-17_16_02_20.443.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.4_2016-01-17_16_02_20.443.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.99255291005291,
+                    "Dice": 0.9350259665320254,
+                    "False Discovery Rate": 0.04389898513098889,
+                    "False Negative Rate": 0.08514001806684734,
+                    "False Omission Rate": 0.005282849655984193,
+                    "False Positive Rate": 0.002613387287135338,
+                    "Jaccard": 0.8779800606848721,
+                    "Negative Predictive Value": 0.9947171503440158,
+                    "Precision": 0.9561010148690111,
+                    "Recall": 0.9148599819331527,
+                    "Total Positives Reference": 4428,
+                    "Total Positives Test": 4237,
+                    "True Negative Rate": 0.9973866127128647
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_03_27_27.447.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_03_27_27.447.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9972619047619048,
+                    "Dice": 0.9750090546903296,
+                    "False Discovery Rate": 0.02769082590898142,
+                    "False Negative Rate": 0.02227602905569004,
+                    "False Omission Rate": 0.0012876677817123183,
+                    "False Positive Rate": 0.0016090667412900217,
+                    "Jaccard": 0.9512367491166078,
+                    "Negative Predictive Value": 0.9987123322182877,
+                    "Precision": 0.9723091740910186,
+                    "Recall": 0.97772397094431,
+                    "Total Positives Reference": 4130,
+                    "Total Positives Test": 4153,
+                    "True Negative Rate": 0.99839093325871
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_04_27_23.328.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_04_27_23.328.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9960978835978836,
+                    "Dice": 0.9616833354981167,
+                    "False Discovery Rate": 0.027836134453781525,
+                    "False Negative Rate": 0.04857363145720894,
+                    "False Omission Rate": 0.0026326053042121686,
+                    "False Positive Rate": 0.0014781966001478075,
+                    "Jaccard": 0.9261946459844884,
+                    "Negative Predictive Value": 0.9973673946957878,
+                    "Precision": 0.9721638655462185,
+                    "Recall": 0.9514263685427911,
+                    "Total Positives Reference": 3891,
+                    "Total Positives Test": 3808,
+                    "True Negative Rate": 0.9985218033998522
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_04_57_19.365.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_04_57_19.365.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9973280423280423,
+                    "Dice": 0.9732024409657735,
+                    "False Discovery Rate": 0.03953914637339617,
+                    "False Negative Rate": 0.01371336380747512,
+                    "False Omission Rate": 0.0007104944205291094,
+                    "False Positive Rate": 0.002100694202918696,
+                    "Jaccard": 0.9478036175710595,
+                    "Negative Predictive Value": 0.9992895055794709,
+                    "Precision": 0.9604608536266038,
+                    "Recall": 0.9862866361925249,
+                    "Total Positives Reference": 3719,
+                    "Total Positives Test": 3819,
+                    "True Negative Rate": 0.9978993057970813
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_05_27_25.514.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_05_27_25.514.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9957275132275132,
+                    "Dice": 0.9575725732300013,
+                    "False Discovery Rate": 0.02877697841726623,
+                    "False Negative Rate": 0.05569948186528495,
+                    "False Omission Rate": 0.002992470110095063,
+                    "False Positive Rate": 0.0015054362977418023,
+                    "Jaccard": 0.9185987903225806,
+                    "Negative Predictive Value": 0.9970075298899049,
+                    "Precision": 0.9712230215827338,
+                    "Recall": 0.944300518134715,
+                    "Total Positives Reference": 3860,
+                    "Total Positives Test": 3753,
+                    "True Negative Rate": 0.9984945637022582
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_06_27_19.299.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_06_27_19.299.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9962698412698413,
+                    "Dice": 0.9645639607941694,
+                    "False Discovery Rate": 0.022663610898905007,
+                    "False Negative Rate": 0.04787893822872735,
+                    "False Omission Rate": 0.002692785288741925,
+                    "False Positive Rate": 0.0012435551705347603,
+                    "Jaccard": 0.9315533980582524,
+                    "Negative Predictive Value": 0.997307214711258,
+                    "Precision": 0.977336389101095,
+                    "Recall": 0.9521210617712726,
+                    "Total Positives Reference": 4031,
+                    "Total Positives Test": 3927,
+                    "True Negative Rate": 0.9987564448294652
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_06_57_19.333.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_06_57_19.333.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9960449735449736,
+                    "Dice": 0.9604235605559233,
+                    "False Discovery Rate": 0.05175117616309466,
+                    "False Negative Rate": 0.02708500938589431,
+                    "False Omission Rate": 0.0014071948059185778,
+                    "False Positive Rate": 0.002754935926868929,
+                    "Jaccard": 0.923860453272218,
+                    "Negative Predictive Value": 0.9985928051940814,
+                    "Precision": 0.9482488238369053,
+                    "Recall": 0.9729149906141057,
+                    "Total Positives Reference": 3729,
+                    "Total Positives Test": 3826,
+                    "True Negative Rate": 0.9972450640731311
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_07_27_22.809.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_07_27_22.809.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9957671957671957,
+                    "Dice": 0.9589533093894305,
+                    "False Discovery Rate": 0.03435804701627487,
+                    "False Negative Rate": 0.04764331210191086,
+                    "False Omission Rate": 0.002607034811582484,
+                    "False Positive Rate": 0.0018555981862573567,
+                    "Jaccard": 0.92114342040414,
+                    "Negative Predictive Value": 0.9973929651884175,
+                    "Precision": 0.9656419529837251,
+                    "Recall": 0.9523566878980891,
+                    "Total Positives Reference": 3925,
+                    "Total Positives Test": 3871,
+                    "True Negative Rate": 0.9981444018137426
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_07_57_26.836.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_07_57_26.836.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9933201058201058,
+                    "Dice": 0.9425025617670499,
+                    "False Discovery Rate": 0.04411085450346419,
+                    "False Negative Rate": 0.07051426004940486,
+                    "False Omission Rate": 0.00440578083345026,
+                    "False Positive Rate": 0.0026845826247066107,
+                    "Jaccard": 0.8912575366063739,
+                    "Negative Predictive Value": 0.9955942191665498,
+                    "Precision": 0.9558891454965358,
+                    "Recall": 0.9294857399505951,
+                    "Total Positives Reference": 4453,
+                    "Total Positives Test": 4330,
+                    "True Negative Rate": 0.9973154173752934
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_08_58_03.948.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_08_58_03.948.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9935052910052911,
+                    "Dice": 0.9460617378886081,
+                    "False Discovery Rate": 0.03926818384649711,
+                    "False Negative Rate": 0.06816706340618917,
+                    "False Omission Rate": 0.00442925841559099,
+                    "False Positive Rate": 0.002479606644218757,
+                    "Jaccard": 0.8976443610589953,
+                    "Negative Predictive Value": 0.9955707415844091,
+                    "Precision": 0.9607318161535029,
+                    "Recall": 0.9318329365938108,
+                    "Total Positives Reference": 4621,
+                    "Total Positives Test": 4482,
+                    "True Negative Rate": 0.9975203933557812
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_09_58_04.536.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_09_58_04.536.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9918915343915344,
+                    "Dice": 0.9293208808947307,
+                    "False Discovery Rate": 0.04093288910042836,
+                    "False Negative Rate": 0.09863565197942292,
+                    "False Omission Rate": 0.006176643603462282,
+                    "False Positive Rate": 0.0024181416862321115,
+                    "Jaccard": 0.8679732931294422,
+                    "Negative Predictive Value": 0.9938233563965377,
+                    "Precision": 0.9590671108995716,
+                    "Recall": 0.9013643480205771,
+                    "Total Positives Reference": 4471,
+                    "Total Positives Test": 4202,
+                    "True Negative Rate": 0.9975818583137679
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_10_27_52.858.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_10_27_52.858.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.991441798941799,
+                    "Dice": 0.9295283738154885,
+                    "False Discovery Rate": 0.05450919565699086,
+                    "False Negative Rate": 0.08590402742073688,
+                    "False Omission Rate": 0.005640975143134469,
+                    "False Positive Rate": 0.0034681103028252336,
+                    "Jaccard": 0.8683353683353683,
+                    "Negative Predictive Value": 0.9943590248568656,
+                    "Precision": 0.9454908043430091,
+                    "Recall": 0.9140959725792631,
+                    "Total Positives Reference": 4668,
+                    "Total Positives Test": 4513,
+                    "True Negative Rate": 0.9965318896971748
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_11_58_12.803.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_11_58_12.803.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9932539682539683,
+                    "Dice": 0.9548672566371681,
+                    "False Discovery Rate": 0.037809880506509685,
+                    "False Negative Rate": 0.052344985069383454,
+                    "False Omission Rate": 0.004257568614004258,
+                    "False Positive Rate": 0.0030326004548900665,
+                    "Jaccard": 0.9136325148179509,
+                    "Negative Predictive Value": 0.9957424313859957,
+                    "Precision": 0.9621901194934903,
+                    "Recall": 0.9476550149306165,
+                    "Total Positives Reference": 5693,
+                    "Total Positives Test": 5607,
+                    "True Negative Rate": 0.9969673995451099
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_12_58_49.346.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_12_58_49.346.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9947619047619047,
+                    "Dice": 0.9642276422764228,
+                    "False Discovery Rate": 0.024849260003654283,
+                    "False Negative Rate": 0.04645345720921923,
+                    "False Omission Rate": 0.0037075591426982473,
+                    "False Positive Rate": 0.0019427738811194084,
+                    "Jaccard": 0.9309262166405023,
+                    "Negative Predictive Value": 0.9962924408573017,
+                    "Precision": 0.9751507399963457,
+                    "Recall": 0.9535465427907808,
+                    "Total Positives Reference": 5597,
+                    "Total Positives Test": 5473,
+                    "True Negative Rate": 0.9980572261188806
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_13_58_58.412.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_13_58_58.412.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9941798941798942,
+                    "Dice": 0.9548903014148041,
+                    "False Discovery Rate": 0.04647829647829649,
+                    "False Negative Rate": 0.04373716632443536,
+                    "False Omission Rate": 0.0030120481927710845,
+                    "False Positive Rate": 0.003209387812809328,
+                    "Jaccard": 0.9136747106140867,
+                    "Negative Predictive Value": 0.9969879518072289,
+                    "Precision": 0.9535217035217035,
+                    "Recall": 0.9562628336755646,
+                    "Total Positives Reference": 4870,
+                    "Total Positives Test": 4884,
+                    "True Negative Rate": 0.9967906121871907
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_14_29_01.564.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_14_29_01.564.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9902910052910053,
+                    "Dice": 0.92820813771518,
+                    "False Discovery Rate": 0.05609707579073009,
+                    "False Negative Rate": 0.08697325380026943,
+                    "False Omission Rate": 0.006404715684468564,
+                    "False Positive Rate": 0.004005511128787109,
+                    "Jaccard": 0.8660339478006935,
+                    "Negative Predictive Value": 0.9935952843155315,
+                    "Precision": 0.9439029242092699,
+                    "Recall": 0.9130267461997306,
+                    "Total Positives Reference": 5197,
+                    "Total Positives Test": 5027,
+                    "True Negative Rate": 0.9959944888712129
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_14_59_14.311.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_14_59_14.311.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9889285714285714,
+                    "Dice": 0.9243424026032722,
+                    "False Discovery Rate": 0.04465620328849029,
+                    "False Negative Rate": 0.1047102083698126,
+                    "False Omission Rate": 0.008512697870402004,
+                    "False Positive Rate": 0.0034197083947402618,
+                    "Jaccard": 0.859327731092437,
+                    "Negative Predictive Value": 0.991487302129598,
+                    "Precision": 0.9553437967115097,
+                    "Recall": 0.8952897916301874,
+                    "Total Positives Reference": 5711,
+                    "Total Positives Test": 5352,
+                    "True Negative Rate": 0.9965802916052597
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_16_30_35.321.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_16_30_35.321.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9925132275132275,
+                    "Dice": 0.9461055037135784,
+                    "False Discovery Rate": 0.0482758620689655,
+                    "False Negative Rate": 0.05944717909882624,
+                    "False Omission Rate": 0.004461494742824666,
+                    "False Positive Rate": 0.0035837196734833654,
+                    "Jaccard": 0.8977231658836284,
+                    "Negative Predictive Value": 0.9955385052571754,
+                    "Precision": 0.9517241379310345,
+                    "Recall": 0.9405528209011738,
+                    "Total Positives Reference": 5282,
+                    "Total Positives Test": 5220,
+                    "True Negative Rate": 0.9964162803265166
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_19_31_36.821.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_19_31_36.821.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9899074074074075,
+                    "Dice": 0.9345120590507252,
+                    "False Discovery Rate": 0.05123736493551756,
+                    "False Negative Rate": 0.07931675968205654,
+                    "False Omission Rate": 0.006713234662620595,
+                    "False Positive Rate": 0.004218864350596263,
+                    "Jaccard": 0.8770742709843725,
+                    "Negative Predictive Value": 0.9932867653373794,
+                    "Precision": 0.9487626350644824,
+                    "Recall": 0.9206832403179435,
+                    "Total Positives Reference": 5913,
+                    "Total Positives Test": 5738,
+                    "True Negative Rate": 0.9957811356494037
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_20_32_54.377.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_20_32_54.377.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9945502645502645,
+                    "Dice": 0.9635075287865368,
+                    "False Discovery Rate": 0.04209228601620285,
+                    "False Negative Rate": 0.030826799714896658,
+                    "False Omission Rate": 0.0024741855210091246,
+                    "False Positive Rate": 0.003414871120763552,
+                    "Jaccard": 0.9295846863783969,
+                    "Negative Predictive Value": 0.9975258144789909,
+                    "Precision": 0.9579077139837971,
+                    "Recall": 0.9691732002851033,
+                    "Total Positives Reference": 5612,
+                    "Total Positives Test": 5678,
+                    "True Negative Rate": 0.9965851288792364
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_22_33_21.369.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_22_33_21.369.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9924074074074074,
+                    "Dice": 0.9492484526967285,
+                    "False Discovery Rate": 0.05841080512190844,
+                    "False Negative Rate": 0.0429666607238367,
+                    "False Omission Rate": 0.0034478318717005964,
+                    "False Positive Rate": 0.004757754568444517,
+                    "Jaccard": 0.9033995287781892,
+                    "Negative Predictive Value": 0.9965521681282994,
+                    "Precision": 0.9415891948780916,
+                    "Recall": 0.9570333392761633,
+                    "Total Positives Reference": 5609,
+                    "Total Positives Test": 5701,
+                    "True Negative Rate": 0.9952422454315555
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_23_03_33.823.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_23_03_33.823.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.993558201058201,
+                    "Dice": 0.9526310670168272,
+                    "False Discovery Rate": 0.06581457458985118,
+                    "False Negative Rate": 0.028180194483032328,
+                    "False Omission Rate": 0.0020182495238636688,
+                    "False Positive Rate": 0.00488938648828674,
+                    "Jaccard": 0.9095468053491828,
+                    "Negative Predictive Value": 0.9979817504761364,
+                    "Precision": 0.9341854254101488,
+                    "Recall": 0.9718198055169677,
+                    "Total Positives Reference": 5039,
+                    "Total Positives Test": 5242,
+                    "True Negative Rate": 0.9951106135117133
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-16_23_33_50.294.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-16_23_33_50.294.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9943253968253968,
+                    "Dice": 0.9558141930167885,
+                    "False Discovery Rate": 0.06262626262626259,
+                    "False Negative Rate": 0.02500525320445468,
+                    "False Omission Rate": 0.0016843595187544232,
+                    "False Positive Rate": 0.004375996950918282,
+                    "Jaccard": 0.9153679226671927,
+                    "Negative Predictive Value": 0.9983156404812455,
+                    "Precision": 0.9373737373737374,
+                    "Recall": 0.9749947467955453,
+                    "Total Positives Reference": 4759,
+                    "Total Positives Test": 4950,
+                    "True Negative Rate": 0.9956240030490817
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-17_00_00_00.312.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-17_00_00_00.312.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9927380952380952,
+                    "Dice": 0.9484748944157673,
+                    "False Discovery Rate": 0.050009400263207326,
+                    "False Negative Rate": 0.05303598200899551,
+                    "False Omission Rate": 0.004026692847284473,
+                    "False Positive Rate": 0.0037857224183081017,
+                    "Jaccard": 0.9019992859692967,
+                    "Negative Predictive Value": 0.9959733071527155,
+                    "Precision": 0.9499905997367927,
+                    "Recall": 0.9469640179910045,
+                    "Total Positives Reference": 5336,
+                    "Total Positives Test": 5319,
+                    "True Negative Rate": 0.9962142775816919
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-17_00_29_10.309.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-17_00_29_10.309.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.993558201058201,
+                    "Dice": 0.9562168479726693,
+                    "False Discovery Rate": 0.05238774055595152,
+                    "False Negative Rate": 0.035020867356196694,
+                    "False Omission Rate": 0.0027576155912442135,
+                    "False Positive Rate": 0.004194666780807266,
+                    "Jaccard": 0.9161068044788975,
+                    "Negative Predictive Value": 0.9972423844087558,
+                    "Precision": 0.9476122594440485,
+                    "Recall": 0.9649791326438033,
+                    "Total Positives Reference": 5511,
+                    "Total Positives Test": 5612,
+                    "True Negative Rate": 0.9958053332191927
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-17_02_27_21.985.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-17_02_27_21.985.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.991441798941799,
+                    "Dice": 0.942196015366747,
+                    "False Discovery Rate": 0.047679248690626674,
+                    "False Negative Rate": 0.06771570014144268,
+                    "False Omission Rate": 0.005466508713586344,
+                    "False Positive Rate": 0.0037744481299325505,
+                    "Jaccard": 0.8907094594594595,
+                    "Negative Predictive Value": 0.9945334912864137,
+                    "Precision": 0.9523207513093733,
+                    "Recall": 0.9322842998585573,
+                    "Total Positives Reference": 5656,
+                    "Total Positives Test": 5537,
+                    "True Negative Rate": 0.9962255518700674
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-17_03_27_17.608.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-17_03_27_17.608.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9952910052910053,
+                    "Dice": 0.967910582296737,
+                    "False Discovery Rate": 0.031216167448574472,
+                    "False Negative Rate": 0.032961095100864535,
+                    "False Omission Rate": 0.0026121213851380285,
+                    "False Positive Rate": 0.002469735038830523,
+                    "Jaccard": 0.9378165938864629,
+                    "Negative Predictive Value": 0.997387878614862,
+                    "Precision": 0.9687838325514255,
+                    "Recall": 0.9670389048991355,
+                    "Total Positives Reference": 5552,
+                    "Total Positives Test": 5542,
+                    "True Negative Rate": 0.9975302649611695
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-17_04_57_02.372.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-17_04_57_02.372.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9923412698412698,
+                    "Dice": 0.9485012896913635,
+                    "False Discovery Rate": 0.07269565217391305,
+                    "False Negative Rate": 0.029310030948479837,
+                    "False Omission Rate": 0.002304939155332856,
+                    "False Positive Rate": 0.005962314747457453,
+                    "Jaccard": 0.9020470309592286,
+                    "Negative Predictive Value": 0.9976950608446672,
+                    "Precision": 0.927304347826087,
+                    "Recall": 0.9706899690515202,
+                    "Total Positives Reference": 5493,
+                    "Total Positives Test": 5750,
+                    "True Negative Rate": 0.9940376852525425
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-17_05_57_32.884.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-17_05_57_32.884.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9923280423280423,
+                    "Dice": 0.952113606340819,
+                    "False Discovery Rate": 0.06668824862415024,
+                    "False Negative Rate": 0.02831142568250755,
+                    "False Omission Rate": 0.002419982138227075,
+                    "False Positive Rate": 0.005913932190738658,
+                    "Jaccard": 0.9086038449416955,
+                    "Negative Predictive Value": 0.997580017861773,
+                    "Precision": 0.9333117513758498,
+                    "Recall": 0.9716885743174924,
+                    "Total Positives Reference": 5934,
+                    "Total Positives Test": 6178,
+                    "True Negative Rate": 0.9940860678092613
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.5_2016-01-17_06_27_43.045.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.5_2016-01-17_06_27_43.045.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9970767195767196,
+                    "Dice": 0.9661510185327002,
+                    "False Discovery Rate": 0.050286058416139756,
+                    "False Negative Rate": 0.016832917705735695,
+                    "False Omission Rate": 0.0007471049682480389,
+                    "False Positive Rate": 0.002306884738645154,
+                    "Jaccard": 0.9345185185185185,
+                    "Negative Predictive Value": 0.999252895031752,
+                    "Precision": 0.9497139415838602,
+                    "Recall": 0.9831670822942643,
+                    "Total Positives Reference": 3208,
+                    "Total Positives Test": 3321,
+                    "True Negative Rate": 0.9976931152613548
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.6_2016-01-16_00_58_30.857.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.6_2016-01-16_00_58_30.857.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9955952380952381,
+                    "Dice": 0.9479768786127167,
+                    "False Discovery Rate": 0.059807871087697584,
+                    "False Negative Rate": 0.04410838059231259,
+                    "False Omission Rate": 0.0019344230583228552,
+                    "False Positive Rate": 0.0026647888879683945,
+                    "Jaccard": 0.9010989010989011,
+                    "Negative Predictive Value": 0.9980655769416772,
+                    "Precision": 0.9401921289123024,
+                    "Recall": 0.9558916194076874,
+                    "Total Positives Reference": 3174,
+                    "Total Positives Test": 3227,
+                    "True Negative Rate": 0.9973352111120316
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.6_2016-01-16_03_27_27.433.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.6_2016-01-16_03_27_27.433.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9966269841269841,
+                    "Dice": 0.966184856119878,
+                    "False Discovery Rate": 0.02697649572649574,
+                    "False Negative Rate": 0.04055833552804844,
+                    "False Omission Rate": 0.002143175239367624,
+                    "False Positive Rate": 0.0014066264640753001,
+                    "Jaccard": 0.9345818368394049,
+                    "Negative Predictive Value": 0.9978568247606324,
+                    "Precision": 0.9730235042735043,
+                    "Recall": 0.9594416644719516,
+                    "Total Positives Reference": 3797,
+                    "Total Positives Test": 3744,
+                    "True Negative Rate": 0.9985933735359247
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.6_2016-01-16_04_57_19.344.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.6_2016-01-16_04_57_19.344.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9970899470899471,
+                    "Dice": 0.9734748010610079,
+                    "False Discovery Rate": 0.03743443013829284,
+                    "False Negative Rate": 0.015365853658536599,
+                    "False Omission Rate": 0.0008822788001008318,
+                    "False Positive Rate": 0.0021958041958042296,
+                    "Jaccard": 0.9483204134366925,
+                    "Negative Predictive Value": 0.9991177211998992,
+                    "Precision": 0.9625655698617072,
+                    "Recall": 0.9846341463414634,
+                    "Total Positives Reference": 4100,
+                    "Total Positives Test": 4194,
+                    "True Negative Rate": 0.9978041958041958
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.6_2016-01-16_07_27_22.789.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.6_2016-01-16_07_27_22.789.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9948280423280423,
+                    "Dice": 0.9503870067250348,
+                    "False Discovery Rate": 0.08502321035914973,
+                    "False Negative Rate": 0.011351636747624072,
+                    "False Omission Rate": 0.0006013397289775826,
+                    "False Positive Rate": 0.004845986743162722,
+                    "Jaccard": 0.9054642166344294,
+                    "Negative Predictive Value": 0.9993986602710224,
+                    "Precision": 0.9149767896408503,
+                    "Recall": 0.9886483632523759,
+                    "Total Positives Reference": 3788,
+                    "Total Positives Test": 4093,
+                    "True Negative Rate": 0.9951540132568373
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.6_2016-01-16_08_27_50.293.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.6_2016-01-16_08_27_50.293.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9893650793650793,
+                    "Dice": 0.9234139836159269,
+                    "False Discovery Rate": 0.05810338126700354,
+                    "False Negative Rate": 0.09435724962630787,
+                    "False Omission Rate": 0.007167797428109121,
+                    "False Positive Rate": 0.004256348935200993,
+                    "Jaccard": 0.8577242965846753,
+                    "Negative Predictive Value": 0.9928322025718909,
+                    "Precision": 0.9418966187329965,
+                    "Recall": 0.9056427503736921,
+                    "Total Positives Reference": 5352,
+                    "Total Positives Test": 5146,
+                    "True Negative Rate": 0.995743651064799
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.6_2016-01-17_00_00_00.376.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.6_2016-01-17_00_00_00.376.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9938888888888889,
+                    "Dice": 0.9613647767185148,
+                    "False Discovery Rate": 0.04708222811671092,
+                    "False Negative Rate": 0.030037124535943316,
+                    "False Omission Rate": 0.0025586476540938362,
+                    "False Positive Rate": 0.004076125958033083,
+                    "Jaccard": 0.9256038647342996,
+                    "Negative Predictive Value": 0.9974413523459061,
+                    "Precision": 0.9529177718832891,
+                    "Recall": 0.9699628754640567,
+                    "Total Positives Reference": 5926,
+                    "Total Positives Test": 6032,
+                    "True Negative Rate": 0.9959238740419669
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.6_2016-01-17_19_05_44.368.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.6_2016-01-17_19_05_44.368.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9872751322751323,
+                    "Dice": 0.9148371104815864,
+                    "False Discovery Rate": 0.10372940156114485,
+                    "False Negative Rate": 0.06581088410775626,
+                    "False Omission Rate": 0.00521228610295697,
+                    "False Positive Rate": 0.008534444618875647,
+                    "Jaccard": 0.8430412791646272,
+                    "Negative Predictive Value": 0.994787713897043,
+                    "Precision": 0.8962705984388551,
+                    "Recall": 0.9341891158922437,
+                    "Total Positives Reference": 5531,
+                    "Total Positives Test": 5765,
+                    "True Negative Rate": 0.9914655553811244
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.6_2016-01-17_21_37_05.302.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.6_2016-01-17_21_37_05.302.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.987473544973545,
+                    "Dice": 0.913333943442848,
+                    "False Discovery Rate": 0.05331056725479033,
+                    "False Negative Rate": 0.11775106082036779,
+                    "False Omission Rate": 0.009469777758819263,
+                    "False Positive Rate": 0.00401749971405696,
+                    "Jaccard": 0.8404918308910224,
+                    "Negative Predictive Value": 0.9905302222411807,
+                    "Precision": 0.9466894327452097,
+                    "Recall": 0.8822489391796322,
+                    "Total Positives Reference": 5656,
+                    "Total Positives Test": 5271,
+                    "True Negative Rate": 0.995982500285943
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task201_Larven_split_drittel-ist-test/labelsTs/192.168.1.6_2016-01-17_23_07_53.842.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task201_Larven_split_drittel-ist-test/imagesTs/192.168.1.6_2016-01-17_23_07_53.842.nii.gz"
+            }
+        ],
+        "mean": {
+            "1": {
+                "Accuracy": 0.9936870255348514,
+                "Dice": 0.9445903528631985,
+                "False Discovery Rate": 0.05250190677059822,
+                "False Negative Rate": 0.05754039734401339,
+                "False Omission Rate": 0.003564751435261787,
+                "False Positive Rate": 0.0031630561199615177,
+                "Jaccard": 0.8954355589750472,
+                "Negative Predictive Value": 0.9964352485647382,
+                "Precision": 0.947498093229402,
+                "Recall": 0.9424596026559865,
+                "Total Positives Reference": 4279.478260869565,
+                "Total Positives Test": 4250.95652173913,
+                "True Negative Rate": 0.9968369438800385
+            }
+        }
+    },
+    "task": "",
+    "timestamp": "2021-02-08 10:13:50.491843"
+}

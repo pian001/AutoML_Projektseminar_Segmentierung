@@ -1,0 +1,276 @@
+{
+    "author": "Fabian",
+    "description": "",
+    "id": "f087cd174473",
+    "name": "",
+    "results": {
+        "all": [
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": 1.0,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 1.0,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 1.0,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 106894,
+                    "Total Positives Test": 106894,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task205_Augen_weniger/labelsTr/01_dr.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task205_Augen_weniger/imagesTr/01_dr.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": 1.0,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 1.0,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 1.0,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 140903,
+                    "Total Positives Test": 140903,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task205_Augen_weniger/labelsTr/01_g.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task205_Augen_weniger/imagesTr/01_g.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": 1.0,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 1.0,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 1.0,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 189176,
+                    "Total Positives Test": 189176,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task205_Augen_weniger/labelsTr/01_h.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task205_Augen_weniger/imagesTr/01_h.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999992363310902,
+                    "Dice": 0.999996197299322,
+                    "False Discovery Rate": 7.605372435048885e-06,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 8.489086854579497e-07,
+                    "Jaccard": 0.999992394627565,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 0.999992394627565,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 131485,
+                    "Total Positives Test": 131486,
+                    "True Negative Rate": 0.9999991510913145
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task205_Augen_weniger/labelsTr/02_dr.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task205_Augen_weniger/imagesTr/02_dr.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": 1.0,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 1.0,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 1.0,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 154178,
+                    "Total Positives Test": 154178,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task205_Augen_weniger/labelsTr/02_g.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task205_Augen_weniger/imagesTr/02_g.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": 1.0,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 1.0,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 1.0,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 179190,
+                    "Total Positives Test": 179190,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task205_Augen_weniger/labelsTr/02_h.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task205_Augen_weniger/imagesTr/02_h.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": 1.0,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 1.0,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 1.0,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 120822,
+                    "Total Positives Test": 120822,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task205_Augen_weniger/labelsTr/03_dr.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task205_Augen_weniger/imagesTr/03_dr.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": 1.0,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 1.0,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 1.0,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 118735,
+                    "Total Positives Test": 118735,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task205_Augen_weniger/labelsTr/03_g.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task205_Augen_weniger/imagesTr/03_g.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": 1.0,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 1.0,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 1.0,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 188553,
+                    "Total Positives Test": 188553,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task205_Augen_weniger/labelsTr/03_h.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task205_Augen_weniger/imagesTr/03_h.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": 1.0,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 1.0,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 1.0,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 115455,
+                    "Total Positives Test": 115455,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task205_Augen_weniger/labelsTr/04_dr.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task205_Augen_weniger/imagesTr/04_dr.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": 1.0,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 1.0,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 1.0,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 130932,
+                    "Total Positives Test": 130932,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task205_Augen_weniger/labelsTr/04_g.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task205_Augen_weniger/imagesTr/04_g.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": 1.0,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 1.0,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 1.0,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 171611,
+                    "Total Positives Test": 171611,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task205_Augen_weniger/labelsTr/04_h.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task205_Augen_weniger/imagesTr/04_h.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": 1.0,
+                    "False Discovery Rate": 0.0,
+                    "False Negative Rate": 0.0,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 1.0,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": 1.0,
+                    "Recall": 1.0,
+                    "Total Positives Reference": 129966,
+                    "Total Positives Test": 129966,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task205_Augen_weniger/labelsTr/05_dr.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task205_Augen_weniger/imagesTr/05_dr.nii.gz"
+            }
+        ],
+        "mean": {
+            "1": {
+                "Accuracy": 0.9999999412562377,
+                "Dice": 0.9999997074845631,
+                "False Discovery Rate": 5.850286488499142e-07,
+                "False Negative Rate": 0.0,
+                "False Omission Rate": 0.0,
+                "False Positive Rate": 6.530066811214998e-08,
+                "Jaccard": 0.9999994149713511,
+                "Negative Predictive Value": 1.0,
+                "Precision": 0.9999994149713511,
+                "Recall": 1.0,
+                "Total Positives Reference": 144453.84615384616,
+                "Total Positives Test": 144453.92307692306,
+                "True Negative Rate": 0.9999999346993319
+            }
+        }
+    },
+    "task": "",
+    "timestamp": "2021-02-08 10:13:04.250287"
+}

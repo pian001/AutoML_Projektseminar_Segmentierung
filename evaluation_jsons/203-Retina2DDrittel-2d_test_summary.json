@@ -1,0 +1,675 @@
+{
+    "author": "Fabian",
+    "description": "",
+    "id": "aea526d39713",
+    "name": "",
+    "results": {
+        "all": [
+            {
+                "1": {
+                    "Accuracy": 0.9585160990179521,
+                    "Dice": 0.7490169411347308,
+                    "False Discovery Rate": 0.3155636725166422,
+                    "False Negative Rate": 0.17294558560440854,
+                    "False Omission Rate": 0.014231189127388699,
+                    "False Positive Rate": 0.03084865765395539,
+                    "Jaccard": 0.5987426734732464,
+                    "Negative Predictive Value": 0.9857688108726113,
+                    "Precision": 0.6844363274833578,
+                    "Recall": 0.8270544143955915,
+                    "Total Positives Reference": 153158,
+                    "Total Positives Test": 185072,
+                    "True Negative Rate": 0.9691513423460446
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/01_dr.gedreht.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/01_dr.gedreht.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9585092575217364,
+                    "Dice": 0.7489889075471252,
+                    "False Discovery Rate": 0.3156194283861905,
+                    "False Negative Rate": 0.17293252719413943,
+                    "False Omission Rate": 0.014230252207392251,
+                    "False Positive Rate": 0.030857109051552478,
+                    "Jaccard": 0.5987068476575793,
+                    "Negative Predictive Value": 0.9857697477926077,
+                    "Precision": 0.6843805716138095,
+                    "Recall": 0.8270674728058606,
+                    "Total Positives Reference": 153158,
+                    "Total Positives Test": 185090,
+                    "True Negative Rate": 0.9691428909484475
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/01_dr.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/01_dr.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9998993322699693,
+                    "Dice": 0.9996268629681421,
+                    "False Discovery Rate": 0.00032967908820180636,
+                    "False Negative Rate": 0.0004165911972469072,
+                    "False Omission Rate": 6.496037417175523e-05,
+                    "False Positive Rate": 5.140412340154388e-05,
+                    "Jaccard": 0.9992540042949073,
+                    "Negative Predictive Value": 0.9999350396258282,
+                    "Precision": 0.9996703209117982,
+                    "Recall": 0.9995834088027531,
+                    "Total Positives Reference": 276050,
+                    "Total Positives Test": 276026,
+                    "True Negative Rate": 0.9999485958765985
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/01_h.gedreht.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/01_h.gedreht.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9998832058860324,
+                    "Dice": 0.9994598589305207,
+                    "False Discovery Rate": 0.0005333646722744945,
+                    "False Negative Rate": 0.0005469173747966183,
+                    "False Omission Rate": 6.629777343585198e-05,
+                    "False Positive Rate": 6.465413326206537e-05,
+                    "Jaccard": 0.9989203010507866,
+                    "Negative Predictive Value": 0.9999337022265642,
+                    "Precision": 0.9994666353277255,
+                    "Recall": 0.9994530826252034,
+                    "Total Positives Reference": 221240,
+                    "Total Positives Test": 221237,
+                    "True Negative Rate": 0.9999353458667379
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/02_g.gedreht.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/02_g.gedreht.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999648151623194,
+                    "Dice": 0.9998626771845771,
+                    "False Discovery Rate": 0.00014113679970395587,
+                    "False Negative Rate": 0.0001335088020445463,
+                    "False Omission Rate": 1.961686579653723e-05,
+                    "False Positive Rate": 2.073780630995614e-05,
+                    "Jaccard": 0.9997253920790871,
+                    "Negative Predictive Value": 0.9999803831342035,
+                    "Precision": 0.999858863200296,
+                    "Recall": 0.9998664911979555,
+                    "Total Positives Reference": 262155,
+                    "Total Positives Test": 262157,
+                    "True Negative Rate": 0.99997926219369
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/02_h.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/02_h.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999545529179958,
+                    "Dice": 0.9997270622210092,
+                    "False Discovery Rate": 0.00019371312846705457,
+                    "False Negative Rate": 0.0003521498749867735,
+                    "False Omission Rate": 3.1983266355043045e-05,
+                    "False Positive Rate": 1.7591049673915116e-05,
+                    "Jaccard": 0.9994542733914268,
+                    "Negative Predictive Value": 0.999968016733645,
+                    "Precision": 0.999806286871533,
+                    "Recall": 0.9996478501250132,
+                    "Total Positives Reference": 170382,
+                    "Total Positives Test": 170355,
+                    "True Negative Rate": 0.9999824089503261
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/03_g.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/03_g.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999354944642522,
+                    "Dice": 0.999761305442236,
+                    "False Discovery Rate": 0.0002567728356038801,
+                    "False Negative Rate": 0.00022061562609632102,
+                    "False Omission Rate": 3.446664560999465e-05,
+                    "False Positive Rate": 4.0116688712066306e-05,
+                    "Jaccard": 0.9995227248074628,
+                    "Negative Predictive Value": 0.99996553335439,
+                    "Precision": 0.9997432271643961,
+                    "Recall": 0.9997793843739037,
+                    "Total Positives Reference": 276499,
+                    "Total Positives Test": 276509,
+                    "True Negative Rate": 0.9999598833112879
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/03_h.gedreht.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/03_h.gedreht.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9708078243260149,
+                    "Dice": 0.8205174428910942,
+                    "False Discovery Rate": 0.18480973361512099,
+                    "False Negative Rate": 0.17408529762228797,
+                    "False Omission Rate": 0.015318543309307793,
+                    "False Positive Rate": 0.016457124872874096,
+                    "Jaccard": 0.6956588191539766,
+                    "Negative Predictive Value": 0.9846814566906922,
+                    "Precision": 0.815190266384879,
+                    "Recall": 0.825914702377712,
+                    "Total Positives Reference": 165327,
+                    "Total Positives Test": 167502,
+                    "True Negative Rate": 0.9835428751271259
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/04_dr.gedreht.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/04_dr.gedreht.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.970800005473197,
+                    "Dice": 0.8204715277631726,
+                    "False Discovery Rate": 0.1848650197604862,
+                    "False Negative Rate": 0.17412158933507538,
+                    "False Omission Rate": 0.015321769399040893,
+                    "False Positive Rate": 0.016462441168543007,
+                    "Jaccard": 0.6955928127849694,
+                    "Negative Predictive Value": 0.9846782306009592,
+                    "Precision": 0.8151349802395138,
+                    "Recall": 0.8258784106649246,
+                    "Total Positives Reference": 165327,
+                    "Total Positives Test": 167506,
+                    "True Negative Rate": 0.983537558831457
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/04_dr.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/04_dr.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9679055638956652,
+                    "Dice": 0.8239022716059976,
+                    "False Discovery Rate": 0.16611214537322994,
+                    "False Negative Rate": 0.1858469919293727,
+                    "False Omission Rate": 0.01883418282545501,
+                    "False Positive Rate": 0.016475320395321513,
+                    "Jaccard": 0.7005389532815962,
+                    "Negative Predictive Value": 0.981165817174545,
+                    "Precision": 0.8338878546267701,
+                    "Recall": 0.8141530080706273,
+                    "Total Positives Reference": 188709,
+                    "Total Positives Test": 184243,
+                    "True Negative Rate": 0.9835246796046785
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/04_g.gedreht.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/04_g.gedreht.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9679001884343529,
+                    "Dice": 0.8238723049408635,
+                    "False Discovery Rate": 0.16614018519121587,
+                    "False Negative Rate": 0.18587878691530346,
+                    "False Omission Rate": 0.018837394889839074,
+                    "False Positive Rate": 0.01647801200133292,
+                    "Jaccard": 0.7004956250940411,
+                    "Negative Predictive Value": 0.981162605110161,
+                    "Precision": 0.8338598148087841,
+                    "Recall": 0.8141212130846965,
+                    "Total Positives Reference": 188709,
+                    "Total Positives Test": 184242,
+                    "True Negative Rate": 0.9835219879986671
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/04_g.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/04_g.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999711679802339,
+                    "Dice": 0.99988263541188,
+                    "False Discovery Rate": 0.0001113975619847496,
+                    "False Negative Rate": 0.0001233315430367865,
+                    "False Omission Rate": 1.7270348927901308e-05,
+                    "False Positive Rate": 1.5599050909198553e-05,
+                    "Jaccard": 0.9997652983694204,
+                    "Negative Predictive Value": 0.999982729651072,
+                    "Precision": 0.9998886024380153,
+                    "Recall": 0.9998766684569632,
+                    "Total Positives Reference": 251355,
+                    "Total Positives Test": 251352,
+                    "True Negative Rate": 0.9999844009490908
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/04_h.gedreht.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/04_h.gedreht.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9688047319697254,
+                    "Dice": 0.8332087894860607,
+                    "False Discovery Rate": 0.1924935175431488,
+                    "False Negative Rate": 0.13939894426632982,
+                    "False Omission Rate": 0.013968997447103112,
+                    "False Positive Rate": 0.020423285199525854,
+                    "Jaccard": 0.7141027306154073,
+                    "Negative Predictive Value": 0.9860310025528969,
+                    "Precision": 0.8075064824568512,
+                    "Recall": 0.8606010557336702,
+                    "Total Positives Reference": 185274,
+                    "Total Positives Test": 197456,
+                    "True Negative Rate": 0.9795767148004741
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/05_dr.gedreht.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/05_dr.gedreht.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9688017998999187,
+                    "Dice": 0.833195727603361,
+                    "False Discovery Rate": 0.19251805410661293,
+                    "False Negative Rate": 0.13939894426632982,
+                    "False Omission Rate": 0.01396904277955123,
+                    "False Positive Rate": 0.02042650916519706,
+                    "Jaccard": 0.7140835419568362,
+                    "Negative Predictive Value": 0.9860309572204488,
+                    "Precision": 0.8074819458933871,
+                    "Recall": 0.8606010557336702,
+                    "Total Positives Reference": 185274,
+                    "Total Positives Test": 197462,
+                    "True Negative Rate": 0.9795734908348029
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/05_dr.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/05_dr.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9711264425783449,
+                    "Dice": 0.8428653112242863,
+                    "False Discovery Rate": 0.1528336888475459,
+                    "False Negative Rate": 0.16139223759274346,
+                    "False Omission Rate": 0.016402559481262402,
+                    "False Positive Rate": 0.01539162279648576,
+                    "Jaccard": 0.7284072626982303,
+                    "Negative Predictive Value": 0.9835974405187375,
+                    "Precision": 0.8471663111524541,
+                    "Recall": 0.8386077624072565,
+                    "Total Positives Reference": 188962,
+                    "Total Positives Test": 187053,
+                    "True Negative Rate": 0.9846083772035142
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/05_g.gedreht.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/05_g.gedreht.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9711303520047538,
+                    "Dice": 0.8428840799023427,
+                    "False Discovery Rate": 0.1528011676209723,
+                    "False Negative Rate": 0.16138694552343857,
+                    "False Omission Rate": 0.016401968709544346,
+                    "False Positive Rate": 0.015387854034782489,
+                    "Jaccard": 0.7284352978491608,
+                    "Negative Predictive Value": 0.9835980312904556,
+                    "Precision": 0.8471988323790277,
+                    "Recall": 0.8386130544765614,
+                    "Total Positives Reference": 188962,
+                    "Total Positives Test": 187047,
+                    "True Negative Rate": 0.9846121459652175
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/05_g.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/05_g.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999379378557578,
+                    "Dice": 0.9997239616502311,
+                    "False Discovery Rate": 0.0002390971690895416,
+                    "False Negative Rate": 0.00031297680059461097,
+                    "False Omission Rate": 3.964094116403421e-05,
+                    "False Positive Rate": 3.0281557925615488e-05,
+                    "Jaccard": 0.9994480756527483,
+                    "Negative Predictive Value": 0.999960359058836,
+                    "Precision": 0.9997609028309105,
+                    "Recall": 0.9996870231994054,
+                    "Total Positives Reference": 230049,
+                    "Total Positives Test": 230032,
+                    "True Negative Rate": 0.9999697184420744
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/06_dr.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/06_dr.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.999938426534059,
+                    "Dice": 0.9997097683675161,
+                    "False Discovery Rate": 0.00024878028554453646,
+                    "False Negative Rate": 0.00033167954228219276,
+                    "False Omission Rate": 3.93598126472918e-05,
+                    "False Positive Rate": 2.9520149962380948e-05,
+                    "Jaccard": 0.9994197051549525,
+                    "Negative Predictive Value": 0.9999606401873528,
+                    "Precision": 0.9997512197144555,
+                    "Recall": 0.9996683204577178,
+                    "Total Positives Reference": 217077,
+                    "Total Positives Test": 217059,
+                    "True Negative Rate": 0.9999704798500376
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/08_dr.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/08_dr.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.970220433008069,
+                    "Dice": 0.849124666070814,
+                    "False Discovery Rate": 0.13656321121427561,
+                    "False Negative Rate": 0.1647207244068407,
+                    "False Omission Rate": 0.018301896595393705,
+                    "False Positive Rate": 0.014731914676348157,
+                    "Jaccard": 0.7378076851919577,
+                    "Negative Predictive Value": 0.9816981034046063,
+                    "Precision": 0.8634367887857244,
+                    "Recall": 0.8352792755931593,
+                    "Total Positives Reference": 205299,
+                    "Total Positives Test": 198604,
+                    "True Negative Rate": 0.9852680853236518
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/08_g.gedreht.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/08_g.gedreht.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.970224342434478,
+                    "Dice": 0.849143725813999,
+                    "False Discovery Rate": 0.13653941047925,
+                    "False Negative Rate": 0.16470611157385084,
+                    "False Omission Rate": 0.01830025317496999,
+                    "False Positive Rate": 0.014729198815667477,
+                    "Jaccard": 0.7378364656478039,
+                    "Negative Predictive Value": 0.98169974682503,
+                    "Precision": 0.86346058952075,
+                    "Recall": 0.8352938884261492,
+                    "Total Positives Reference": 205299,
+                    "Total Positives Test": 198602,
+                    "True Negative Rate": 0.9852708011843325
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/08_g.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/08_g.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999858283292675,
+                    "Dice": 0.999946066680181,
+                    "False Discovery Rate": 5.951229672829239e-05,
+                    "False Negative Rate": 4.835428065563807e-05,
+                    "False Omission Rate": 7.313708590344554e-06,
+                    "False Positive Rate": 9.00147230331605e-06,
+                    "Jaccard": 0.9998921391776542,
+                    "Negative Predictive Value": 0.9999926862914097,
+                    "Precision": 0.9999404877032717,
+                    "Recall": 0.9999516457193444,
+                    "Total Positives Reference": 268849,
+                    "Total Positives Test": 268852,
+                    "True Negative Rate": 0.9999909985276967
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/08_h.gedreht.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/08_h.gedreht.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.999955041596297,
+                    "Dice": 0.9997625732925923,
+                    "False Discovery Rate": 0.00025806718004828255,
+                    "False Negative Rate": 0.000216785382471385,
+                    "False Omission Rate": 2.2670987828918248e-05,
+                    "False Positive Rate": 2.698915467813645e-05,
+                    "Jaccard": 0.9995252593013055,
+                    "Negative Predictive Value": 0.9999773290121711,
+                    "Precision": 0.9997419328199517,
+                    "Recall": 0.9997832146175286,
+                    "Total Positives Reference": 193740,
+                    "Total Positives Test": 193748,
+                    "True Negative Rate": 0.9999730108453219
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/09_dr.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/09_dr.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999858283292675,
+                    "Dice": 0.9999332801108011,
+                    "False Discovery Rate": 7.362143856293191e-05,
+                    "False Negative Rate": 5.981824456458007e-05,
+                    "False Omission Rate": 7.107678041867504e-06,
+                    "False Positive Rate": 8.747897087602041e-06,
+                    "Jaccard": 0.9998665691240953,
+                    "Negative Predictive Value": 0.9999928923219581,
+                    "Precision": 0.9999263785614371,
+                    "Recall": 0.9999401817554354,
+                    "Total Positives Reference": 217325,
+                    "Total Positives Test": 217328,
+                    "True Negative Rate": 0.9999912521029124
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/09_h.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/09_h.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999765434415463,
+                    "Dice": 0.9999004995750502,
+                    "False Discovery Rate": 0.00010364584628907991,
+                    "False Negative Rate": 9.535496923762654e-05,
+                    "False Omission Rate": 1.2741464603657354e-05,
+                    "False Positive Rate": 1.3849402702992286e-05,
+                    "Jaccard": 0.9998010189487997,
+                    "Negative Predictive Value": 0.9999872585353964,
+                    "Precision": 0.9998963541537109,
+                    "Recall": 0.9999046450307624,
+                    "Total Positives Reference": 241204,
+                    "Total Positives Test": 241206,
+                    "True Negative Rate": 0.999986150597297
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/10_h.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/10_h.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999330510727467,
+                    "Dice": 0.9997199011271424,
+                    "False Discovery Rate": 0.00026170303248385096,
+                    "False Negative Rate": 0.00029849403625270554,
+                    "False Omission Rate": 4.0515400292154886e-05,
+                    "False Positive Rate": 3.552052836786057e-05,
+                    "Jaccard": 0.9994399591211037,
+                    "Negative Predictive Value": 0.9999594845997078,
+                    "Precision": 0.9997382969675161,
+                    "Recall": 0.9997015059637473,
+                    "Total Positives Reference": 244561,
+                    "Total Positives Test": 244552,
+                    "True Negative Rate": 0.9999644794716321
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/11_dr.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/11_dr.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9997126571589416,
+                    "Dice": 0.9988210999057682,
+                    "False Discovery Rate": 0.0012950355633605248,
+                    "False Negative Rate": 0.0010627376120887488,
+                    "False Omission Rate": 0.00014747440345212536,
+                    "False Positive Rate": 0.00017974601831960424,
+                    "Jaccard": 0.9976449761493758,
+                    "Negative Predictive Value": 0.9998525255965479,
+                    "Precision": 0.9987049644366395,
+                    "Recall": 0.9989372623879113,
+                    "Total Positives Reference": 249356,
+                    "Total Positives Test": 249414,
+                    "True Negative Rate": 0.9998202539816804
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/11_h.gedreht.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/11_h.gedreht.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999433133170701,
+                    "Dice": 0.999714921873848,
+                    "False Discovery Rate": 0.0002015375843017475,
+                    "False Negative Rate": 0.0003686047083107935,
+                    "False Omission Rate": 4.069672798307016e-05,
+                    "False Positive Rate": 2.2247955087317806e-05,
+                    "Jaccard": 0.9994300062404489,
+                    "Negative Predictive Value": 0.9999593032720169,
+                    "Precision": 0.9997984624156983,
+                    "Recall": 0.9996313952916892,
+                    "Total Positives Reference": 203470,
+                    "Total Positives Test": 203436,
+                    "True Negative Rate": 0.9999777520449127
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/12_dr.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/12_dr.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999359831425533,
+                    "Dice": 0.9996799499646968,
+                    "False Discovery Rate": 0.00022967498546211385,
+                    "False Negative Rate": 0.0004104087475692575,
+                    "False Omission Rate": 4.56100589727203e-05,
+                    "False Positive Rate": 2.5520426658043327e-05,
+                    "Jaccard": 0.9993601047278979,
+                    "Negative Predictive Value": 0.9999543899410273,
+                    "Precision": 0.9997703250145379,
+                    "Recall": 0.9995895912524307,
+                    "Total Positives Reference": 204674,
+                    "Total Positives Test": 204637,
+                    "True Negative Rate": 0.999974479573342
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/13_g.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/13_g.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9997654344154626,
+                    "Dice": 0.998970655092255,
+                    "False Discovery Rate": 0.0011235955056180247,
+                    "False Negative Rate": 0.0009350765218585355,
+                    "False Omission Rate": 0.00012023234625150842,
+                    "False Positive Rate": 0.00014449591881759982,
+                    "Jaccard": 0.9979434271073445,
+                    "Negative Predictive Value": 0.9998797676537485,
+                    "Precision": 0.998876404494382,
+                    "Recall": 0.9990649234781415,
+                    "Total Positives Reference": 233136,
+                    "Total Positives Test": 233180,
+                    "True Negative Rate": 0.9998555040811824
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/13_h.gedreht.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/13_h.gedreht.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.999947222743479,
+                    "Dice": 0.999759445120077,
+                    "False Discovery Rate": 0.00023164750377535626,
+                    "False Negative Rate": 0.00024946209735254854,
+                    "False Omission Rate": 3.073786801049698e-05,
+                    "False Positive Rate": 2.8542368676331975e-05,
+                    "Jaccard": 0.9995190059456209,
+                    "Negative Predictive Value": 0.9999692621319896,
+                    "Precision": 0.9997683524962246,
+                    "Recall": 0.9997505379026475,
+                    "Total Positives Reference": 224483,
+                    "Total Positives Test": 224479,
+                    "True Negative Rate": 0.9999714576313237
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/14_dr.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/14_dr.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.999963349127416,
+                    "Dice": 0.9998214230440466,
+                    "False Discovery Rate": 0.0001666738098299314,
+                    "False Negative Rate": 0.00019047981866315844,
+                    "False Omission Rate": 2.1782399276824344e-05,
+                    "False Positive Rate": 1.9059651262809396e-05,
+                    "Jaccard": 0.9996429098561641,
+                    "Negative Predictive Value": 0.9999782176007231,
+                    "Precision": 0.9998333261901701,
+                    "Recall": 0.9998095201813368,
+                    "Total Positives Reference": 209996,
+                    "Total Positives Test": 209991,
+                    "True Negative Rate": 0.9999809403487372
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/14_g.gedreht.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/14_g.gedreht.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9994223822480766,
+                    "Dice": 0.9975065290124421,
+                    "False Discovery Rate": 0.003191601492505858,
+                    "False Negative Rate": 0.0017943619037968928,
+                    "False Omission Rate": 0.00023491682009959367,
+                    "False Positive Rate": 0.0004183515401913196,
+                    "Jaccard": 0.9950254618913346,
+                    "Negative Predictive Value": 0.9997650831799004,
+                    "Precision": 0.9968083985074941,
+                    "Recall": 0.9982056380962031,
+                    "Total Positives Reference": 236853,
+                    "Total Positives Test": 237185,
+                    "True Negative Rate": 0.9995816484598087
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/14_h.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/14_h.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999843622943642,
+                    "Dice": 0.9999143138683004,
+                    "False Discovery Rate": 5.891079299280566e-05,
+                    "False Negative Rate": 0.0001124600365227657,
+                    "False Omission Rate": 1.1292672185019141e-05,
+                    "False Positive Rate": 5.915241048759512e-06,
+                    "Jaccard": 0.999828642419569,
+                    "Negative Predictive Value": 0.999988707327815,
+                    "Precision": 0.9999410892070072,
+                    "Recall": 0.9998875399634772,
+                    "Total Positives Reference": 186733,
+                    "Total Positives Test": 186723,
+                    "True Negative Rate": 0.9999940847589512
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/15_dr.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/15_dr.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9995435744667542,
+                    "Dice": 0.9978117034038086,
+                    "False Discovery Rate": 0.0029685122322369306,
+                    "False Negative Rate": 0.0014068589061203562,
+                    "False Omission Rate": 0.0001636874638864533,
+                    "False Positive Rate": 0.00034586314402695884,
+                    "Jaccard": 0.9956329631794273,
+                    "Negative Predictive Value": 0.9998363125361135,
+                    "Precision": 0.9970314877677631,
+                    "Recall": 0.9985931410938796,
+                    "Total Positives Reference": 213241,
+                    "Total Positives Test": 213575,
+                    "True Negative Rate": 0.999654136855973
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task203_Augenadern-drittel-test/labelsTs/15_h.gedreht.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task203_Augenadern-drittel-test/imagesTs/15_h.gedreht.nii.gz"
+            }
+        ],
+        "mean": {
+            "1": {
+                "Accuracy": 0.9885966630975903,
+                "Dice": 0.9360649467714992,
+                "False Discovery Rate": 0.06791579163116931,
+                "False Negative Rate": 0.059014756301666776,
+                "False Omission Rate": 0.005745247822759755,
+                "False Positive Rate": 0.006771258973852105,
+                "Jaccard": 0.8920138509822277,
+                "Negative Predictive Value": 0.9942547521772401,
+                "Precision": 0.9320842083688307,
+                "Recall": 0.9409852436983333,
+                "Total Positives Reference": 211937.82352941178,
+                "Total Positives Test": 213909.17647058822,
+                "True Negative Rate": 0.993228741026148
+            }
+        }
+    },
+    "task": "",
+    "timestamp": "2021-02-08 10:11:44.171875"
+}

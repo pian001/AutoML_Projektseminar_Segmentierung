@@ -1,0 +1,390 @@
+{
+    "author": "Fabian",
+    "description": "",
+    "id": "4e092fda9bdd",
+    "name": "",
+    "results": {
+        "all": [
+            {
+                "1": {
+                    "Accuracy": 0.9999966521363158,
+                    "Dice": 0.0,
+                    "False Discovery Rate": NaN,
+                    "False Negative Rate": 1.0,
+                    "False Omission Rate": 3.347863684167395e-06,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.0,
+                    "Negative Predictive Value": 0.9999966521363158,
+                    "Precision": NaN,
+                    "Recall": 0.0,
+                    "Total Positives Reference": 502,
+                    "Total Positives Test": 0,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task109_CT_int16/labelsTr/CT_002.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr/CT_002.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999887900231977,
+                    "Dice": 0.0,
+                    "False Discovery Rate": NaN,
+                    "False Negative Rate": 1.0,
+                    "False Omission Rate": 1.1209976802233755e-05,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.0,
+                    "Negative Predictive Value": 0.9999887900231977,
+                    "Precision": NaN,
+                    "Recall": 0.0,
+                    "Total Positives Reference": 1628,
+                    "Total Positives Test": 0,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task109_CT_int16/labelsTr/CT_003.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr/CT_003.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999688681389015,
+                    "Dice": 0.0,
+                    "False Discovery Rate": NaN,
+                    "False Negative Rate": 1.0,
+                    "False Omission Rate": 3.11318610985306e-05,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.0,
+                    "Negative Predictive Value": 0.9999688681389015,
+                    "Precision": NaN,
+                    "Recall": 0.0,
+                    "Total Positives Reference": 5068,
+                    "Total Positives Test": 0,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task109_CT_int16/labelsTr/CT_004.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr/CT_004.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999969332825904,
+                    "Dice": 0.0,
+                    "False Discovery Rate": NaN,
+                    "False Negative Rate": 1.0,
+                    "False Omission Rate": 3.066717409620098e-06,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.0,
+                    "Negative Predictive Value": 0.9999969332825904,
+                    "Precision": NaN,
+                    "Recall": 0.0,
+                    "Total Positives Reference": 656,
+                    "Total Positives Test": 0,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task109_CT_int16/labelsTr/CT_005.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr/CT_005.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999896605237782,
+                    "Dice": 0.0,
+                    "False Discovery Rate": NaN,
+                    "False Negative Rate": 1.0,
+                    "False Omission Rate": 1.0339476221756969e-05,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.0,
+                    "Negative Predictive Value": 0.9999896605237782,
+                    "Precision": NaN,
+                    "Recall": 0.0,
+                    "Total Positives Reference": 1507,
+                    "Total Positives Test": 0,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task109_CT_int16/labelsTr/CT_006.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr/CT_006.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999917366761856,
+                    "Dice": 0.0,
+                    "False Discovery Rate": NaN,
+                    "False Negative Rate": 1.0,
+                    "False Omission Rate": 8.263323814458819e-06,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.0,
+                    "Negative Predictive Value": 0.9999917366761856,
+                    "Precision": NaN,
+                    "Recall": 0.0,
+                    "Total Positives Reference": 1486,
+                    "Total Positives Test": 0,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task109_CT_int16/labelsTr/CT_007.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr/CT_007.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999148385566577,
+                    "Dice": 0.0,
+                    "False Discovery Rate": NaN,
+                    "False Negative Rate": 1.0,
+                    "False Omission Rate": 8.516144334224232e-05,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.0,
+                    "Negative Predictive Value": 0.9999148385566577,
+                    "Precision": NaN,
+                    "Recall": 0.0,
+                    "Total Positives Reference": 12725,
+                    "Total Positives Test": 0,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task109_CT_int16/labelsTr/CT_008.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr/CT_008.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.999999665819909,
+                    "Dice": 0.0,
+                    "False Discovery Rate": NaN,
+                    "False Negative Rate": 1.0,
+                    "False Omission Rate": 3.3418009103822316e-07,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.0,
+                    "Negative Predictive Value": 0.999999665819909,
+                    "Precision": NaN,
+                    "Recall": 0.0,
+                    "Total Positives Reference": 53,
+                    "Total Positives Test": 0,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task109_CT_int16/labelsTr/CT_009.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr/CT_009.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": NaN,
+                    "False Discovery Rate": NaN,
+                    "False Negative Rate": NaN,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": NaN,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": NaN,
+                    "Recall": NaN,
+                    "Total Positives Reference": 0,
+                    "Total Positives Test": 0,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task109_CT_int16/labelsTr/CT_010.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr/CT_010.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999901202085207,
+                    "Dice": 0.0,
+                    "False Discovery Rate": NaN,
+                    "False Negative Rate": 1.0,
+                    "False Omission Rate": 9.879791479316546e-06,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.0,
+                    "Negative Predictive Value": 0.9999901202085207,
+                    "Precision": NaN,
+                    "Recall": 0.0,
+                    "Total Positives Reference": 1440,
+                    "Total Positives Test": 0,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task109_CT_int16/labelsTr/CT_011.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr/CT_011.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999820462122619,
+                    "Dice": 0.0,
+                    "False Discovery Rate": NaN,
+                    "False Negative Rate": 1.0,
+                    "False Omission Rate": 1.79537877380124e-05,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.0,
+                    "Negative Predictive Value": 0.9999820462122619,
+                    "Precision": NaN,
+                    "Recall": 0.0,
+                    "Total Positives Reference": 2325,
+                    "Total Positives Test": 0,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task109_CT_int16/labelsTr/CT_012.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr/CT_012.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 1.0,
+                    "Dice": NaN,
+                    "False Discovery Rate": NaN,
+                    "False Negative Rate": NaN,
+                    "False Omission Rate": 0.0,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": NaN,
+                    "Negative Predictive Value": 1.0,
+                    "Precision": NaN,
+                    "Recall": NaN,
+                    "Total Positives Reference": 0,
+                    "Total Positives Test": 0,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task109_CT_int16/labelsTr/CT_013.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr/CT_013.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999313609229902,
+                    "Dice": 0.018575851393188854,
+                    "False Discovery Rate": 0.7763157894736842,
+                    "False Negative Rate": 0.9903097092912787,
+                    "False Omission Rate": 6.638484102409953e-05,
+                    "False Positive Rate": 2.2545799019946244e-06,
+                    "Jaccard": 0.009375,
+                    "Negative Predictive Value": 0.9999336151589759,
+                    "Precision": 0.2236842105263158,
+                    "Recall": 0.009690290708721261,
+                    "Total Positives Reference": 10526,
+                    "Total Positives Test": 456,
+                    "True Negative Rate": 0.999997745420098
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task109_CT_int16/labelsTr/CT_014.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr/CT_014.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999561208896536,
+                    "Dice": 0.0,
+                    "False Discovery Rate": NaN,
+                    "False Negative Rate": 1.0,
+                    "False Omission Rate": 4.3879110346395505e-05,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.0,
+                    "Negative Predictive Value": 0.9999561208896536,
+                    "Precision": NaN,
+                    "Recall": 0.0,
+                    "Total Positives Reference": 6522,
+                    "Total Positives Test": 0,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task109_CT_int16/labelsTr/CT_015.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr/CT_015.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999526164253351,
+                    "Dice": 0.0,
+                    "False Discovery Rate": NaN,
+                    "False Negative Rate": 1.0,
+                    "False Omission Rate": 4.7383574664895304e-05,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.0,
+                    "Negative Predictive Value": 0.9999526164253351,
+                    "Precision": NaN,
+                    "Recall": 0.0,
+                    "Total Positives Reference": 7341,
+                    "Total Positives Test": 0,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task109_CT_int16/labelsTr/CT_016.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr/CT_016.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.999999744685616,
+                    "Dice": 0.0,
+                    "False Discovery Rate": NaN,
+                    "False Negative Rate": 1.0,
+                    "False Omission Rate": 2.553143839197835e-07,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.0,
+                    "Negative Predictive Value": 0.999999744685616,
+                    "Precision": NaN,
+                    "Recall": 0.0,
+                    "Total Positives Reference": 34,
+                    "Total Positives Test": 0,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task109_CT_int16/labelsTr/CT_018.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr/CT_018.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999378319279193,
+                    "Dice": 0.0,
+                    "False Discovery Rate": NaN,
+                    "False Negative Rate": 1.0,
+                    "False Omission Rate": 6.21680720806806e-05,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.0,
+                    "Negative Predictive Value": 0.9999378319279193,
+                    "Precision": NaN,
+                    "Recall": 0.0,
+                    "Total Positives Reference": 11359,
+                    "Total Positives Test": 0,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task109_CT_int16/labelsTr/CT_019.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr/CT_019.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999991596995533,
+                    "Dice": 0.0,
+                    "False Discovery Rate": NaN,
+                    "False Negative Rate": 1.0,
+                    "False Omission Rate": 8.403004466236888e-07,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.0,
+                    "Negative Predictive Value": 0.9999991596995533,
+                    "Precision": NaN,
+                    "Recall": 0.0,
+                    "Total Positives Reference": 126,
+                    "Total Positives Test": 0,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task109_CT_int16/labelsTr/CT_020.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr/CT_020.nii.gz"
+            },
+            {
+                "1": {
+                    "Accuracy": 0.9999833723004354,
+                    "Dice": 0.0,
+                    "False Discovery Rate": NaN,
+                    "False Negative Rate": 1.0,
+                    "False Omission Rate": 1.6627699564518542e-05,
+                    "False Positive Rate": 0.0,
+                    "Jaccard": 0.0,
+                    "Negative Predictive Value": 0.9999833723004354,
+                    "Precision": NaN,
+                    "Recall": 0.0,
+                    "Total Positives Reference": 1822,
+                    "Total Positives Test": 0,
+                    "True Negative Rate": 1.0
+                },
+                "reference": "/scratch/tmp/m_wolf37/nnunet/nnUNet_raw/nnUNet_raw_data/Task109_CT_int16/labelsTr/CT_021.nii.gz",
+                "test": "/scratch/tmp/m_wolf37/nnunet/nnUNet_predictions/Task109_CT_int16_2dNet/imagesTr/CT_021.nii.gz"
+            }
+        ],
+        "mean": {
+            "1": {
+                "Accuracy": 0.999977869391043,
+                "Dice": 0.001092697140775815,
+                "False Discovery Rate": 0.7763157894736842,
+                "False Negative Rate": 0.9994299828994869,
+                "False Omission Rate": 2.2011964957500528e-05,
+                "False Positive Rate": 1.1866210010498023e-07,
+                "Jaccard": 0.0005514705882352941,
+                "Negative Predictive Value": 0.9999779880350425,
+                "Precision": 0.2236842105263158,
+                "Recall": 0.0005700171005130154,
+                "Total Positives Reference": 3427.3684210526317,
+                "Total Positives Test": 24.0,
+                "True Negative Rate": 0.9999998813378997
+            }
+        }
+    },
+    "task": "",
+    "timestamp": "2021-03-11 19:15:25.856454"
+}
