@@ -59,13 +59,12 @@ Im Anschluss an die Inferred Parameter wird der Pipelinefingerprint erstellt, we
 \begin{figure}[H]
 	
 	\centering
-	\includegraphics[scale=0.5]{Pictures/nnUnet/Bild05.png}
+	\includegraphics[scale=0.3]{Pictures/nnUnet/Bild05.png}
 	\caption{Pipelinefingerprint \cite{nnunetPaperB} }
 	\label{pic:nnUnet_Pipelinefingerprint}
 \end{figure}
 
 Da die empirischen Parameter nicht direkt aus dem Datensatz erschlossen werden können, werden sich nach dem Training empirisch bestimmt. Sie werden zur Nachbearbeitung und bei der Auswahl der besten Netzstruktur genutzt. 
-
 
 \section{Unsere Arbeit / Praxis}
 \begin{figure}[H]
@@ -102,7 +101,7 @@ Retina-3D \cite{retina3dDatensatz} & 14:7 $\approx$ 2:1  & 2D & 19:00 & 0.98574 
 Retina-3D \cite{retina3dDatensatz} (Ensemble) & 14:7 $\approx$ 2:1 & 2D \& 3D\_fullres & - & 0.97775 & 0.82363 \\ 
 \hline
 \end{tabular} 
-\caption{Datensätze, auf denen wir trainiert haben (jeweils 1000 Epochen auf GPUv100)}
+\caption{Datensätze, auf denen wir trainiert haben (jeweils 1000 Epochen auf GPUv100)\\[1.7cm]}
 \label{tab:Training}
 \end{figure}
 
@@ -155,7 +154,7 @@ Nach unseren schlechten vorherigen Erfahrungen mit (Auto-) Deeplab \cite{deeplab
 \subsubsection{Larven-Datensatz ohne Testsplit}
 \begin{figure}[H]
 \centering
-\includesvg[height=6.5cm]{Pictures/nnUnet/Praxis/Task200-Larven-nur-train/Haeufigkeitsverteilung-200-Larven-Train}
+\includesvg[height=8.5cm]{Pictures/nnUnet/Praxis/Task200-Larven-nur-train/Haeufigkeitsverteilung-200-Larven-Train}
 \caption{Anteil von Objekt (Larve) je Sample im Trainsplit (alle 265 Samples) mit Durchschnitt $\approx$ 5,8\%}
 \label{pic:Haeuf_200}
 \end{figure}
@@ -187,14 +186,16 @@ Da es sich hierbei um unseren ersten Test des Frameworks mit eigenem Datensatz h
 \begin{figure}[H]
 \centering
 \includegraphics[height=0.35\textheight, width=\textwidth]{Pictures/nnUnet/Praxis/Task200-Larven-nur-train/Vis-Train.png}
-\caption{Visualisierung des Trainsplits auf dem Larvendatensatz ohne Testsplit (links: schlechteste Ergebnisse, mitte: beste Ergebnisse, rechts: Ergebnisse im Median; jeweils Original, Ground-Truth und Prediction)}
+\caption{Visualisierung des Trainsplits auf dem Larvendatensatz ohne Testsplit (links: schlechteste Ergebnisse, mitte: beste Ergebnisse, rechts: Ergebnisse im Median; jeweils Original, Ground-Truth und Prediction)\\[1.8cm]}
 \label{pic:Vis-Train_200}
 
 \end{figure}
+
 Wir konnten bei unserem ersten Versuch einen eigenen Datensatz in das Framework zu geben einen Dice-Wert von durchschnittlich $> 0.999$ erzielen und auch die am schlechtesten segmentierten Samples liegen weit über $0.99$, wie in Abbildung \ref{pic:Dice_200} zu erkennen ist.
 Auch bei der Visualisierung der besten, schlechtesten und mittleren Ergebnisse (Abbildung \ref{pic:Vis-Train_200}) kann man zwischen Ground-Truth und der Prediction mit bloßem Auge keine Unterschiede erkennen.
 \subsubsection{Larven-Datensatz mit $\frac{2}{3}$ Train- und $\frac{1}{3}$ Testsplit}
 Anschließend haben wir die Larvenbilder zufällig in $\frac{2}{3}$ Trainingsdaten und $\frac{1}{3}$ Testdaten aufgeteilt und erneut trainieren lassen. Wir haben uns vergewissert, dass Train- und Testsplit möglichst allgemein und zueinander ähnlich sind, und nicht zufällig in einem Split nur die Samples mit hohem Objektanteil und im anderen mit wenig Objektanteil vorhanden sind. Sowohl im Train- als auch im Testsplit ist der Objektanteil in den Samples ähnlich (s. Abbildung \ref{pic:Haeuf_201}).
+
 \begin{figure}[H]
 \begin{minipage}{.5\textwidth}
 \begin{subfigure}{\textwidth}
@@ -226,6 +227,7 @@ Hierbei konnten wir nach dem Training mit Hilfe des Testsplits die Performance d
 \label{pic:Prog_201}
 \end{subfigure}
 \end{minipage}%
+\\
 \begin{minipage}{.4\textwidth}
 \begin{subfigure}{\textwidth}
 \includesvg[width=\textwidth]{Pictures/nnUnet/Praxis/Task201-Larven-drittel-testsplit/Scatterplot-Dice-201-Larven}
