@@ -8,7 +8,7 @@
 
 
 Das nnU-Net ist ein Framework, welches sich mit der Segmentierung von medizinischen 3D-Aufnahmen mit Hilfe von automatisiertem maschinellem Lernen beschäftigt. Es wurde im Rahmen des Medical Segmentation Decathlon Wettbewerb entwickelt und gewann diesen sowie im Anschluss auch viele weitere Segmentierungs-Wettbewerbe. Die folgenden Ausführungen beruhen auf dem Paper \cite{nnunetPaper} und auf dem Paper \cite{nnunetPaperB} , beide von Fabian Isensee et al. \\
-Das nnU-Net verwendet eine klassische und nicht neue U-Net Architektur (not new U-Net). Es konzentriert sich kaum auf  Architekturdesign und -suche, sondern vorrangig auf die Suche von guten Hyperparametern. Es wird eine gleiche oder sehr ähnliche U-Net Struktur immer durch eine individuell auf die individuellen Daten angepasste Trainingspipeline zur Optimierung geschickt (siehe Abbildung \ref{pic:nnUnet_Basisschema}). Das Training der Parameter des Netzes ist also individuell zugeschnitten, während die Architektur sich bei unterschiedlichen Daten nicht oder kaum unterscheidet. Es wird sich also vorrangig auf das Training des Netzes und die Suche individueller Hyperparameter für die Trainingspipeline konzentriert und nicht auf die Suche nach der Architektur. 
+Das nnU-Net verwendet eine klassische und nicht neue U-Net Architektur (not new U-Net). Es konzentriert sich kaum auf  Architekturdesign und -suche, sondern vorrangig auf die Suche von guten Hyperparametern. Dies sei entscheidend für den Erfold von nnU-Net (siehe Abbildung \ref{pic:nnUnet_Pipelinefingerprint}). Es wird eine gleiche oder sehr ähnliche U-Net Struktur immer durch eine individuell auf die individuellen Daten angepasste Trainingspipeline zur Optimierung geschickt (siehe Abbildung \ref{pic:nnUnet_Basisschema}). Das Training der Parameter des Netzes ist also individuell zugeschnitten, während die Architektur sich bei unterschiedlichen Daten nicht oder kaum unterscheidet. Es wird sich also vorrangig auf das Training des Netzes und die Suche individueller Hyperparameter für die Trainingspipeline konzentriert und nicht auf die Suche nach der Architektur. 
 
 \begin{figure}[H]
 	
@@ -59,7 +59,7 @@ Im Anschluss an die Inferred Parameter wird der Pipelinefingerprint erstellt, we
 \begin{figure}[H]
 	
 	\centering
-	\includegraphics[scale=0.3]{Pictures/nnUnet/Bild05.png}
+	\includegraphics[scale=0.5]{Pictures/nnUnet/Bild05.png}
 	\caption{Pipelinefingerprint \cite{nnunetPaperB} }
 	\label{pic:nnUnet_Pipelinefingerprint}
 \end{figure}
@@ -385,7 +385,7 @@ Da wir bei diesem Datensatz relativ gute Ergebnisse produzieren konnten, haben w
 
 
 \subsection{CT-Datensatz}
-\todo{Stimmt das so mit dem CT Datensatz?}
+
 Da wir bisher nur eigene 2D-Datensätze in das Framework gegeben haben und es nur wenig öffentlich zugängliche 3D-Datensätze zur Segmentierung gibt, die nicht Teil der MSD-Challenge \cite{msdChallenge} sind, wurde uns ein Datensatz mit 19 Ganzkörper CT-Aufnahmen zur Verfügung gestellt \cite{ctDatensatz}, in denen Kalzium-Ablagerungen am Rand der Gefäße segmentiert werden sollen.
 Auffällig ist hierbei, dass trotz der hohen Auflösung des Datensatzes (512x512 mit $\approx$ 400-600 Slices je Sample) nur \textit{sehr} wenig Pixel in der Segmentierung markiert sind. Bestenfalls sind $\approx$ 13000 Pixel im kompletten 3D Volumen bestehend aus 570 Slices mit je einer Auflösung von 512x512, was einem Anteil von \textit{maximal} 0,008\% entspricht. Außerdem gibt es auch Samples mit deutlich weniger oder gar keinen markierten Pixeln in der Ground-Truth Segmentierung (s. Abbildung \ref{pic:Haeuf_109}).
 
@@ -541,7 +541,7 @@ Bei der Visualisierung des zweitbesten Samples (Nummer 003, Dice=0,906) sieht ma
 \caption{Durchschnittswerte für jede Klasse und ihre zugehörige Auftrittshäufigkeit im gesamten Datensatz}
 \label{pic:Haeuf_204}
 \end{figure}
-\todo{Nicht-rangezoomte Version ist erstmal draußen. Unübersichtlich, groß, macht pdf langsam}
+
 
 Nachdem wir bei den bisherigen 2D-Datensätzen nur Graustufen-Bilder mit einer Klasse (Larven \cite{larven}) und farbige Bilder mit einer Klasse (Retina 2D \cite{retina2d}) verwendet haben wollten wir auch noch einen 2D-Datensatz in Farbe mit mehreren Objekt-Klassen ausprobieren. Die Entscheidung fiel relativ schnell auf Pascal VOC2012 \cite{PascalVOCDatensatz}, da dieser sehr viele Klassen (20 Klassen + Background) und viele segmentierte Bilder (2856 Stück) in verschiedenen Formaten und Auflösungen zur Verfügung stellt und von vielen anderen Frameworks zum Vergleichen verwendet wird. Außerdem ist dieser Datensatz mit Fotografien nochmal wesentlich weiter von der \enquote{biomedical-domain} \cite{nnunetGithub2D-Daten}, für die das Framework eigentlich erstellt wurde, entfernt und dient somit als Test, wie robust das Framework mit verschiedenen Daten umgeht.\\\\
 Um die Pascal-VOC 2012 Bilder in nnUNet zu geben mussten erst die Farbkodierungen in der Ground-Truth-Segmentierung in Indizes umgewandelt werden \cite{autoMLGithub}, da nnUNet bei 0=Background beginnend aufsteigende Integer für die Klassen erwartet aber in dem Pascal-Datensatz \cite{PascalVOCDatensatz} die Segmentierung zur besseren Erkennbarkeit farblich gekennzeichnet ist.\\

@@ -7,7 +7,7 @@
 
 \section{Funktionsweise / Theorie}
 
-NAS-Unet ist einer der ersten Versuche NAS auf medizinische Bildsegmentierung anzuwenden. Die folgenden Ausführungen beruhen auf dem Paper \cite{nasunetPaper} von Yu Weng, Tianbao Zhou, Yujie Li und Xiaoyu Qiu.
+NAS-Unet ist einer der ersten Versuche NAS auf medizinische Bildsegmentierung anzuwenden. Die folgenden Ausführungen beruhen auf dem Paper \cite{nasunetPaper} von Yu Weng et al.
 
 Es sollten MRT-, CT- und Ultraschallbilder segmentiert werden. Die Architektur von NAS-Unet wurde auf Pascal VOC2012 \cite{PascalVOCDatensatz} gesucht und diese dann auf den unterschiedlichen medizinischen Datensätzen trainiert. Als medizinische Datensätze werden für die MRT-Bilder der Promise12 Datensatz \cite{Promise12Datensatz}, für die CT-Bilder der Chaos Datensatz \cite{ChaosDatensatz} und für die Ultraschallbilder der NERVE Datensatz \cite{NerveDatensatz} verwendet. 
 
@@ -93,7 +93,7 @@ Da wir den Promise Datensatz nicht öffentlich finden konnten, können wir hier 
 
 \section{Fazit}
 
-Durch die fehlende Dokumentation des Codes und die fehlende Anleitung zur Nutzung des Frameworks ist es extrem schwierig und zeitaufwändig das Framework zu nutzen. Es war uns leider auch nicht möglich, den Code vollständig nachzuvollziehen. Wir konnten daher leider nicht nachvollziehen, was genau gemacht wurde. Auch im Internet, zum Beispiel auf Github, konnten wir leider niemanden finden, der den Code nachvollziehen konnte. Man findet auch hier leider nur viele Fragen. Ein Beispiel ist der folgende Versuch den Code nachzuvollziehen: Fraunhofer siehe Abbildung \ref{pic:nasUnet_FrauenhoferScreenshot} Hier sieht man, dass sich auch die Frage der verschiedenen Metriken auftut. Auch darauf haben wir keine Antwort finden können.
+Durch die fehlende Dokumentation des Codes und die fehlende Anleitung zur Nutzung des Frameworks ist es extrem schwierig und zeitaufwändig das Framework zu nutzen. Es war uns leider auch nicht möglich, den Code vollständig nachzuvollziehen. Wir konnten daher leider nicht nachvollziehen, was genau gemacht wurde. Auch im Internet, zum Beispiel auf Github, konnten wir leider niemanden finden, der den Code nachvollziehen konnte. Man findet auch hier leider nur viele Fragen. Ein Beispiel ist dieser Versuch den Code nachzuvollziehen ()siehe Abbildung \ref{pic:nasUnet_FrauenhoferScreenshot}) Hier sieht man, dass sich auch die Frage der verschiedenen Metriken auftut. Auch darauf haben wir keine Antwort finden können.
 
 \begin{figure}[H]
 	
@@ -109,7 +109,7 @@ Zu den oben genannten Problemen bei der Arbeit mit dem Framework kommt hinzu, da
 
 Im folgenden Github Issue: Issue11 \cite{nasunetGithubIssue11} haben wir herausgefunden, dass man die trainierte Netzstruktur anscheinend händisch in den Code zum Trainieren hineinkopieren muss. Per default verwendet NAS-Unet aber die auf Pascal VOC2012 ausgesuchte Netzstruktur. Daher sollten unsere Ergebnisse auf Pascal VOC 2012 eigentlich davon nicht negativ beeinflusst werden.
 
-Auch beim Durchsuchen der Github Issues auf der zugehörigen Github Seite \cite{nasunetGithub}  sind wir mehrfach darauf gestoßen, dass die Ergebnisse, die im Paper angegeben wurden, nicht reproduziert werden konnten(zum Beispiel Issue 31 \cite{nasunetGithubIssue31}). Da wir auch nicht genau nachvollziehen können, wie diese Ergebnisse entstehen, haben wir uns, auch auf Grund der oben genannten Probleme, dazu entschlossen, nicht länger mit diesem Framework zu arbeiten. Anstelle von NAS-Unet haben wir uns selbstständig ein neues Framework rausgesucht und mit ihm weitergearbeitet (siehe nnU-Net, Kapitel \ref{ch:nnunet}). 
+Auch beim Durchsuchen der Github Issues auf der zugehörigen Github Seite \cite{nasunetGithub}  sind wir mehrfach darauf gestoßen, dass die Ergebnisse, die im Paper angegeben wurden, nicht reproduziert werden konnten (zum Beispiel Issue 31 \cite{nasunetGithubIssue31}). Da wir auch nicht genau nachvollziehen können, wie diese Ergebnisse entstehen, haben wir uns, auch auf Grund der oben genannten Probleme, dazu entschlossen, nicht länger mit diesem Framework zu arbeiten. Anstelle von NAS-Unet haben wir uns selbstständig ein neues Framework rausgesucht und mit ihm weitergearbeitet (siehe nnU-Net, Kapitel \ref{ch:nnunet}). 
 
 
 
