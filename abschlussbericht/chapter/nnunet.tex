@@ -1,5 +1,5 @@
 %!TEX root = ../AutoML-fuer-Segmentierung.tex
-\chapter{nnUNet}
+\chapter{nnU-Net}
 \label{ch:nnunet}
 
 
@@ -59,8 +59,8 @@ Im Anschluss an die Inferred Parameter wird der Pipelinefingerprint erstellt, we
 \begin{figure}[H]
 	
 	\centering
-	\includegraphics[scale=0.5]{Pictures/nnUnet/Bild05.png}
-	\caption{Pipelinefingerprint \cite{nnunetPaperB} }
+	\includegraphics[scale=0.65]{Pictures/nnUnet/Bild05.png}
+	\caption{Leaderboard KITS 2019 und Pipelinefingerprint \cite{nnunetPaperB}. a) Platzierungen der KITS 2019 Challenge \cite{KITS19Challenge} dargestellt nach Netzwerk-Architektur. Die Verteilung verstärkt die Annahme, dass die Architekturauswahl wenig entscheidend ist, die Auswahl der Hyperparameter dagegen sehr wichtig. b) Pipelinefingerprint einiger residual connections Netze aus der Challenge.}
 	\label{pic:nnUnet_Pipelinefingerprint}
 \end{figure}
 
@@ -72,7 +72,7 @@ Da die empirischen Parameter nicht direkt aus dem Datensatz erschlossen werden k
 \hline 
 \multirow{3}{*}{\textbf{Datensatz}} &  &  & & Train-& Test- \\ 
  & \textbf{Split} & verwendete & \textbf{Trainingszeit} & \textbf{Accuracy}& \textbf{Accuracy} \\ 
- & (Train:Test) & \textbf{nnUNet-Variante} & (h) & (Dice)& (Dice)  \\ 
+ & (Train:Test) & \textbf{nnU-Net-Variante} & (h) & (Dice)& (Dice)  \\ 
 \hline 
 \hline
 Larven \cite{larven} & 265:0 $\approx$ 1:0 & 2D & 8:30 & 0.99970 & - \\ 
@@ -158,7 +158,7 @@ Nach unseren schlechten vorherigen Erfahrungen mit (Auto-) Deeplab \cite{deeplab
 \caption{Anteil von Objekt (Larve) je Sample im Trainsplit (alle 265 Samples) mit Durchschnitt $\approx$ 5,8\%}
 \label{pic:Haeuf_200}
 \end{figure}
-Nachdem wir die Ergebnisse im Paper erfolgreich reproduzieren konnten haben wir versucht einen eigenen Datensatz in das Framework zu geben. Dabei ist zu erwähnen, dass unser Larven-Datensatz \cite{larven} ein 2D Datensatz ist. Jedoch ist nnUNet nicht dafür entworfen worden auf 2D-Datensätze angewendet zu werden, besonders wenn die Datensätze aus der \enquote{non-biomedical domain} \cite{nnunetGithub2D-Daten} stammen.\\
+Nachdem wir die Ergebnisse im Paper erfolgreich reproduzieren konnten haben wir versucht einen eigenen Datensatz in das Framework zu geben. Dabei ist zu erwähnen, dass unser Larven-Datensatz \cite{larven} ein 2D Datensatz ist. Jedoch ist nnU-Net nicht dafür entworfen worden auf 2D-Datensätze angewendet zu werden, besonders wenn die Datensätze aus der \enquote{non-biomedical domain} \cite{nnunetGithub2D-Daten} stammen.\\
 Dies ist jedoch nicht als Einschränkung des Funktionsumfangs zu verstehen, sondern lediglich als Vorwarnung, dass die Ergebnisse eventuell nicht gut ausfallen werden.\\\\
 Wir haben das zum Framework gehörige Python-Script \cite{nnunetGithub2D-Pythonscript} nur leicht modifizieren müssen und konnten den 2D Datensatz in Nifti-Dateien (.nii.gz) konvertieren und so in das Framework geben.\\
 Da es sich hierbei um unseren ersten Test des Frameworks mit eigenem Datensatz handelte haben wir zuerst keinen Test-Split vorgesehen und alle 265 Bilder als Trainingsdaten benutzt.
@@ -306,7 +306,7 @@ Außerdem haben wir, bevor wir mit dem geschätzten GPU-Ram Verbrauch gespielt h
 \caption{Dice-Koeffizienten zum Retina-2D Datensatz \cite{retina2d} mit einem Drittel als Testsplit}
 \end{figure}
 
-Da wir auch hier relativ gute Ergebnisse erzielen konnten, wollten wir das Framework an seine Grenzen bringen und so wenig Trainingsamples wie möglich zur Verfügung stellen. Durch Ausprobieren und schrittweises Annähern haben wir herausgefunden, dass nnUNet, jedenfalls bei diesem Datensatz, mindestens 13 Trainingsbeispiele benötigt, da bei weniger Trainingsbeispielen später beim Training ein \textit{IndexOutOfBounds} Fehler auftritt. Leider ist beim Aufteilen in Train- und Testsplit der Objektanteil in den Samples nicht ganz ausbalanciert, da im Trainsplit nur 11\% der Pixel Adern sind und im Testsplit knapp 12\% (s. Abbildung \ref{pic:Haeuf_205}).
+Da wir auch hier relativ gute Ergebnisse erzielen konnten, wollten wir das Framework an seine Grenzen bringen und so wenig Trainingsamples wie möglich zur Verfügung stellen. Durch Ausprobieren und schrittweises Annähern haben wir herausgefunden, dass nnU-Net, jedenfalls bei diesem Datensatz, mindestens 13 Trainingsbeispiele benötigt, da bei weniger Trainingsbeispielen später beim Training ein \textit{IndexOutOfBounds} Fehler auftritt. Leider ist beim Aufteilen in Train- und Testsplit der Objektanteil in den Samples nicht ganz ausbalanciert, da im Trainsplit nur 11\% der Pixel Adern sind und im Testsplit knapp 12\% (s. Abbildung \ref{pic:Haeuf_205}).
 
 
 \begin{figure}[H]
@@ -398,8 +398,8 @@ Auffällig ist hierbei, dass trotz der hohen Auflösung des Datensatzes (512x512
 
 
 Dies erschwert das Training und könnte eine Begründung für die nicht sonderlich guten Ergebnisse sein.\\
-Um den Datensatz in nnUNet zu geben mussten wir erst die zur Verfügung gestellten .nrrd (Ground-Truth) und .dcom (3D-CT-Scan) Dateien mit eigenen kleinen Pythonscripten \cite{autoMLGithub} in Nifti-Dateien umwandeln. Dabei sind wir auf sehr viele Probleme gestoßen und hatten erst kurz vor Ende des Projektseminars einigermaßen gute Ergebnisse. Zuerst hatten wir das Problem, dass beim Einlesen der .dcom und .nrrd Dateien die Drehung nicht intuitiv und nicht bei beiden gleich ist. Somit passte die Drehung der Ground-Truth Dateien nicht mehr zu den Original CT-Dateien, was aufgrund der geringen Häufigkeit an Pixeln in den Ground-Truth Daten und den mit dem Auge schwer ausfindig zu machenden zugehörigen Stellen im Original-Bild nicht direkt ersichtlich war.\\
-Nachdem wir die Dateien passend gedreht haben und sie in allen Dimensionen übereinstimmten, konnten wir beim Training mit allen Netzvarianten keine sonderlich  guten Ergebnisse erzielen. Wir haben lange ausprobiert und gesucht, woran das liegen könnte, bis wir dann schließlich festgestellt haben, dass wir beim Konvertieren in Nifti-Dateien versehentlich den Wertebereich jedes Pixels von 16 Bit auf 8 Bit einschränken. Außerdem ist uns beim Trainieren erst nach zweimaligem Neustarten ohne Erfolg, mit sehr schlechten Ergebnissen bei genauerem Lesen des Papers aufgefallen, dass wir das Preprocessen in nnUNet bisher immer auf dem Login-Node des Clustercomputers Palma II durchgeführt haben, der keine Grafikkarte besitzt, um Wartezeiten in der Warteschlange zu vermeiden. Das Preprocessen ist aber abhängig von den zu dem Zeitpunkt zur Verfügung gestellten Ressourcen, insbesondere des verfügbaren GPU Speichers. Nachdem wir diesen Denkfehler behoben haben und den CT-Datensatz sowohl auf einer GPUv100 Karte preprocessed und trainiert haben, gelang es uns einigermaßen akzeptable Ergebnisse zu erzielen.
+Um den Datensatz in nnU-Net zu geben, mussten wir erst die zur Verfügung gestellten .nrrd (Ground-Truth) und .dcom (3D-CT-Scan) Dateien mit eigenen kleinen Pythonscripten \cite{autoMLGithub} in Nifti-Dateien umwandeln. Dabei sind wir auf sehr viele Probleme gestoßen und hatten erst kurz vor Ende des Projektseminars einigermaßen gute Ergebnisse. Zuerst hatten wir das Problem, dass beim Einlesen der .dcom und .nrrd Dateien die Drehung nicht intuitiv und nicht bei beiden gleich ist. Somit passte die Drehung der Ground-Truth Dateien nicht mehr zu den Original CT-Dateien, was aufgrund der geringen Häufigkeit an Pixeln in den Ground-Truth Daten und den mit dem Auge schwer ausfindig zu machenden zugehörigen Stellen im Original-Bild nicht direkt ersichtlich war.\\
+Nachdem wir die Dateien passend gedreht haben und sie in allen Dimensionen übereinstimmten, konnten wir beim Training mit allen Netzvarianten keine sonderlich  guten Ergebnisse erzielen. Wir haben lange ausprobiert und gesucht, woran das liegen könnte, bis wir dann schließlich festgestellt haben, dass wir beim Konvertieren in Nifti-Dateien versehentlich den Wertebereich jedes Pixels von 16 Bit auf 8 Bit einschränken. Außerdem ist uns beim Trainieren erst nach zweimaligem Neustarten ohne Erfolg, mit sehr schlechten Ergebnissen bei genauerem Lesen des Papers aufgefallen, dass wir das Preprocessen in nnU-Net bisher immer auf dem Login-Node des Clustercomputers Palma II durchgeführt haben, der keine Grafikkarte besitzt, um Wartezeiten in der Warteschlange zu vermeiden. Das Preprocessen ist aber abhängig von den zu dem Zeitpunkt zur Verfügung gestellten Ressourcen, insbesondere des verfügbaren GPU Speichers. Nachdem wir diesen Denkfehler behoben haben und den CT-Datensatz sowohl auf einer GPUv100 Karte preprocessed und trainiert haben, gelang es uns einigermaßen akzeptable Ergebnisse zu erzielen.
 
 
 
@@ -544,7 +544,7 @@ Bei der Visualisierung des zweitbesten Samples (Nummer 003, Dice=0,906) sieht ma
 
 
 Nachdem wir bei den bisherigen 2D-Datensätzen nur Graustufen-Bilder mit einer Klasse (Larven \cite{larven}) und farbige Bilder mit einer Klasse (Retina 2D \cite{retina2d}) verwendet haben wollten wir auch noch einen 2D-Datensatz in Farbe mit mehreren Objekt-Klassen ausprobieren. Die Entscheidung fiel relativ schnell auf Pascal VOC2012 \cite{PascalVOCDatensatz}, da dieser sehr viele Klassen (20 Klassen + Background) und viele segmentierte Bilder (2856 Stück) in verschiedenen Formaten und Auflösungen zur Verfügung stellt und von vielen anderen Frameworks zum Vergleichen verwendet wird. Außerdem ist dieser Datensatz mit Fotografien nochmal wesentlich weiter von der \enquote{biomedical-domain} \cite{nnunetGithub2D-Daten}, für die das Framework eigentlich erstellt wurde, entfernt und dient somit als Test, wie robust das Framework mit verschiedenen Daten umgeht.\\\\
-Um die Pascal-VOC 2012 Bilder in nnUNet zu geben mussten erst die Farbkodierungen in der Ground-Truth-Segmentierung in Indizes umgewandelt werden \cite{autoMLGithub}, da nnUNet bei 0=Background beginnend aufsteigende Integer für die Klassen erwartet aber in dem Pascal-Datensatz \cite{PascalVOCDatensatz} die Segmentierung zur besseren Erkennbarkeit farblich gekennzeichnet ist.\\
+Um die Pascal-VOC 2012 Bilder in nnU-Net zu geben, mussten erst die Farbkodierungen in der Ground-Truth-Segmentierung in Indizes umgewandelt werden \cite{autoMLGithub}, da nnU-Net bei 0=Background beginnend aufsteigende Integer für die Klassen erwartet, aber in dem Pascal-Datensatz \cite{PascalVOCDatensatz} die Segmentierung zur besseren Erkennbarkeit farblich gekennzeichnet ist.\\
 Außerdem mussten 57 Bilder, die nicht farbig sondern nur in Graustufen in Pascal-VOC 2012 \cite{PascalVOCDatensatz} vorhanden sind entfernt werden, da das Framework nicht mit einer variablen Anzahl an (Farb-) Kanälen umgehen kann.\\
 Bei dem Datensatz ist auffällig, dass die Klassenhäufigkeiten sich untereinander unterscheiden und manche Klassen wesentlich häufiger auftreten als andere. Im Train- und im Testsplit ist diese Unausgeglichenheit jedoch ähnlich (s. Abbildung \ref{pic:Haeuf_204}).
 
